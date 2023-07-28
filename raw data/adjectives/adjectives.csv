@@ -1,0 +1,1201 @@
+PART OF SPEECH,LANGUAGE,ASSOCIATION/GRAMMATICAL GENDER,WORD,TRANSLATION,cosine_similarity_to_target
+adjective,en,masculine,young,young,0.5107602
+adjective,en,masculine,bearded,bearded,0.49739966
+adjective,en,masculine,handsome,handsome,0.49215138
+adjective,en,masculine,youngish,youngish,0.4345232
+adjective,en,masculine,manliest,manliest,0.42487314
+adjective,en,masculine,hunky,hunky,0.4195478
+adjective,en,masculine,paraplegic,paraplegic,0.41293257
+adjective,en,masculine,chivalrous,chivalrous,0.4092983
+adjective,en,masculine,stocky,stocky,0.4092033
+adjective,en,masculine,brawny,brawny,0.40622026
+adjective,en,masculine,handsomest,handsomest,0.4052396
+adjective,en,masculine,metrosexual,metrosexual,0.4047258
+adjective,en,masculine,unshaven,unshaven,0.40276444
+adjective,en,masculine,bald,bald,0.3996023
+adjective,en,masculine,elderly,elderly,0.3982266
+adjective,en,masculine,brutish,brutish,0.393265
+adjective,en,masculine,swarthy,swarthy,0.38930348
+adjective,en,masculine,hulky,hulky,0.3879783
+adjective,en,masculine,lanky,lanky,0.38348788
+adjective,en,masculine,industrious,industrious,0.38143316
+adjective,en,masculine,homeless,homeless,0.37691996
+adjective,en,masculine,sagacious,sagacious,0.37456656
+adjective,en,masculine,corpulent,corpulent,0.37413642
+adjective,en,masculine,immortal,immortal,0.37268335
+adjective,en,masculine,thirtyish,thirtyish,0.37138343
+adjective,en,masculine,dead,dead,0.37116122
+adjective,en,masculine,noblest,noblest,0.37054837
+adjective,en,masculine,adulterous,adulterous,0.36780638
+adjective,en,masculine,drunk,drunk,0.36728552
+adjective,en,masculine,unhandsome,unhandsome,0.36718383
+adjective,en,masculine,unmarried,unmarried,0.3667176
+adjective,en,masculine,faitful,faitful,0.36300012
+adjective,en,masculine,affable,affable,0.3624804
+adjective,en,masculine,old,old,0.36234367
+adjective,en,masculine,unfaithful,unfaithful,0.36150596
+adjective,en,masculine,righteous,righteous,0.36107692
+adjective,en,masculine,unluckiest,unluckiest,0.3586218
+adjective,en,masculine,amiable,amiable,0.35836837
+adjective,en,masculine,lonely,lonely,0.3575788
+adjective,en,masculine,muscular,muscular,0.35735616
+adjective,en,masculine,workaholic,workaholic,0.3569801
+adjective,en,masculine,lunatic,lunatic,0.35575956
+adjective,en,masculine,unidentified,unidentified,0.35481668
+adjective,en,masculine,vagrant,vagrant,0.3513871
+adjective,en,masculine,innocent,innocent,0.34974122
+adjective,en,masculine,brave,brave,0.34965175
+adjective,en,masculine,mortal,mortal,0.34893206
+adjective,en,masculine,schizophrenic,schizophrenic,0.3476445
+adjective,en,masculine,wealthy,wealthy,0.34730503
+adjective,en,masculine,wise,wise,0.3453106
+adjective,en,masculine,shrewd,shrewd,0.344263
+adjective,en,masculine,intelligent,intelligent,0.34391695
+adjective,en,masculine,mysterious,mysterious,0.3437628
+adjective,en,masculine,couragious,couragious,0.34362465
+adjective,en,masculine,heterosexual,heterosexual,0.34359267
+adjective,en,masculine,indomitable,indomitable,0.34299207
+adjective,en,masculine,bravest,bravest,0.34258974
+adjective,en,masculine,courageous,courageous,0.34196094
+adjective,en,masculine,meanest,meanest,0.3418498
+adjective,en,masculine,devout,devout,0.3413486
+adjective,en,masculine,irascible,irascible,0.3404601
+adjective,en,masculine,lecherous,lecherous,0.3403163
+adjective,en,masculine,gumpy,gumpy,0.34024155
+adjective,en,masculine,genial,genial,0.34022403
+adjective,en,masculine,naked,naked,0.3399477
+adjective,en,masculine,manful,manful,0.3388325
+adjective,en,masculine,stoic,stoic,0.33795288
+adjective,en,masculine,foolish,foolish,0.33718038
+adjective,en,masculine,hapless,hapless,0.3357827
+adjective,en,masculine,egotistical,egotistical,0.33529413
+adjective,en,masculine,versifier,versifier,0.33420873
+adjective,en,masculine,pious,pious,0.33369938
+adjective,en,masculine,fearless,fearless,0.33349076
+adjective,en,masculine,faithful,faithful,0.33344182
+adjective,en,masculine,conscienceless,conscienceless,0.33103064
+adjective,en,masculine,uncircumcised,uncircumcised,0.33029875
+adjective,en,masculine,dutiful,dutiful,0.32975343
+adjective,en,masculine,honorable,honorable,0.32971442
+adjective,en,masculine,lusty,lusty,0.32969284
+adjective,en,masculine,richest,richest,0.32933888
+adjective,en,masculine,arrogant,arrogant,0.32906532
+adjective,en,masculine,unconscious,unconscious,0.32764187
+adjective,en,masculine,egotistic,egotistic,0.327332
+adjective,en,masculine,enigmatic,enigmatic,0.32730472
+adjective,en,masculine,virtuous,virtuous,0.3260741
+adjective,en,masculine,magnanimous,magnanimous,0.32461473
+adjective,en,masculine,incorruptible,incorruptible,0.32446066
+adjective,en,masculine,blameless,blameless,0.32418752
+adjective,en,masculine,ambisexual,ambisexual,0.32385543
+adjective,en,masculine,noble,noble,0.32270652
+adjective,en,masculine,untilhe,untilhe,0.32246873
+adjective,en,masculine,egoistic,egoistic,0.32148838
+adjective,en,masculine,tall,tall,0.32130274
+adjective,en,masculine,helpless,helpless,0.3203928
+adjective,en,masculine,archtypical,archtypical,0.31967944
+adjective,en,masculine,selfless,selfless,0.318219
+adjective,en,masculine,honourable,honourable,0.31763527
+adjective,en,masculine,wayward,wayward,0.3171938
+adjective,en,masculine,stolid,stolid,0.31532237
+adjective,en,masculine,younger,younger,0.31501788
+adjective,en,masculine,fittest,fittest,0.314992
+adjective,en,masculine,poor,poor,0.31469375
+adjective,en,masculine,invincible,invincible,0.31274992
+adjective,en,masculine,humble,humble,0.31250185
+adjective,en,masculine,impetuous,impetuous,0.31220785
+adjective,en,masculine,contemptible,contemptible,0.3116041
+adjective,en,masculine,garrulous,garrulous,0.3115677
+adjective,en,masculine,illiterate,illiterate,0.31155428
+adjective,en,masculine,lowliest,lowliest,0.31005156
+adjective,en,masculine,subserviant,subserviant,0.31004366
+adjective,en,masculine,slovenly,slovenly,0.30974814
+adjective,en,masculine,chauvinistic,chauvinistic,0.30971676
+adjective,en,masculine,stoical,stoical,0.3092371
+adjective,en,masculine,unamiable,unamiable,0.3089531
+adjective,en,masculine,animalistic,animalistic,0.308435
+adjective,en,masculine,dumpy,dumpy,0.30839357
+adjective,en,masculine,wisest,wisest,0.30748206
+adjective,en,masculine,unmutilated,unmutilated,0.3067615
+adjective,en,masculine,honerable,honerable,0.30625355
+adjective,en,masculine,defenceless,defenceless,0.30587718
+adjective,en,masculine,peaceable,peaceable,0.3058106
+adjective,en,masculine,pregnant,pregnant,0.3056563
+adjective,en,masculine,heroic,heroic,0.3055349
+adjective,en,masculine,skilful,skilful,0.30551952
+adjective,en,masculine,unworthy,unworthy,0.3050731
+adjective,en,masculine,scrawniest,scrawniest,0.30437618
+adjective,en,masculine,fattest,fattest,0.30249202
+adjective,en,masculine,pitiable,pitiable,0.30193013
+adjective,en,masculine,boyish,boyish,0.30181643
+adjective,en,masculine,loveable,loveable,0.3012597
+adjective,en,masculine,carnal,carnal,0.30124763
+adjective,en,masculine,incorrigible,incorrigible,0.30093333
+adjective,en,masculine,lovable,lovable,0.3005842
+adjective,en,masculine,avuncular,avuncular,0.29981926
+adjective,en,masculine,studious,studious,0.29869255
+adjective,en,masculine,solitary,solitary,0.29856065
+adjective,en,masculine,unfit,unfit,0.2984218
+adjective,en,masculine,trustful,trustful,0.29805934
+adjective,en,masculine,egoistical,egoistical,0.29803663
+adjective,en,masculine,overweight,overweight,0.2978175
+adjective,en,masculine,marriageable,marriageable,0.29757825
+adjective,en,masculine,smartest,smartest,0.29737237
+adjective,en,masculine,indefatigable,indefatigable,0.29731026
+adjective,en,masculine,benevolent,benevolent,0.29725802
+adjective,en,masculine,defenseless,defenseless,0.29701236
+adjective,en,masculine,Pitiable,Pitiable,0.29660186
+adjective,en,masculine,detestable,detestable,0.29644027
+adjective,en,masculine,idealistic,idealistic,0.29605624
+adjective,en,masculine,selfish,selfish,0.2957824
+adjective,en,masculine,virginal,virginal,0.29556233
+adjective,en,masculine,marriagable,marriagable,0.29516912
+adjective,en,masculine,pluckiest,pluckiest,0.29515922
+adjective,en,masculine,unflappable,unflappable,0.294862
+adjective,en,masculine,resourceful,resourceful,0.29467538
+adjective,en,masculine,fallible,fallible,0.29443777
+adjective,en,masculine,aristocratic,aristocratic,0.2936944
+adjective,en,masculine,beautifulest,beautifulest,0.2936598
+adjective,en,masculine,unlucky,unlucky,0.29343548
+adjective,en,masculine,unintellectual,unintellectual,0.2932566
+adjective,en,masculine,unborn,unborn,0.2929472
+adjective,en,masculine,wealthiest,wealthiest,0.29268783
+adjective,en,masculine,lustful,lustful,0.2926432
+adjective,en,masculine,prosperous,prosperous,0.29166344
+adjective,en,masculine,sightless,sightless,0.2915495
+adjective,en,masculine,pugnacious,pugnacious,0.29152152
+adjective,en,masculine,unnamed,unnamed,0.2914438
+adjective,en,masculine,boorish,boorish,0.2913254
+adjective,en,masculine,kindest,kindest,0.29111102
+adjective,en,masculine,eloquent,eloquent,0.29077116
+adjective,en,masculine,uncorruptible,uncorruptible,0.29046312
+adjective,en,masculine,merciful,merciful,0.28982383
+adjective,en,masculine,fanciable,fanciable,0.28977695
+adjective,en,masculine,hatless,hatless,0.28977683
+adjective,en,masculine,loquacious,loquacious,0.28970855
+adjective,en,masculine,skillful,skillful,0.28892782
+adjective,en,masculine,inquisitive,inquisitive,0.28874305
+adjective,en,masculine,forlorn,forlorn,0.2878087
+adjective,en,masculine,ashamed,ashamed,0.28713793
+adjective,en,masculine,easygoing,easygoing,0.2866262
+adjective,en,masculine,promiscuous,promiscuous,0.28660437
+adjective,en,masculine,youthful,youthful,0.28651887
+adjective,en,masculine,unwealthy,unwealthy,0.2865104
+adjective,en,masculine,brainiest,brainiest,0.28615704
+adjective,en,masculine,fallable,fallable,0.2856511
+adjective,en,masculine,skinful,skinful,0.28546825
+adjective,en,masculine,polygamous,polygamous,0.28532067
+adjective,en,masculine,insensible,insensible,0.2851285
+adjective,en,masculine,cleverest,cleverest,0.28511456
+adjective,en,masculine,zealous,zealous,0.28505194
+adjective,en,masculine,archetypical,archetypical,0.28493196
+adjective,en,masculine,sober,sober,0.28482467
+adjective,en,masculine,ruthless,ruthless,0.2834028
+adjective,en,masculine,flamboyant,flamboyant,0.2832292
+adjective,en,masculine,ascetic,ascetic,0.2831373
+adjective,en,masculine,likeable,likeable,0.28306326
+adjective,en,masculine,ingenuous,ingenuous,0.28191665
+adjective,en,masculine,taller,taller,0.28181744
+adjective,en,masculine,dishonorable,dishonorable,0.28138906
+adjective,en,masculine,nerdy,nerdy,0.28100982
+adjective,en,masculine,desirous,desirous,0.28034207
+adjective,en,feminine,pregnant,pregnant,0.5233548
+adjective,en,feminine,unmarried,unmarried,0.5114153
+adjective,en,feminine,young,young,0.5046421
+adjective,en,feminine,elderly,elderly,0.45659676
+adjective,en,feminine,childless,childless,0.44417834
+adjective,en,feminine,youngish,youngish,0.44037965
+adjective,en,feminine,marriagable,marriagable,0.4375438
+adjective,en,feminine,adulterous,adulterous,0.43719873
+adjective,en,feminine,marriageable,marriageable,0.43115315
+adjective,en,feminine,thirtyish,thirtyish,0.4272796
+adjective,en,feminine,transexual,transexual,0.42259875
+adjective,en,feminine,voluptuous,voluptuous,0.42218918
+adjective,en,feminine,biracial,biracial,0.42033216
+adjective,en,feminine,sexy,sexy,0.41959378
+adjective,en,feminine,paraplegic,paraplegic,0.41927028
+adjective,en,feminine,feministic,feministic,0.41585115
+adjective,en,feminine,pregent,pregent,0.41257223
+adjective,en,feminine,hispanic,hispanic,0.41225758
+adjective,en,feminine,unmarriageable,unmarriageable,0.41085675
+adjective,en,feminine,virginal,virginal,0.40597215
+adjective,en,feminine,unpregnant,unpregnant,0.40408447
+adjective,en,feminine,unfaithful,unfaithful,0.403103
+adjective,en,feminine,trampy,trampy,0.3968959
+adjective,en,feminine,Caucasian,Caucasian,0.39522868
+adjective,en,feminine,heterosexual,heterosexual,0.392897
+adjective,en,feminine,curvy,curvy,0.39239138
+adjective,en,feminine,mousy,mousy,0.38949177
+adjective,en,feminine,vivacious,vivacious,0.38815588
+adjective,en,feminine,frumpy,frumpy,0.38766733
+adjective,en,feminine,menopausal,menopausal,0.3798603
+adjective,en,feminine,chivalrous,chivalrous,0.3789029
+adjective,en,feminine,yound,yound,0.37884152
+adjective,en,feminine,unborn,unborn,0.37581518
+adjective,en,feminine,naked,naked,0.37405288
+adjective,en,feminine,nymphomaniacal,nymphomaniacal,0.37206098
+adjective,en,feminine,unfeminine,unfeminine,0.37103772
+adjective,en,feminine,handsome,handsome,0.37091056
+adjective,en,feminine,bearded,bearded,0.37019694
+adjective,en,feminine,patriarchical,patriarchical,0.36685163
+adjective,en,feminine,promiscuous,promiscuous,0.36653638
+adjective,en,feminine,Pregnant,Pregnant,0.36558732
+adjective,en,feminine,haired,haired,0.36552376
+adjective,en,feminine,misogynistic,misogynistic,0.36518142
+adjective,en,feminine,fanciable,fanciable,0.36510038
+adjective,en,feminine,unidentified,unidentified,0.363063
+adjective,en,feminine,busty,busty,0.36141026
+adjective,en,feminine,attracive,attracive,0.3612624
+adjective,en,feminine,muslim,muslim,0.35934094
+adjective,en,feminine,oversexed,oversexed,0.358365
+adjective,en,feminine,chauvinistic,chauvinistic,0.3549217
+adjective,en,feminine,flirtatious,flirtatious,0.3536521
+adjective,en,feminine,voluptious,voluptious,0.35329476
+adjective,en,feminine,ungendered,ungendered,0.35190487
+adjective,en,feminine,courageous,courageous,0.350254
+adjective,en,feminine,beaufiful,beaufiful,0.34646472
+adjective,en,feminine,sexual,sexual,0.34519935
+adjective,en,feminine,atrractive,atrractive,0.3448307
+adjective,en,feminine,hunky,hunky,0.34393975
+adjective,en,feminine,extramarital,extramarital,0.34274244
+adjective,en,feminine,black,black,0.34199017
+adjective,en,feminine,lusty,lusty,0.34196323
+adjective,en,feminine,curvier,curvier,0.34102967
+adjective,en,feminine,lecherous,lecherous,0.34017286
+adjective,en,feminine,polygamous,polygamous,0.33784175
+adjective,en,feminine,Unmarried,Unmarried,0.33700788
+adjective,en,feminine,sensual,sensual,0.33670196
+adjective,en,feminine,unwedded,unwedded,0.33494925
+adjective,en,feminine,attractive,attractive,0.33470702
+adjective,en,feminine,virtuous,virtuous,0.3297133
+adjective,en,feminine,adolescent,adolescent,0.32949966
+adjective,en,feminine,erotic,erotic,0.32869056
+adjective,en,feminine,subserviant,subserviant,0.32847852
+adjective,en,feminine,Marriageable,Marriageable,0.32747784
+adjective,en,feminine,lustful,lustful,0.32667452
+adjective,en,feminine,bald,bald,0.32627133
+adjective,en,feminine,drunk,drunk,0.32618478
+adjective,en,feminine,beautiful,beautiful,0.32584357
+adjective,en,feminine,wealthy,wealthy,0.3231624
+adjective,en,feminine,amorous,amorous,0.32206523
+adjective,en,feminine,unattractive,unattractive,0.32065544
+adjective,en,feminine,Transsexual,Transsexual,0.31759727
+adjective,en,feminine,aristocratic,aristocratic,0.31524557
+adjective,en,feminine,slender,slender,0.31407535
+adjective,en,feminine,curvacious,curvacious,0.3134574
+adjective,en,feminine,handsomest,handsomest,0.3132148
+adjective,en,feminine,sensuous,sensuous,0.31294167
+adjective,en,feminine,unatractive,unatractive,0.3126557
+adjective,en,feminine,innocent,innocent,0.3119435
+adjective,en,feminine,lingere,lingere,0.31066766
+adjective,en,feminine,corageous,corageous,0.3103426
+adjective,en,feminine,ambisexual,ambisexual,0.30762443
+adjective,en,feminine,single,single,0.30722484
+adjective,en,feminine,romantic,romantic,0.30546066
+adjective,en,feminine,archtypical,archtypical,0.3054248
+adjective,en,feminine,misogynic,misogynic,0.30532333
+adjective,en,feminine,underaged,underaged,0.30501992
+adjective,en,feminine,procreative,procreative,0.30455542
+adjective,en,feminine,indomitable,indomitable,0.3036854
+adjective,en,feminine,swarthy,swarthy,0.30295828
+adjective,en,feminine,glamorous,glamorous,0.302136
+adjective,en,feminine,couragious,couragious,0.30208778
+adjective,en,feminine,beautifulest,beautifulest,0.30103505
+adjective,en,feminine,multiracial,multiracial,0.30046096
+adjective,en,feminine,unshaven,unshaven,0.30018172
+adjective,en,feminine,corpulent,corpulent,0.29952282
+adjective,en,feminine,lascivious,lascivious,0.29844865
+adjective,en,feminine,surrogate,surrogate,0.29762414
+adjective,en,feminine,Androgynous,Androgynous,0.29673374
+adjective,en,feminine,aged,aged,0.29573223
+adjective,en,feminine,bravest,bravest,0.29552466
+adjective,en,feminine,manliest,manliest,0.29376087
+adjective,en,feminine,beauiful,beauiful,0.2931325
+adjective,en,feminine,marital,marital,0.29278946
+adjective,en,feminine,alluring,alluring,0.2927704
+adjective,en,feminine,aboriginal,aboriginal,0.2911305
+adjective,en,feminine,amourous,amourous,0.29062292
+adjective,en,feminine,mysterious,mysterious,0.29047444
+adjective,en,feminine,gynaecological,gynaecological,0.29012012
+adjective,en,feminine,matrilineal,matrilineal,0.29009995
+adjective,en,feminine,spunkiest,spunkiest,0.28956196
+adjective,en,feminine,consensual,consensual,0.28707638
+adjective,en,feminine,unmutilated,unmutilated,0.28662688
+adjective,en,feminine,unnattractive,unnattractive,0.28657162
+adjective,en,feminine,angelic,angelic,0.28476185
+adjective,en,feminine,hairy,hairy,0.2846965
+adjective,en,feminine,hulky,hulky,0.2842641
+adjective,en,feminine,SINGLE,SINGLE,0.28370568
+adjective,en,feminine,mortal,mortal,0.28266838
+adjective,en,feminine,lewd,lewd,0.28028935
+adjective,en,feminine,ovulatory,ovulatory,0.2793979
+adjective,en,feminine,beauitful,beauitful,0.27934906
+adjective,en,feminine,younder,younder,0.27847043
+adjective,en,feminine,animalistic,animalistic,0.27787083
+adjective,en,feminine,underage,underage,0.27745464
+adjective,en,feminine,youthful,youthful,0.27577373
+adjective,en,feminine,butiful,butiful,0.27468038
+adjective,en,feminine,interracial,interracial,0.2744207
+adjective,en,feminine,Menopausal,Menopausal,0.27352515
+adjective,en,feminine,carnal,carnal,0.2727086
+adjective,en,feminine,sterotypical,sterotypical,0.2709758
+adjective,en,feminine,muscular,muscular,0.27017373
+adjective,en,feminine,Prudish,Prudish,0.2689697
+adjective,en,feminine,Pitiable,Pitiable,0.2687831
+adjective,en,feminine,charmful,charmful,0.2685084
+adjective,en,feminine,UNARMED,UNARMED,0.2675557
+adjective,en,feminine,Asian,Asian,0.26747206
+adjective,en,feminine,inoccent,inoccent,0.26724875
+adjective,en,feminine,enigmatic,enigmatic,0.26510352
+adjective,en,feminine,interacial,interacial,0.26432037
+adjective,en,feminine,vaginal,vaginal,0.26418602
+adjective,en,feminine,negroid,negroid,0.26410383
+adjective,en,feminine,unfit,unfit,0.26358262
+adjective,en,feminine,phallic,phallic,0.2634359
+adjective,en,feminine,consentual,consentual,0.26334324
+adjective,en,feminine,graceful,graceful,0.26300648
+adjective,en,feminine,procreational,procreational,0.2623731
+adjective,en,feminine,Unfaithful,Unfaithful,0.2622299
+adjective,en,feminine,oriental,oriental,0.2611449
+adjective,en,feminine,shedid,shedid,0.26091856
+adjective,en,feminine,obstetrical,obstetrical,0.260637
+adjective,en,feminine,beautful,beautful,0.25981623
+adjective,en,feminine,syphilitic,syphilitic,0.25905994
+adjective,en,feminine,unattractiveness,unattractiveness,0.258421
+adjective,en,feminine,affluent,affluent,0.25739524
+adjective,en,feminine,wounderful,wounderful,0.25657558
+adjective,en,feminine,noblest,noblest,0.2556359
+adjective,en,feminine,sadomasochistic,sadomasochistic,0.25409672
+adjective,en,feminine,genital,genital,0.25400025
+adjective,en,feminine,fictional,fictional,0.25338018
+adjective,en,feminine,brutish,brutish,0.25336915
+adjective,en,feminine,gynecological,gynecological,0.25274125
+adjective,en,feminine,honorable,honorable,0.25256875
+adjective,en,feminine,fattest,fattest,0.25223026
+adjective,en,feminine,missonary,missonary,0.2521326
+adjective,en,feminine,gynecologic,gynecologic,0.251894
+adjective,en,feminine,Indian,Indian,0.25154254
+adjective,en,feminine,gorgerous,gorgerous,0.25117487
+adjective,en,feminine,OLDER,OLDER,0.2509236
+adjective,en,feminine,abeautiful,abeautiful,0.2488623
+adjective,en,feminine,endometrial,endometrial,0.24857067
+adjective,en,feminine,menstural,menstural,0.24778117
+adjective,en,feminine,postcoital,postcoital,0.2476832
+adjective,en,feminine,tempestuous,tempestuous,0.24735637
+adjective,en,feminine,Gynecological,Gynecological,0.24700174
+adjective,en,feminine,pubic,pubic,0.24587554
+adjective,en,feminine,mostbeautiful,mostbeautiful,0.24567783
+adjective,en,feminine,rudest,rudest,0.24555288
+adjective,en,feminine,forceful,forceful,0.24547403
+adjective,en,feminine,slinky,slinky,0.2448165
+adjective,en,feminine,entreprenuerial,entreprenuerial,0.24467157
+adjective,en,feminine,mounty,mounty,0.2445372
+adjective,en,feminine,obstetric,obstetric,0.24393848
+adjective,en,feminine,beautious,beautious,0.24329697
+adjective,en,feminine,noble,noble,0.24230877
+adjective,en,feminine,osteoporotic,osteoporotic,0.24189648
+adjective,en,feminine,titular,titular,0.241342
+adjective,en,feminine,leady,leady,0.2412231
+adjective,en,feminine,cachectic,cachectic,0.24092153
+adjective,en,feminine,angelical,angelical,0.23885304
+adjective,en,feminine,blameless,blameless,0.23865965
+adjective,es,masculine,humano,human,0.6243442
+adjective,es,masculine,joven,young,0.5803074
+adjective,es,masculine,adinerado,wealthy,0.5157724
+adjective,es,masculine,fornido,well-built,0.5121491
+adjective,es,masculine,desgraciado,unfortunate,0.50275904
+adjective,es,masculine,guapo,handsome,0.49706933
+adjective,es,masculine,desdichado,unhappy,0.49294564
+adjective,es,masculine,viejo,old,0.48150125
+adjective,es,masculine,retrosexual,retrosexual,0.4804312
+adjective,es,masculine,afortunado,lucky,0.47405198
+adjective,es,masculine,polifacético,polyfacetic,0.4714059
+adjective,es,masculine,piadoso,pious,0.4699995
+adjective,es,masculine,maduro,maduro,0.46986082
+adjective,es,masculine,acaudalado,wealthy,0.46939194
+adjective,es,masculine,metrosexual,metrosexual,0.46898818
+adjective,es,masculine,humana,human,0.46796855
+adjective,es,masculine,poderoso,powerful,0.46642187
+adjective,es,masculine,encarnado,red,0.46546978
+adjective,es,masculine,honrado,honored,0.4653564
+adjective,es,masculine,primitivo,primitive,0.46461275
+adjective,es,masculine,masculino,masculine,0.46445543
+adjective,es,masculine,depravado,depraved,0.46398923
+adjective,es,masculine,caballeroso,gentlemanly,0.46265605
+adjective,es,masculine,astuto,cunning,0.4622866
+adjective,es,masculine,homosexual,homosexual,0.4606778
+adjective,es,masculine,ateo,atheist,0.46001977
+adjective,es,masculine,embarazado,pregnant,0.45878533
+adjective,es,masculine,infeliz,unhappy,0.45829403
+adjective,es,masculine,intrépido,bold,0.45752662
+adjective,es,masculine,civilizado,civilized,0.45708257
+adjective,es,masculine,animalizado,animalized,0.4561813
+adjective,es,masculine,bondadoso,kind,0.4553759
+adjective,es,masculine,heterosexual,heterosexual,0.4537777
+adjective,es,masculine,tímido,shy,0.4536271
+adjective,es,masculine,cultísimo,highly educated,0.45316747
+adjective,es,masculine,misterioso,mysterious,0.45156148
+adjective,es,masculine,musculoso,muscular,0.44705284
+adjective,es,masculine,afeminado,effeminate,0.44638318
+adjective,es,masculine,autorrealizado,self-actualized,0.44542184
+adjective,es,masculine,muerto,dead,0.44496176
+adjective,es,masculine,desarrapado,ragged,0.44461447
+adjective,es,masculine,insensato,foolish,0.44389716
+adjective,es,masculine,desnudo,naked,0.4437561
+adjective,es,masculine,casado,married,0.44317406
+adjective,es,masculine,oficinista,clerk,0.4431344
+adjective,es,masculine,prehistórico,prehistoric,0.4387498
+adjective,es,masculine,asalariado,salaried,0.43785205
+adjective,es,masculine,amado,loved,0.43763903
+adjective,es,masculine,individuado,individuation,0.43572438
+adjective,es,masculine,materialista,materialistic,0.43493077
+adjective,es,masculine,criado,created,0.43411022
+adjective,es,masculine,altivo,haughty,0.4336556
+adjective,es,masculine,enamorado,in love,0.43172246
+adjective,es,masculine,temeroso,fearful,0.4304994
+adjective,es,masculine,extrahumano,extrahuman,0.4303512
+adjective,es,masculine,educado,educated,0.4287653
+adjective,es,masculine,pervertido,pervert,0.42844224
+adjective,es,masculine,desventurado,hapless,0.42821854
+adjective,es,masculine,fogoso,fiery,0.42786542
+adjective,es,masculine,inmortal,immortal,0.4266621
+adjective,es,masculine,asexuado,sexless,0.42653555
+adjective,es,masculine,honestísimo,most honest,0.42513275
+adjective,es,masculine,verdadero,TRUE,0.42450544
+adjective,es,masculine,humanoEl,humanthe,0.42368025
+adjective,es,masculine,celoso,jealous,0.42311752
+adjective,es,masculine,apocado,timid,0.42305228
+adjective,es,masculine,apasionado,passionate,0.42271724
+adjective,es,masculine,descamisado,shirtless,0.4223376
+adjective,es,masculine,vanidoso,vain,0.42224476
+adjective,es,masculine,inteligentísimo,highly intelligent,0.4219217
+adjective,es,masculine,pobre,poor,0.4215808
+adjective,es,masculine,honesto,honest,0.42111108
+adjective,es,masculine,enigmático,enigmatic,0.42095143
+adjective,es,masculine,egocéntrico,egocentric,0.42040044
+adjective,es,masculine,sapiosexual,sapiosexual,0.42020532
+adjective,es,masculine,diminuto,tiny,0.42011333
+adjective,es,masculine,puritano,Puritan,0.42007893
+adjective,es,masculine,subhumano,subhumano,0.41936734
+adjective,es,masculine,divorciado,divorced,0.41903266
+adjective,es,masculine,valeroso,courageous,0.41897085
+adjective,es,masculine,antropomórfico,anthropomorphic,0.41888976
+adjective,es,masculine,fisiculturista,bodybuilder,0.4184228
+adjective,es,masculine,prehumano,prehuman,0.4179385
+adjective,es,masculine,ingenuo,naive,0.415847
+adjective,es,masculine,infortunado,unfortunate,0.41532686
+adjective,es,masculine,reclusivo,reclusive,0.4148852
+adjective,es,masculine,personificador,impersonator,0.4144714
+adjective,es,masculine,castísimo,chastísimo,0.41430047
+adjective,es,masculine,valiente,brave,0.4138483
+adjective,es,masculine,talentoso,talented,0.4136292
+adjective,es,masculine,moderno,modern,0.4132463
+adjective,es,masculine,virtuoso,virtuoso,0.41295096
+adjective,es,masculine,canoso,hoary,0.41265032
+adjective,es,masculine,fisioculturista,bodybuilder,0.41245303
+adjective,es,masculine,mortal,mortal,0.41243297
+adjective,es,masculine,carismático,charismatic,0.41208577
+adjective,es,masculine,trasvestido,transvestite,0.4116098
+adjective,es,masculine,viril,virile,0.4115634
+adjective,es,masculine,indiviudo,individual,0.41124114
+adjective,es,masculine,atribulado,troubled,0.41116998
+adjective,es,masculine,neurótico,neurotic,0.41093805
+adjective,es,masculine,inocente,innocent,0.40955207
+adjective,es,masculine,tecnosexual,tecnosexual,0.409439
+adjective,es,masculine,humanado,humanized,0.40938562
+adjective,es,masculine,reencarnado,reincarnated,0.40933633
+adjective,es,masculine,divino,divine,0.40909174
+adjective,es,masculine,salvaje,wild,0.40882507
+adjective,es,masculine,encapuchado,hooded,0.40851304
+adjective,es,masculine,excéntrico,eccentric,0.40823078
+adjective,es,masculine,osado,daring,0.40769768
+adjective,es,masculine,aldeano,villager,0.4075993
+adjective,es,masculine,borracho,drunk,0.40753683
+adjective,es,masculine,estoico,stoic,0.40721032
+adjective,es,masculine,analfabeto,illiterate,0.4070646
+adjective,es,masculine,devenido,become,0.4064934
+adjective,es,masculine,jubilado,retired,0.4063688
+adjective,es,masculine,cuadrapléjico,quadriplegic,0.40625837
+adjective,es,masculine,nacido,born,0.40461954
+adjective,es,masculine,noble,noble,0.40394598
+adjective,es,masculine,estúpido,idiot,0.40392807
+adjective,es,masculine,loco,instead,0.4038597
+adjective,es,masculine,violento,violent,0.4033355
+adjective,es,masculine,increyente,increyente,0.4032559
+adjective,es,masculine,todopoderoso,almighty,0.40282702
+adjective,es,masculine,anumérico,annumeric,0.40263104
+adjective,es,masculine,anheloso,yearning,0.40231535
+adjective,es,masculine,único,single,0.40217558
+adjective,es,masculine,afroamericano,Afro-American,0.40105996
+adjective,es,masculine,impetuoso,impetuous,0.40083602
+adjective,es,masculine,anético,anetic,0.40063933
+adjective,es,masculine,femenino,female,0.40061632
+adjective,es,masculine,solitario,lonely,0.4004064
+adjective,es,masculine,inteligente,intelligent,0.40024352
+adjective,es,masculine,idealista,idealistic,0.40010837
+adjective,es,masculine,ennoblecedor,ennobling,0.39916253
+adjective,es,masculine,bisexual,bisexual,0.3985956
+adjective,es,masculine,rico,rico,0.3984178
+adjective,es,masculine,gordo,gordo,0.3981922
+adjective,es,masculine,revolucionario,revolutionary,0.39814022
+adjective,es,masculine,personificado,personified,0.39811528
+adjective,es,masculine,predestinado,predestined,0.39738533
+adjective,es,masculine,maldadoso,naughty,0.39715046
+adjective,es,masculine,detenido,arrested,0.3970519
+adjective,es,masculine,colérico,choleric,0.3970129
+adjective,es,masculine,valerosísimo,most valiant,0.3962624
+adjective,es,masculine,feminino,feminine,0.39625767
+adjective,es,masculine,valentísimo,very brave,0.3961663
+adjective,es,masculine,transexual,transsexual,0.39610884
+adjective,es,masculine,turiano,turiano,0.3960219
+adjective,es,masculine,hidrópico,dropsy,0.39529428
+adjective,es,masculine,mundano,mundane,0.3951676
+adjective,es,masculine,angustiado,distressed,0.39488566
+adjective,es,masculine,inexperto,inexperienced,0.3946421
+adjective,es,masculine,pequeño,little,0.39458045
+adjective,es,masculine,eterno,Eternal,0.3945456
+adjective,es,masculine,vengativo,vengeful,0.39435935
+adjective,es,masculine,realísimo,very realistic,0.394243
+adjective,es,masculine,metafísico,metaphysical,0.3941766
+adjective,es,masculine,trastornado,deranged,0.39402825
+adjective,es,masculine,presuntuoso,conceited,0.39239615
+adjective,es,masculine,lujurioso,lustful,0.39207503
+adjective,es,masculine,desposado,bridegroom,0.3920288
+adjective,es,masculine,afable,kindly,0.39182407
+adjective,es,masculine,poseído,possessed,0.39136013
+adjective,es,masculine,musculado,muscular,0.39074093
+adjective,es,masculine,multifacético,multi-faceted,0.39055246
+adjective,es,masculine,industrioso,industrious,0.39019734
+adjective,es,masculine,codicioso,greedy,0.39016977
+adjective,es,masculine,avispado,clever,0.39000404
+adjective,es,masculine,subordinado,subordinate,0.38958818
+adjective,es,masculine,arquetípico,archetypal,0.38858172
+adjective,es,masculine,ganadero,rancher,0.38847518
+adjective,es,masculine,encorbatado,full-backed,0.38796842
+adjective,es,masculine,despiadado,ruthless,0.38785434
+adjective,es,masculine,semimuerto,semimuerto,0.38760543
+adjective,es,masculine,celosísimo,extremely jealous,0.38740292
+adjective,es,masculine,amoroso,loving,0.3871493
+adjective,es,masculine,cosificado,reified,0.38713825
+adjective,es,masculine,omnipotente,omnipotent,0.38689962
+adjective,es,masculine,ignorante,ignorant,0.3868934
+adjective,es,masculine,procreativo,procreative,0.3864805
+adjective,es,masculine,inanimado,inanimate,0.38645628
+adjective,es,masculine,sedentario,sedentary,0.38632917
+adjective,es,masculine,rubio,rubio,0.38624552
+adjective,es,masculine,emasculado,emasculated,0.38623714
+adjective,es,masculine,Solícito,I request,0.38620186
+adjective,es,masculine,aguerrido,seasoned,0.38608843
+adjective,es,masculine,malhumorado,moody,0.38601655
+adjective,es,masculine,potentado,potentate,0.38579768
+adjective,es,masculine,adámico,adamic,0.38579303
+adjective,es,masculine,desempleado,unemployed,0.3856609
+adjective,es,masculine,mítico,mythical,0.38545823
+adjective,es,masculine,maltratado,mistreated,0.38534388
+adjective,es,masculine,desamparado,helpless,0.38514465
+adjective,es,masculine,encoñado,wedged in,0.38504845
+adjective,es,masculine,descarriado,unfounded,0.3849805
+adjective,es,masculine,desharrapado,desharrapado,0.38493928
+adjective,es,masculine,desafortunado,unlucky,0.38456056
+adjective,es,masculine,imperfecto,imperfect,0.3844391
+adjective,es,masculine,abandónico,abandoned,0.38420457
+adjective,es,feminine,joven,young,0.60863936
+adjective,es,feminine,lesbiana,lesbian,0.5989751
+adjective,es,feminine,casada,married,0.5845623
+adjective,es,feminine,transexual,transsexual,0.58172584
+adjective,es,feminine,femenina,feminine,0.57869935
+adjective,es,feminine,embarazada,pregnant,0.571338
+adjective,es,feminine,feminista,feminist,0.54331905
+adjective,es,feminine,amada,loved,0.5415414
+adjective,es,feminine,masculinizada,masculine,0.5296165
+adjective,es,feminine,divorciada,divorced,0.5248998
+adjective,es,feminine,feminina,feminine,0.5127294
+adjective,es,feminine,masculina,masculine,0.51189744
+adjective,es,feminine,heterosexual,heterosexual,0.51074123
+adjective,es,feminine,casado,married,0.5107239
+adjective,es,feminine,desdichada,wretched,0.50776845
+adjective,es,feminine,criada,created,0.5076349
+adjective,es,feminine,bella,bella,0.5048928
+adjective,es,feminine,homosexual,homosexual,0.4999701
+adjective,es,feminine,maltratada,mistreated,0.49629632
+adjective,es,feminine,menopáusica,menopausal,0.4934126
+adjective,es,feminine,agredida,assaulted,0.49267897
+adjective,es,feminine,anorgásmica,anorgasm,0.49158782
+adjective,es,feminine,críada,maid,0.4905455
+adjective,es,feminine,hermosa,beautiful,0.48622495
+adjective,es,feminine,amancebada,favors,0.48602924
+adjective,es,feminine,sexuada,sexual,0.48380676
+adjective,es,feminine,voluptuosa,voluptuous,0.4825032
+adjective,es,feminine,emancipada,emancipated,0.4822447
+adjective,es,feminine,travestida,transvestite,0.48115057
+adjective,es,feminine,seductora,seductive,0.48099703
+adjective,es,feminine,excuñada,ex sister in law,0.47768652
+adjective,es,feminine,enviudada,widowed,0.4776073
+adjective,es,feminine,campesina,peasant,0.47731766
+adjective,es,feminine,bisexual,bisexual,0.476652
+adjective,es,feminine,femenino,female,0.4765994
+adjective,es,feminine,promiscua,promiscuous,0.47517774
+adjective,es,feminine,embarazado,pregnant,0.4741971
+adjective,es,feminine,adulta,adult,0.46934342
+adjective,es,feminine,abnegada,selfless,0.46850032
+adjective,es,feminine,victimada,victimized,0.46792084
+adjective,es,feminine,violada,raped,0.4660291
+adjective,es,feminine,vestida,clothed,0.46513712
+adjective,es,feminine,sexual,sexual,0.46494755
+adjective,es,feminine,regordeta,plump,0.464098
+adjective,es,feminine,enamorada,in love,0.46065763
+adjective,es,feminine,fallecida,deceased,0.45720395
+adjective,es,feminine,difunta,deceased,0.4571197
+adjective,es,feminine,piropeada,complimented,0.45709777
+adjective,es,feminine,embarazadísima,extremely pregnant,0.45672205
+adjective,es,feminine,vejada,verda,0.45642778
+adjective,es,feminine,retrosexual,retrosexual,0.45561486
+adjective,es,feminine,deshonrada,deshonrada,0.45535153
+adjective,es,feminine,desvalida,helpless,0.45450807
+adjective,es,feminine,despechada,scorned,0.45276242
+adjective,es,feminine,desgraciada,miserable,0.4525894
+adjective,es,feminine,masculino,masculine,0.45099434
+adjective,es,feminine,desventurada,hapless,0.4504398
+adjective,es,feminine,amorosa,loving,0.44999433
+adjective,es,feminine,bixesual,be sexual,0.44995946
+adjective,es,feminine,frígida,frigid,0.4495052
+adjective,es,feminine,ennoviada,innovating,0.44817987
+adjective,es,feminine,ultrajada,outraged,0.4467018
+adjective,es,feminine,multiorgásmica,multi-orgasmic,0.44522676
+adjective,es,feminine,granjera,granary,0.44513816
+adjective,es,feminine,agraciada,graced,0.44470897
+adjective,es,feminine,másculina,masculine,0.44456625
+adjective,es,feminine,violentada,violated,0.44430813
+adjective,es,feminine,bellísima,Beautifull,0.44324422
+adjective,es,feminine,humana,human,0.44306278
+adjective,es,feminine,recatada,demure,0.44246086
+adjective,es,feminine,masculinista,masculinist,0.4417428
+adjective,es,feminine,actractiva,actractiva,0.44168955
+adjective,es,feminine,empleada,employee,0.44090185
+adjective,es,feminine,gentilísima,most kind,0.44020262
+adjective,es,feminine,esposada,handcuffed,0.44001654
+adjective,es,feminine,detenida,arrested,0.4399254
+adjective,es,feminine,desposada,bride,0.4398359
+adjective,es,feminine,aguerrida,brave,0.43916732
+adjective,es,feminine,pudorosa,shameless,0.43779826
+adjective,es,feminine,misógina,misogynist,0.43717873
+adjective,es,feminine,patriarcal,patriarchal,0.43675527
+adjective,es,feminine,doméstica,domestic,0.43656367
+adjective,es,feminine,semidiosa,semidiosa,0.43639612
+adjective,es,feminine,inseminada,inseminated,0.43627754
+adjective,es,feminine,desenamorada,out of love,0.43599087
+adjective,es,feminine,intersexual,intersexual,0.4358019
+adjective,es,feminine,sordomuda,deaf and dumb,0.4357842
+adjective,es,feminine,desposado,bridegroom,0.43575263
+adjective,es,feminine,refugiada,refugee,0.43546772
+adjective,es,feminine,cosificada,reified,0.43540716
+adjective,es,feminine,procreada,procreated,0.43533152
+adjective,es,feminine,hacendada,landowner,0.43520254
+adjective,es,feminine,castísima,most chaste,0.434234
+adjective,es,feminine,sensual,sensual,0.43363458
+adjective,es,feminine,discapacitada,disabled,0.4335932
+adjective,es,feminine,flaca,skinny,0.4333562
+adjective,es,feminine,apuñalada,stabbed,0.43235004
+adjective,es,feminine,desamparada,helpless,0.4321596
+adjective,es,feminine,interrracial,interrracial,0.4320883
+adjective,es,feminine,aperrada,tight,0.4319894
+adjective,es,feminine,discriminada,discriminated against,0.43175223
+adjective,es,feminine,afroamericana,african american,0.42998788
+adjective,es,feminine,polifacética,polyfacetic,0.42972097
+adjective,es,feminine,acuchillada,stabbed,0.42969346
+adjective,es,feminine,vieja,old,0.42960504
+adjective,es,feminine,matriarcal,matriarchal,0.42927095
+adjective,es,feminine,desarrapada,ragged,0.4292025
+adjective,es,feminine,adinerada,wealthy,0.42862472
+adjective,es,feminine,victimizada,victimized,0.42830664
+adjective,es,feminine,virtuosa,virtuous,0.42801484
+adjective,es,feminine,Divorciada,Divorced,0.42779106
+adjective,es,feminine,extramatrimonial,extramarital,0.42773202
+adjective,es,feminine,acosada,harassed,0.42764398
+adjective,es,feminine,masculinizado,masculine,0.42755404
+adjective,es,feminine,transgénero,transgender,0.4273797
+adjective,es,feminine,sola,alone,0.42609775
+adjective,es,feminine,mediana,median,0.42519307
+adjective,es,feminine,supermoderna,super modern,0.42518654
+adjective,es,feminine,embarada,pregnant,0.42516187
+adjective,es,feminine,desnudada,stripped,0.42503303
+adjective,es,feminine,procreativa,procreative,0.42452565
+adjective,es,feminine,solitaria,lonely,0.4244206
+adjective,es,feminine,atractiva,attractive,0.4242997
+adjective,es,feminine,oficinista,clerk,0.4240025
+adjective,es,feminine,suicidada,suicidal,0.42370945
+adjective,es,feminine,sexy,sexy,0.42292503
+adjective,es,feminine,Tachada,crossed out,0.42283952
+adjective,es,feminine,femeninos,feminine,0.42281237
+adjective,es,feminine,cultísima,very cultured,0.42247
+adjective,es,feminine,desflorada,deflowered,0.42231345
+adjective,es,feminine,propietaria,owner,0.42185062
+adjective,es,feminine,empelada,empelada,0.42158887
+adjective,es,feminine,resentida,resentful,0.4207786
+adjective,es,feminine,conciudadana,fellow citizen,0.42017627
+adjective,es,feminine,crucificada,crucified,0.42005992
+adjective,es,feminine,valerosa,courageous,0.4199757
+adjective,es,feminine,ennoviado,innovation,0.41991362
+adjective,es,feminine,musulmana,muslim,0.4198954
+adjective,es,feminine,celosa,jealous,0.41925132
+adjective,es,feminine,jubilada,retired,0.41896483
+adjective,es,feminine,amantísima,most loving,0.41880083
+adjective,es,feminine,divorciado,divorced,0.41818148
+adjective,es,feminine,parapléjica,paraplejica,0.4181028
+adjective,es,feminine,afortunada,lucky,0.41806814
+adjective,es,feminine,única,only,0.41797328
+adjective,es,feminine,degollada,beheaded,0.41776758
+adjective,es,feminine,cisexual,cisexual,0.4173934
+adjective,es,feminine,sexualizada,sexualized,0.41667715
+adjective,es,feminine,maltratante,mistreating,0.4164092
+adjective,es,feminine,reencarnada,reincarnated,0.41615933
+adjective,es,feminine,muerta,dead,0.4159622
+adjective,es,feminine,oprimida,oppressed,0.41582876
+adjective,es,feminine,desempleada,unemployed,0.41525465
+adjective,es,feminine,emperifollada,emperifollada,0.41421518
+adjective,es,feminine,circuncidada,circumcised,0.41384533
+adjective,es,feminine,lapidada,faceted,0.4135526
+adjective,es,feminine,malfollada,spoiled,0.41290417
+adjective,es,feminine,frigida,cold,0.41233954
+adjective,es,feminine,cortesana,courtesan,0.41208652
+adjective,es,feminine,sexista,sexist,0.41199857
+adjective,es,feminine,espigada,spike,0.41198826
+adjective,es,feminine,afeminada,effeminate,0.4117748
+adjective,es,feminine,descarriada,derailed,0.4113314
+adjective,es,feminine,desnuda,nude,0.41127187
+adjective,es,feminine,descuartizada,dismembered,0.41086847
+adjective,es,feminine,púdica,modesty,0.4107456
+adjective,es,feminine,tiroteada,shot,0.41037524
+adjective,es,feminine,inocente,innocent,0.4100873
+adjective,es,feminine,desgarbada,gangly,0.41004035
+adjective,es,feminine,acaudalada,wealthy,0.41001886
+adjective,es,feminine,hacendosa,industrious,0.4099443
+adjective,es,feminine,mestiza,mongrel,0.40928945
+adjective,es,feminine,embarzada,embarrassed,0.40927893
+adjective,es,feminine,concuñada,sister-in-law,0.40912163
+adjective,es,feminine,musculosa,muscular,0.40784428
+adjective,es,feminine,infeliz,unhappy,0.40776086
+adjective,es,feminine,repatriada,repatriated,0.40738463
+adjective,es,feminine,homesexual,homesexual,0.4064493
+adjective,es,feminine,cortejada,courted,0.40644607
+adjective,es,feminine,avispada,clever,0.40612784
+adjective,es,feminine,pereirana,pereirana,0.40559167
+adjective,es,feminine,encapuchada,hooded,0.40481508
+adjective,es,feminine,encarcelada,imprisoned,0.40443254
+adjective,es,feminine,apresada,seized,0.40430278
+adjective,es,feminine,superdotada,gifted,0.40430203
+adjective,es,feminine,íntima,intimate,0.40425006
+adjective,es,feminine,fea,fea,0.40413797
+adjective,es,feminine,marital,marital,0.40389815
+adjective,es,feminine,semidesnuda,half naked,0.4031508
+adjective,es,feminine,desengañada,disappointed,0.40314594
+adjective,es,feminine,secuestrada,kidnapped,0.402406
+adjective,es,feminine,curvilínea,curvaceous,0.40188947
+adjective,es,feminine,feminino,feminine,0.40168166
+adjective,es,feminine,sentimental,sentimental,0.40144154
+adjective,es,feminine,neurótica,neurotic,0.4013968
+adjective,es,feminine,admirada,admired,0.401299
+adjective,es,feminine,reclusiva,reclusive,0.4012161
+adjective,es,feminine,humano,human,0.4000073
+adjective,es,feminine,vengativa,vengeful,0.39996767
+adjective,es,feminine,moderna,modern,0.39994505
+adjective,de,masculine,junger,younger,0.5445221
+adjective,de,masculine,junge,young,0.48796988
+adjective,de,masculine,grauhaariger,grauhaariger,0.4770017
+adjective,de,masculine,alter,alter,0.47440457
+adjective,de,masculine,greiser,travels,0.4666768
+adjective,de,masculine,rechtschaffender,righteous,0.46494764
+adjective,de,masculine,hochbetagter,elderly,0.45202106
+adjective,de,masculine,zweiter,second,0.45152074
+adjective,de,masculine,spielsüchtiger,gambling addict,0.44769987
+adjective,de,masculine,versoffener,versoffener,0.4470624
+adjective,de,masculine,bärtiger,bearded,0.44469243
+adjective,de,masculine,fremdgehenden,cheating,0.44265664
+adjective,de,masculine,erwachsenen,adult,0.44048113
+adjective,de,masculine,jungendlichen,youthful,0.4396588
+adjective,de,masculine,taubstummer,deaf thumbs,0.4388009
+adjective,de,masculine,gottesfürchtiger,godly,0.43774188
+adjective,de,masculine,knochenharter,knochenharter,0.43757635
+adjective,de,masculine,großgewachsener,taller,0.4374406
+adjective,de,masculine,alleinerziehender,single parent,0.43586582
+adjective,de,masculine,weißhaariger,white-haired,0.43440008
+adjective,de,masculine,gutaussehende,good looking,0.43389598
+adjective,de,masculine,hartgesottener,heartthrob,0.43117303
+adjective,de,masculine,drogensüchtiger,drug addict,0.4305139
+adjective,de,masculine,standhafter,more steadfast,0.42936295
+adjective,de,masculine,blutverschmierter,bloodied,0.42845702
+adjective,de,masculine,demenzkranker,dementia,0.42810377
+adjective,de,masculine,steinalter,stone altar,0.42784265
+adjective,de,masculine,hochschwangeren,heavily pregnant,0.42784107
+adjective,de,masculine,durchtrainierter,fitter,0.42673835
+adjective,de,masculine,älterer,older,0.42641497
+adjective,de,masculine,frührer,earlier,0.4261248
+adjective,de,masculine,dunkelhäutige,dark-skinned,0.42452803
+adjective,de,masculine,kinderloser,childless,0.42410743
+adjective,de,masculine,wortkarger,wortkarger,0.42345265
+adjective,de,masculine,schnauzbärtige,moustached,0.42158893
+adjective,de,masculine,glatzköpfigen,bald,0.4215156
+adjective,de,masculine,mitfahrender,ride-along,0.41997808
+adjective,de,masculine,geisteskranker,insane,0.4199242
+adjective,de,masculine,moppelige,mope,0.41791004
+adjective,de,masculine,schwerverletzter,seriously injured,0.41769892
+adjective,de,masculine,rechtschaffener,righteous,0.41604272
+adjective,de,masculine,arbeitsloser,unemployed,0.4154388
+adjective,de,masculine,ausgehungerter,starved,0.41499645
+adjective,de,masculine,nichtsnutziger,useless,0.41436732
+adjective,de,masculine,grauhaarige,grauhaarige,0.41433924
+adjective,de,masculine,radelnder,cycling,0.4143035
+adjective,de,masculine,spazierende,walking,0.4131164
+adjective,de,masculine,erschossener,shot dead,0.41173297
+adjective,de,masculine,gebeutelter,battered,0.40945268
+adjective,de,masculine,überfahrener,run over,0.40929684
+adjective,de,masculine,unehelichem,illegitimate,0.4090835
+adjective,de,masculine,ältlicher,older,0.40863875
+adjective,de,masculine,lebender,living,0.4084244
+adjective,de,masculine,geständiger,confessed,0.40815577
+adjective,de,masculine,sturzbetrunkene,sturzbetrunkene,0.40794465
+adjective,de,masculine,onanierte,masturbated,0.4075656
+adjective,de,masculine,kampferprobter,battle hardened,0.40721568
+adjective,de,masculine,geschworener,sworn,0.40692884
+adjective,de,masculine,impotente,helpless,0.40658605
+adjective,de,masculine,fremdgehende,cheating,0.40634617
+adjective,de,masculine,offenherziger,more frank,0.4055393
+adjective,de,masculine,erwachter,awakened,0.4046254
+adjective,de,masculine,kraftstrotzender,more powerful,0.40446985
+adjective,de,masculine,unausgebildeter,untrained,0.4042198
+adjective,de,masculine,dufter,smells,0.40418032
+adjective,de,masculine,überfallene,mugged,0.4040825
+adjective,de,masculine,molliger,chubby,0.4038813
+adjective,de,masculine,vorbeigehender,passing,0.40357426
+adjective,de,masculine,grantiger,grantiger,0.40224877
+adjective,de,masculine,verkrachter,rapist,0.40205353
+adjective,de,masculine,keuscher,chaste,0.4015772
+adjective,de,masculine,schamverletzender,more shameful,0.40144914
+adjective,de,masculine,netter,netter,0.40091723
+adjective,de,masculine,hagere,come on,0.40074694
+adjective,de,masculine,kahlköpfige,bald head fig,0.4005955
+adjective,de,masculine,alkoholsüchtiger,alcoholic,0.39985722
+adjective,de,masculine,halbwüchsige,halbwüchsige,0.39910832
+adjective,de,masculine,dritter,third,0.39894116
+adjective,de,masculine,alleinlebende,living alone,0.39794308
+adjective,de,masculine,randalierender,rampaging,0.3963038
+adjective,de,masculine,enthaupteter,decapitated,0.3962419
+adjective,de,masculine,ungehorsamer,more disobedient,0.3955947
+adjective,de,masculine,großherziger,generous,0.39553577
+adjective,de,masculine,verklemmter,uptight,0.39531615
+adjective,de,masculine,verbitterter,more bitter,0.3947897
+adjective,de,masculine,hüpfer,jump,0.39468917
+adjective,de,masculine,schwager,brother in law,0.3938163
+adjective,de,masculine,unerfahrener,inexperienced,0.393339
+adjective,de,masculine,mitangeklagter,meeting complaints,0.39243886
+adjective,de,masculine,hartherziger,hartherziger,0.3922552
+adjective,de,masculine,leiblicher,bodily,0.39188874
+adjective,de,masculine,reitender,riding,0.39090618
+adjective,de,masculine,hitzköpfiger,hotheaded,0.39030397
+adjective,de,masculine,weggelaufene,run away,0.38974336
+adjective,de,masculine,verschlagener,devious,0.38882634
+adjective,de,masculine,schnarchender,snoring,0.38871798
+adjective,de,masculine,ungeratene,unadvised,0.3883956
+adjective,de,masculine,gedungener,buildingener,0.38809237
+adjective,de,masculine,jüngerer,younger,0.3880501
+adjective,de,masculine,wahrer,truer,0.38740566
+adjective,de,masculine,schwangeres,schwangeres,0.38736236
+adjective,de,masculine,liederlicher,slovenly,0.38726988
+adjective,de,masculine,unausstehlicher,more obnoxious,0.38647422
+adjective,de,masculine,selbständiger,self-employed,0.3859419
+adjective,de,masculine,gestorbener,deceased,0.38474873
+adjective,de,masculine,kerngesunder,fit as a fiddle,0.38404265
+adjective,de,masculine,verständnisvoller,more understanding,0.38281778
+adjective,de,masculine,kampfbereiter,more combative,0.38228503
+adjective,de,masculine,willenloser,more unwilling,0.381629
+adjective,de,masculine,aufbrausender,quick-tempered,0.3812443
+adjective,de,masculine,veranlagter,predisposed,0.3805507
+adjective,de,masculine,betuchter,wealthy,0.37946197
+adjective,de,masculine,sterblicher,mortal,0.37848517
+adjective,de,masculine,drogenabhängiger,drug addict,0.37830588
+adjective,de,masculine,arbeitsamer,more hardworking,0.378237
+adjective,de,masculine,älteren,older,0.377702
+adjective,de,masculine,fideler,seedlings,0.37705606
+adjective,de,masculine,besessener,obsessed,0.37696168
+adjective,de,masculine,furchtsamer,scarier,0.37689564
+adjective,de,masculine,gefeuerter,fired,0.37689146
+adjective,de,masculine,bravste,bravo,0.37561753
+adjective,de,masculine,griesgrämiger,grumpy,0.37515172
+adjective,de,masculine,amischer,amish,0.37450352
+adjective,de,masculine,gefolterter,tortured,0.37434825
+adjective,de,masculine,beschäftigter,employee,0.37410533
+adjective,de,masculine,gutherziger,kindhearted,0.373951
+adjective,de,masculine,telefonierende,telephoning,0.37332445
+adjective,de,masculine,angeheirateter,married,0.37320146
+adjective,de,masculine,autofahrende,driving,0.37302494
+adjective,de,masculine,dicker,dicker,0.3728937
+adjective,de,masculine,unbekannter,unknown,0.372744
+adjective,de,masculine,vergesslicher,more forgetful,0.3724125
+adjective,de,masculine,untergetauchter,submerged,0.37221697
+adjective,de,masculine,ehrenhafter,more honorable,0.37129503
+adjective,de,masculine,jüngeren,younger,0.37034884
+adjective,de,masculine,zürnende,angry,0.3701194
+adjective,de,masculine,verstörter,more disturbed,0.36988103
+adjective,de,masculine,alleingelassene,left alone,0.3694136
+adjective,de,masculine,spielsüchtige,gambling addicts,0.3691476
+adjective,de,masculine,schiffbrüchigen,shipwrecked,0.36903197
+adjective,de,masculine,berufstätiges,employed,0.36838865
+adjective,de,masculine,selbstständiger,more independent,0.36772573
+adjective,de,masculine,unnahbarer,more aloof,0.36752045
+adjective,de,masculine,eifersüchtige,jealous,0.3674736
+adjective,de,masculine,spindeldürren,spindly,0.36732116
+adjective,de,masculine,ehrlicher,more honest,0.36671773
+adjective,de,masculine,wiedergefundener,found,0.36666515
+adjective,de,masculine,gehasster,hated,0.36660984
+adjective,de,masculine,schelmischer,mischievous,0.36634678
+adjective,de,masculine,großgewachsenen,tall,0.36538553
+adjective,de,masculine,liebreizender,more lovely,0.36519718
+adjective,de,masculine,empfindender,more sensitive,0.36463395
+adjective,de,masculine,geschorener,shaved,0.36424935
+adjective,de,masculine,älterem,older,0.3642069
+adjective,de,masculine,grundehrlicher,more honest,0.3640374
+adjective,de,masculine,unerfahrenem,inexperienced,0.36396602
+adjective,de,masculine,vermeindlicher,more supposed,0.36323506
+adjective,de,masculine,flirtwillige,flirtatious,0.36231956
+adjective,de,masculine,erstochene,stabbed,0.36209306
+adjective,de,masculine,urlaubende,vacationing,0.3614959
+adjective,de,masculine,drahtige,Drahtige,0.36148983
+adjective,de,masculine,ungezogener,naughty,0.36141223
+adjective,de,masculine,glücklicherer,happier,0.36111563
+adjective,de,masculine,menschgewordene,incarnate,0.36072087
+adjective,de,masculine,philosophierender,more philosophizing,0.36046174
+adjective,de,masculine,dusseliger,dazzle leaguer,0.36019313
+adjective,de,masculine,begehrende,desiring,0.3594949
+adjective,de,masculine,rothaarigem,rothaarigem,0.3593036
+adjective,de,masculine,deprimierter,more depressed,0.35896885
+adjective,de,masculine,sittenstrenger,sit strings,0.35889107
+adjective,de,masculine,umworbener,courted,0.3585057
+adjective,de,masculine,nörgelnder,nagging,0.35836363
+adjective,de,masculine,geistesgestörter,insane,0.3579285
+adjective,de,masculine,fußballspielender,soccer playing,0.35762697
+adjective,de,masculine,erschlagene,slain,0.35756522
+adjective,de,masculine,schwindsüchtige,consumptive,0.3572061
+adjective,de,masculine,gehorsamster,most obedient,0.35687363
+adjective,de,masculine,seeliger,blissful,0.35582563
+adjective,de,masculine,hilfesuchende,seeking help,0.35574126
+adjective,de,masculine,stotternder,stotterends,0.35513994
+adjective,de,masculine,schiffbrüchiger,shipwrecked,0.3546652
+adjective,de,masculine,nächter,next,0.35419986
+adjective,de,masculine,strebsamer,strebsamer,0.35414872
+adjective,de,masculine,geknebelten,gagged,0.35406515
+adjective,de,masculine,gereister,travelled,0.3535292
+adjective,de,masculine,erbberechtigter,heir,0.35344332
+adjective,de,masculine,fassungsloser,more stunned,0.35341477
+adjective,de,masculine,wohnungsloser,homeless,0.35309458
+adjective,de,masculine,vierzigster,fortieth,0.35301164
+adjective,de,masculine,getötetem,killed,0.35283476
+adjective,de,masculine,schlitzohrige,sly,0.35196185
+adjective,de,masculine,studierender,student,0.3519273
+adjective,de,masculine,kurzsichtiger,more myopic,0.35189307
+adjective,de,masculine,streitsüchtige,contentious,0.35131323
+adjective,de,masculine,übersäter,littered,0.35090956
+adjective,de,masculine,mannhafte,mannhafte,0.35030758
+adjective,de,masculine,töter,touts,0.35021505
+adjective,de,masculine,durchgeschnittener,cut through,0.34982467
+adjective,de,masculine,heroinsüchtigen,heroin addicts,0.34978622
+adjective,de,masculine,urlaubenden,vacationing,0.3495439
+adjective,de,feminine,hochschwangere,hochschwangere,0.4953933
+adjective,de,feminine,hochschwangeren,heavily pregnant,0.48951843
+adjective,de,feminine,rothaarige,redhead,0.48347777
+adjective,de,feminine,verwitwete,widowed,0.4826547
+adjective,de,feminine,junge,young,0.4810016
+adjective,de,feminine,blonde,blonde,0.47718737
+adjective,de,feminine,alleinerziehende,single parent,0.4763554
+adjective,de,feminine,frauliche,unmarried,0.45505577
+adjective,de,feminine,dunkelhaarige,dark haired,0.449637
+adjective,de,feminine,fremdgehenden,cheating,0.44629404
+adjective,de,feminine,berufstätige,employed,0.44096804
+adjective,de,feminine,zierliche,dainty,0.43868765
+adjective,de,feminine,weibliche,female,0.43586013
+adjective,de,feminine,geschiedene,divorced,0.4350557
+adjective,de,feminine,schwarzhaarige,black-haired,0.43292263
+adjective,de,feminine,halbwüchsige,halbwüchsige,0.42141128
+adjective,de,feminine,alleinlebende,living alone,0.41995615
+adjective,de,feminine,dunkelhäutige,dark-skinned,0.41994485
+adjective,de,feminine,geheiratete,married,0.41864377
+adjective,de,feminine,lebenslustige,fun loving,0.41486305
+adjective,de,feminine,gleichaltrige,peers,0.40998143
+adjective,de,feminine,großbusige,busty,0.40954185
+adjective,de,feminine,barbusige,barbusige,0.40895975
+adjective,de,feminine,moppelige,mope,0.40716127
+adjective,de,feminine,treusorgende,caring,0.40499115
+adjective,de,feminine,durchtriebene,cunning,0.4037102
+adjective,de,feminine,schwesterliche,sisterly,0.40347415
+adjective,de,feminine,lebenshungrige,life-hungry,0.40344885
+adjective,de,feminine,gnädige,gracious,0.4015645
+adjective,de,feminine,gutaussehende,good looking,0.40148818
+adjective,de,feminine,blauhaarige,blauhaarige,0.40141758
+adjective,de,feminine,betrogene,betrayed,0.40006274
+adjective,de,feminine,sexsüchtige,sex addicts,0.39714897
+adjective,de,feminine,fremdgehende,cheating,0.39636466
+adjective,de,feminine,aussereheliche,extramarital,0.3961614
+adjective,de,feminine,männliche,male,0.3937746
+adjective,de,feminine,tiefgläubige,deeply believing,0.39255133
+adjective,de,feminine,blondhaarige,blondhaarige,0.39166233
+adjective,de,feminine,lebenserfahrene,experienced,0.3911588
+adjective,de,feminine,kettenrauchende,chain smoking,0.3904841
+adjective,de,feminine,impotente,helpless,0.38877484
+adjective,de,feminine,lesbische,lesbian,0.3887307
+adjective,de,feminine,schüchterne,shy,0.38667953
+adjective,de,feminine,hochwohlgeborene,highborn,0.3830887
+adjective,de,feminine,überfallene,mugged,0.3829239
+adjective,de,feminine,herrschsüchtige,domineering,0.38233748
+adjective,de,feminine,unausstehliche,obnoxious,0.3822114
+adjective,de,feminine,erwachsenen,adult,0.3817569
+adjective,de,feminine,gebärende,giving birth,0.37941727
+adjective,de,feminine,verstorbene,deceased,0.3783086
+adjective,de,feminine,uneheliche,illegitimate,0.37786064
+adjective,de,feminine,dicktittige,thick-titted,0.37664396
+adjective,de,feminine,bettlägerige,bite camp,0.3756267
+adjective,de,feminine,verständnisvolle,understanding,0.37533858
+adjective,de,feminine,schluchzende,sobbing,0.37529215
+adjective,de,feminine,liebenswürdige,lovely,0.37489232
+adjective,de,feminine,gefolterte,tortured,0.37468648
+adjective,de,feminine,eifersüchtige,jealous,0.37336737
+adjective,de,feminine,großäugige,wide-eyed,0.3729162
+adjective,de,feminine,strippende,strippende,0.37190455
+adjective,de,feminine,großmütterliche,grandmotherly,0.37074292
+adjective,de,feminine,innehabende,holding,0.3685646
+adjective,de,feminine,offenherzige,frank,0.3679455
+adjective,de,feminine,frauentypische,female-typical,0.36768126
+adjective,de,feminine,gegengeschlechtliche,opposite sex,0.36764604
+adjective,de,feminine,gekränkte,offended,0.3675327
+adjective,de,feminine,temperamentvolle,temperamental,0.36745158
+adjective,de,feminine,magersüchtige,anorexic,0.36696357
+adjective,de,feminine,taubstumme,taubstumme,0.3665984
+adjective,de,feminine,schauspielernde,acting,0.36640194
+adjective,de,feminine,beschützende,protective,0.36584866
+adjective,de,feminine,telefonierende,telephoning,0.36542144
+adjective,de,feminine,angebetete,adored,0.36492455
+adjective,de,feminine,sturzbetrunkene,sturzbetrunkene,0.36222035
+adjective,de,feminine,tiefreligiöse,deeply religious,0.3620473
+adjective,de,feminine,züchtige,chastise,0.3619391
+adjective,de,feminine,sympathische,sympathetic,0.36169127
+adjective,de,feminine,masturbierende,masturbating,0.36153176
+adjective,de,feminine,sterbende,dying,0.36101264
+adjective,de,feminine,mütterliche,maternal,0.35866863
+adjective,de,feminine,weggelaufene,runaway,0.3580324
+adjective,de,feminine,schamverletzender,more shameful,0.35610127
+adjective,de,feminine,fürsorgliche,caring,0.35591498
+adjective,de,feminine,schnippische,snippy,0.35511562
+adjective,de,feminine,emanzipierende,in the middle of nowhere,0.35248488
+adjective,de,feminine,außereheliche,extramarital,0.35221103
+adjective,de,feminine,alleingelassene,left alone,0.3520363
+adjective,de,feminine,schwindsüchtige,consumptive,0.35052678
+adjective,de,feminine,wohlgeratene,well turned out,0.34988195
+adjective,de,feminine,wehrende,defending,0.34776542
+adjective,de,feminine,ältere,older,0.347691
+adjective,de,feminine,seeliger,blissful,0.34749132
+adjective,de,feminine,bewußtlose,unconscious,0.34715563
+adjective,de,feminine,lebensfreudige,joyful,0.34465182
+adjective,de,feminine,schwangeres,schwangeres,0.34430823
+adjective,de,feminine,freunliche,friendly,0.344069
+adjective,de,feminine,spindeldürren,spindly,0.34397125
+adjective,de,feminine,nichterwerbstätige,non-employed,0.34230796
+adjective,de,feminine,erschlagene,slain,0.34108675
+adjective,de,feminine,kümmernde,caring,0.34103116
+adjective,de,feminine,gelehrige,docile,0.33992454
+adjective,de,feminine,keuscher,chaste,0.33799595
+adjective,de,feminine,jüngere,younger,0.33623663
+adjective,de,feminine,anwesende,present,0.3360702
+adjective,de,feminine,unverständige,ignorant,0.33599266
+adjective,de,feminine,schlafwandelnde,sleepwalking,0.3359271
+adjective,de,feminine,beschenkende,gifting,0.33511803
+adjective,de,feminine,gebrechliche,frail,0.33502585
+adjective,de,feminine,verführende,seductive,0.3347509
+adjective,de,feminine,alkoholabhängige,alcohol dependent,0.33460853
+adjective,de,feminine,umsorgende,caring,0.33453116
+adjective,de,feminine,selbstbewusstere,more confident,0.33312806
+adjective,de,feminine,geküsste,kissed,0.33231238
+adjective,de,feminine,lebende,living,0.33230627
+adjective,de,feminine,hilfesuchende,seeking help,0.33206105
+adjective,de,feminine,hundeerfahrene,the dog experiences,0.3309332
+adjective,de,feminine,sommersprossige,summer freckled,0.33084843
+adjective,de,feminine,streitsüchtige,contentious,0.32906297
+adjective,de,feminine,weiblichere,more feminine,0.32756743
+adjective,de,feminine,erstochene,stabbed,0.32677346
+adjective,de,feminine,genesende,healing,0.32602617
+adjective,de,feminine,unwirsche,surly,0.32591695
+adjective,de,feminine,erbende,inheriting,0.32511678
+adjective,de,feminine,alleinregierende,sole governing,0.32505676
+adjective,de,feminine,frauenpolitische,women&#39;s politics,0.32432505
+adjective,de,feminine,starrköpfige,stiff-necked fig,0.3231392
+adjective,de,feminine,spielsüchtige,gambling addicts,0.32282907
+adjective,de,feminine,taubblinden,taubblinden,0.32273078
+adjective,de,feminine,kränkliche,sickly,0.3223911
+adjective,de,feminine,nichtrauchende,non smoking,0.32096326
+adjective,de,feminine,zuhörende,listening,0.32047117
+adjective,de,feminine,sanftmütige,meek,0.31969553
+adjective,de,feminine,untadelige,untadelige,0.3191546
+adjective,de,feminine,herangewachsene,herangewachsene,0.3188644
+adjective,de,feminine,bestohlene,robbed,0.3176488
+adjective,de,feminine,bravste,bravo,0.3169602
+adjective,de,feminine,jungendlichen,youthful,0.3168541
+adjective,de,feminine,anhängliche,clingy,0.31543964
+adjective,de,feminine,heilkundige,healing,0.31537473
+adjective,de,feminine,berührbare,touchable,0.3150622
+adjective,de,feminine,freidenkende,free-thinking,0.3149408
+adjective,de,feminine,behauptende,claiming,0.31444985
+adjective,de,feminine,besitzergreifende,possessive,0.31244305
+adjective,de,feminine,strebsame,strebsame,0.31242928
+adjective,de,feminine,nacheilende,lagging,0.31206313
+adjective,de,feminine,befragende,questioning,0.31152123
+adjective,de,feminine,zweigeschlechtliche,bisexual,0.31107047
+adjective,de,feminine,zurückweisende,rejecting,0.31087792
+adjective,de,feminine,urlaubende,vacationing,0.3103244
+adjective,de,feminine,kindermädchen,nanny,0.30920032
+adjective,de,feminine,erkorene,the ear choirs,0.3090011
+adjective,de,feminine,streitende,arguing,0.30854756
+adjective,de,feminine,familienfremde,non-family,0.3085438
+adjective,de,feminine,spazierende,walking,0.30820984
+adjective,de,feminine,dreifaltige,triune,0.3081856
+adjective,de,feminine,spinnende,spinning,0.30786592
+adjective,de,feminine,prügelnde,beating,0.30701035
+adjective,de,feminine,freudestrahlenden,joy beaming,0.30660218
+adjective,de,feminine,abgängige,missing,0.30543458
+adjective,de,feminine,eigensinnige,opinionated,0.30493635
+adjective,de,feminine,schwerverletzter,seriously injured,0.30464014
+adjective,de,feminine,backende,baking end,0.30293354
+adjective,de,feminine,zugelaufene,accrued,0.30173257
+adjective,de,feminine,unromantische,unromantische,0.30120793
+adjective,de,feminine,verflossene,past,0.3008073
+adjective,de,feminine,unberührbare,untouchable,0.29933307
+adjective,de,feminine,großmütige,magnanimous,0.29894188
+adjective,de,feminine,einstämmige,single stem,0.29880768
+adjective,de,feminine,betroffene,affected,0.29845458
+adjective,de,feminine,widerwillige,reluctant,0.29804477
+adjective,de,feminine,gesellschaftsfähige,socially acceptable,0.2976113
+adjective,de,feminine,urlaubenden,vacationing,0.2970366
+adjective,de,feminine,berufstätiges,employed,0.29598343
+adjective,de,feminine,unschickliche,unseemly,0.29555044
+adjective,de,feminine,zutrauliche,trusting,0.2944274
+adjective,de,feminine,geschwisterlicher,more sibling,0.29412752
+adjective,de,feminine,schotte,scot,0.29308593
+adjective,de,feminine,missbrauchende,abusive,0.29187444
+adjective,de,feminine,jugendlichere,more youthful,0.2916824
+adjective,de,feminine,sehnende,yearning,0.29116955
+adjective,de,feminine,gebetene,asked,0.29096517
+adjective,de,feminine,verschreibende,prescribing,0.29094914
+adjective,de,feminine,strategiebinäre,strategy binary,0.28868595
+adjective,de,feminine,bittende,pleading,0.2878222
+adjective,de,feminine,funktionsuntüchtige,nonfunctional,0.28748837
+adjective,de,feminine,zudringliche,importunate,0.28718552
+adjective,de,feminine,schmerzensreichen,painful,0.28654593
+adjective,de,feminine,widerborstige,wide-bristle,0.28502092
+adjective,de,feminine,aufgewachte,woke up,0.28347343
+adjective,de,feminine,gärtnere,garden,0.28248388
+adjective,de,feminine,misshandeltes,abused,0.28241283
+adjective,de,feminine,abwesende,absent,0.28177354
+adjective,de,feminine,spielsüchtiger,gambling addict,0.28152567
+adjective,de,feminine,autofahrende,driving,0.27984542
+adjective,de,feminine,unebenbürtige,unequaled,0.2794375
+adjective,de,feminine,radelnder,cycling,0.27525833
+adjective,de,feminine,stockkonservative,stockkonservative,0.27468362
+adjective,de,feminine,intergeschlechtliche,intersex,0.27443188
+adjective,de,feminine,aufgelesene,picked up,0.27378052
+adjective,de,feminine,reputierliche,reputierli,0.27326035
