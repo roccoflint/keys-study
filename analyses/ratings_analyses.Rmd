@@ -1,0 +1,66 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(data.table)
+```
+
+```{r}
+# language options: en, es, de
+language = 'en'
+
+dat = read.csv(paste('../data/adjective-ratings/raw/', language, '_adjective_ratings.csv', sep='_'))
+
+# get ratings
+dat.ratings = dat %>%
+  select(ResponseId, matches('^X', ignore.case=FALSE)) %>%
+  filter(str_detect(ResponseId, 'R_'))
+
+# get adjective-ID matchings
+dat.adjective_ids = dat %>%
+  filter(ResponseId=="Response ID") %>%
+  select(matches("Object"))
+dat.adjective_ids = transpose(dat.adjective_ids, 
+                              keep.names = "AdjectiveID") %>%
+  rename(Adjective=V1) %>%
+  separate(AdjectiveID, "AdjectiveID", sep="_") %>%
+  separate(Adjective, "Adjective", sep=" - ")
+
+# reshape 1
+dat.reshaped = dat.ratings %>%
+  gather(key="RatingType", value="Rating", 2:length(dat.ratings)) 
+
+# cast to numeric
+dat.reshaped$Rating = as.numeric(dat.reshaped$Rating)
+
+# reshape 2
+dat.reshaped = dat.reshaped %>%
+  separate(RatingType, into=c("AdjectiveID", "Question"), sep="_") %>%
+  spread(key=Question, value=Rating) 
+
+# quantify unknown adjectives TODO
+
+# avg by adjective (known only)
+dat.by_adjective = dat.reshaped %>%
+  filter(Describe.a.Person!=3, Describe.an.Object!=3, !is.na(Gender.Association)) %>%
+  group_by(AdjectiveID) %>%
+  summarize(meanPerson=mean(Describe.a.Person),
+            meanObject=mean(Describe.an.Object),
+            meanAssociation=mean(Gender.Association)) %>%
+  merge(dat.adjective_ids)
+  
+
+
+               
+```
+Save output:
+
+```{r}
+write.csv(dat.by_adjective, paste("summary_by_adjective_", language, ".csv", sep=""))
+```
+
