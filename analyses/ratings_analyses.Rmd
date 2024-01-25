@@ -5,21 +5,27 @@ output: html_notebook
 
 
 ```{r}
+rm(list = ls())
+
 library(tidyverse)
 library(ggplot2)
 library(data.table)
 ```
 
+
+# Load and clean data
+
 ```{r}
 # language options: en, es, de
-language = 'en'
+language = 'es'
 
-dat = read.csv(paste('../data/adjective-ratings/raw/', language, '_adjective_ratings.csv', sep='_'))
+dat = read.csv(paste('../data/adjective-ratings/raw/', language, '_adjective_ratings_unprocessed.csv', sep=''))
 
 # get ratings
 dat.ratings = dat %>%
-  select(ResponseId, matches('^X', ignore.case=FALSE)) %>%
-  filter(str_detect(ResponseId, 'R_'))
+  filter(Finished==1) %>%   # exclude partial completions
+  select(ResponseId, matches('^X', ignore.case=FALSE)) %>%    # exclude columns that are not question responses
+  filter(str_detect(ResponseId, 'R_'))     # exclude rows with meta-info
 
 # get adjective-ID matchings
 dat.adjective_ids = dat %>%
@@ -28,39 +34,108 @@ dat.adjective_ids = dat %>%
 dat.adjective_ids = transpose(dat.adjective_ids, 
                               keep.names = "AdjectiveID") %>%
   rename(Adjective=V1) %>%
-  separate(AdjectiveID, "AdjectiveID", sep="_") %>%
-  separate(Adjective, "Adjective", sep=" - ")
+  separate(AdjectiveID, "AdjectiveID", sep="_", extra="drop") %>%
+  separate(Adjective, "Adjective", sep=" - ", extra="drop")
 
-# reshape 1
+# reshape to long format & split by question
 dat.reshaped = dat.ratings %>%
   gather(key="RatingType", value="Rating", 2:length(dat.ratings)) 
 
-# cast to numeric
 dat.reshaped$Rating = as.numeric(dat.reshaped$Rating)
 
-# reshape 2
 dat.reshaped = dat.reshaped %>%
-  separate(RatingType, into=c("AdjectiveID", "Question"), sep="_") %>%
+  separate(RatingType, into=c("AdjectiveID", "Question"), sep="_", extra="drop") %>%
   spread(key=Question, value=Rating) 
 
-# quantify unknown adjectives TODO
+# add the adjective itself
+dat.reshaped = dat.reshaped %>%
+  merge(dat.adjective_ids)
+```
 
+# Quality control & filtering
+
+1. Screen responses to control adjectives where the answer is known
+```{r}
+if (language=='en') {
+  masc_control = c("male", "manly")
+  fem_control = c("female", "womanly")
+} else if(language=='es') {
+  masc_control = c("masculino", "hombruno")
+  fem_control = c("femenino", "mujeril")
+} else if(language=='de') {
+  masc_control = c("männisch")
+  fem_control = c("weiblich", "fraulich")
+}
+
+dat.control.masc = dat.reshaped %>%
+  filter(Adjective %in% masc_control)
+dat.control.fem = dat.reshaped %>%
+  filter(Adjective %in% fem_control)
+
+# check for weird responses
+dat.flagged.masc = dat.control.masc %>% filter(Gender.Association<5)
+dat.flagged.fem = dat.control.fem %>% filter(Gender.Association>3)
+dat.flagged = rbind(dat.flagged.fem, dat.flagged.masc)
+
+# exclude
+exclusion_threshold = 2   # strict: 1 and more, and you're out; lenient: 2 and more, and you're out
+dat.flagged.by_participant = dat.flagged %>%
+  group_by(ResponseId) %>% summarize(num_wrong=n())
+participants.excluded = dat.flagged.by_participant %>% filter(num_wrong>=exclusion_threshold)
+
+dat.reshaped = dat.reshaped %>% 
+  filter(!(ResponseId %in% participants.excluded$ResponseId))
+warning(paste("Excluding ", nrow(participants.excluded), "participants due to wrong answers to control adjectives"))
+```
+
+2. Identify cases when a person says "i don't know" to some but not all questions & exclude them
+
+```{r}
+dat.all_known = dat.reshaped %>%
+  filter(Describe.a.Person!=3, Describe.an.Object!=3, !is.na(Gender.Association))
+dat.all_unknown = dat.reshaped %>%
+  filter(Describe.a.Person==3, Describe.an.Object==3, is.na(Gender.Association))
+dat.other = dat.reshaped %>%
+  setdiff(dat.all_known) %>%
+  setdiff(dat.all_unknown)
+
+dat.reshaped = dat.reshaped %>% setdiff(dat.other)
+warning(paste("Excluding ", nrow(dat.other), "responses due to inconsistent 'I don't know' labeling"))
+```
+
+# Quantify unknown adjectives
+
+```{r}
+dat.reshaped$ResponseId = factor(dat.reshaped$ResponseId)
+n_participants = length(levels(dat.reshaped$ResponseId))
+
+dat.unknown.by_adjective = dat.all_unknown %>%
+  group_by(Adjective) %>% summarize(ratio_unknown = n()/n_participants)
+
+# exclude ones that many don't know
+exclusion_threshold = .4    
+adjectives.excluded = dat.unknown.by_adjective %>% filter(ratio_unknown>=exclusion_threshold)
+
+dat.reshaped = dat.reshaped %>% 
+  filter(!(Adjective %in% adjectives.excluded$Adjective))
+warning(paste("Excluding", nrow(adjectives.excluded), "adjectives because at least", exclusion_threshold*100, "% of participants don't know them"))
+```
+
+# Mean ratings by adjective
+
+```{r}
 # avg by adjective (known only)
 dat.by_adjective = dat.reshaped %>%
   filter(Describe.a.Person!=3, Describe.an.Object!=3, !is.na(Gender.Association)) %>%
-  group_by(AdjectiveID) %>%
+  group_by(AdjectiveID, Adjective) %>%
   summarize(meanPerson=mean(Describe.a.Person),
             meanObject=mean(Describe.an.Object),
-            meanAssociation=mean(Gender.Association)) %>%
-  merge(dat.adjective_ids)
-  
-
-
-               
+            meanAssociation=mean(Gender.Association)) 
 ```
+
 Save output:
 
 ```{r}
-write.csv(dat.by_adjective, paste("summary_by_adjective_", language, ".csv", sep=""))
+write.csv(dat.by_adjective, paste('../data/adjective-ratings/processed/', language, "_summary_by_adjective.csv", sep=""), row.names=FALSE)
 ```
 

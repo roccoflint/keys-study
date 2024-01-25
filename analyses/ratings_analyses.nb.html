@@ -1754,75 +1754,182 @@ display: none;
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeSh0aWR5dmVyc2UpXG5gYGAifQ== -->
-<pre class="r"><code>library(tidyverse)</code></pre>
-<!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoi4pSA4pSAIEF0dGFjaGluZyBjb3JlIHRpZHl2ZXJzZSBwYWNrYWdlcyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlIDIuMC4wIOKUgOKUgFxu4pyUIGRwbHlyICAgICAxLjEuNCAgICAg4pyUIHJlYWRyICAgICAyLjEuNFxu4pyUIGZvcmNhdHMgICAxLjAuMCAgICAg4pyUIHN0cmluZ3IgICAxLjUuMFxu4pyUIGdncGxvdDIgICAzLjQuMiAgICAg4pyUIHRpYmJsZSAgICAzLjIuMVxu4pyUIGx1YnJpZGF0ZSAxLjkuMyAgICAg4pyUIHRpZHlyICAgICAxLjMuMFxu4pyUIHB1cnJyICAgICAxLjAuMSAgICAg4pSA4pSAIENvbmZsaWN0cyDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIAgdGlkeXZlcnNlX2NvbmZsaWN0cygpIOKUgOKUgFxu4pyWIGRwbHlyOjpmaWx0ZXIoKSBtYXNrcyBzdGF0czo6ZmlsdGVyKClcbuKcliBkcGx5cjo6bGFnKCkgICAgbWFza3Mgc3RhdHM6OmxhZygpXG7ihLkgVXNlIHRoZSBcdTAwMWJdODs7aHR0cDovL2NvbmZsaWN0ZWQuci1saWIub3JnL1x1MDAwN2NvbmZsaWN0ZWQgcGFja2FnZVx1MDAxYl04OztcdTAwMDcgdG8gZm9yY2UgYWxsIGNvbmZsaWN0cyB0byBiZWNvbWUgZXJyb3JzXG4ifQ== -->
-<pre><code>── Attaching core tidyverse packages ──────────────────────────────── tidyverse 2.0.0 ──
-✔ dplyr     1.1.4     ✔ readr     2.1.4
-✔ forcats   1.0.0     ✔ stringr   1.5.0
-✔ ggplot2   3.4.2     ✔ tibble    3.2.1
-✔ lubridate 1.9.3     ✔ tidyr     1.3.0
-✔ purrr     1.0.1     ── Conflicts ────────────────────────────────────────────────── tidyverse_conflicts() ──
-✖ dplyr::filter() masks stats::filter()
-✖ dplyr::lag()    masks stats::lag()
-ℹ Use the ]8;;http://conflicted.r-lib.org/conflicted package]8;; to force all conflicts to become errors</code></pre>
-<!-- rnb-output-end -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGlicmFyeShnZ3Bsb3QyKVxubGlicmFyeShkYXRhLnRhYmxlKVxuYGBgIn0= -->
-<pre class="r"><code>library(ggplot2)
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxucm0obGlzdCA9IGxzKCkpXG5cbmxpYnJhcnkodGlkeXZlcnNlKVxubGlicmFyeShnZ3Bsb3QyKVxubGlicmFyeShkYXRhLnRhYmxlKVxuYGBgIn0= -->
+<pre class="r"><code>rm(list = ls())
+
+library(tidyverse)
+library(ggplot2)
 library(data.table)</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiUmVnaXN0ZXJlZCBTMyBtZXRob2Qgb3ZlcndyaXR0ZW4gYnkgJ2RhdGEudGFibGUnOlxuICBtZXRob2QgICAgICAgICAgIGZyb21cbiAgcHJpbnQuZGF0YS50YWJsZSAgICAgXG5kYXRhLnRhYmxlIDEuMTQuMTAgdXNpbmcgMSB0aHJlYWRzIChzZWUgP2dldERUdGhyZWFkcykuICBMYXRlc3QgbmV3czogci1kYXRhdGFibGUuY29tXG4qKioqKioqKioqXG5UaGlzIGluc3RhbGxhdGlvbiBvZiBkYXRhLnRhYmxlIGhhcyBub3QgZGV0ZWN0ZWQgT3Blbk1QIHN1cHBvcnQuIEl0IHNob3VsZCBzdGlsbCB3b3JrIGJ1dCBpbiBzaW5nbGUtdGhyZWFkZWQgbW9kZS5cblRoaXMgaXMgYSBNYWMuIFBsZWFzZSByZWFkIGh0dHBzOi8vbWFjLnItcHJvamVjdC5vcmcvb3Blbm1wLy4gUGxlYXNlIGVuZ2FnZSB3aXRoIEFwcGxlIGFuZCBhc2sgdGhlbSBmb3Igc3VwcG9ydC4gQ2hlY2sgci1kYXRhdGFibGUuY29tIGZvciB1cGRhdGVzLCBhbmQgb3VyIE1hYyBpbnN0cnVjdGlvbnMgaGVyZTogaHR0cHM6Ly9naXRodWIuY29tL1JkYXRhdGFibGUvZGF0YS50YWJsZS93aWtpL0luc3RhbGxhdGlvbi4gQWZ0ZXIgc2V2ZXJhbCB5ZWFycyBvZiBtYW55IHJlcG9ydHMgb2YgaW5zdGFsbGF0aW9uIHByb2JsZW1zIG9uIE1hYywgaXQncyB0aW1lIHRvIGdpbmdlcmx5IHBvaW50IG91dCB0aGF0IHRoZXJlIGhhdmUgYmVlbiBubyBzaW1pbGFyIHByb2JsZW1zIG9uIFdpbmRvd3Mgb3IgTGludXguXG4qKioqKioqKioqXG5cbkF0dGFjaGluZyBwYWNrYWdlOiDigJhkYXRhLnRhYmxl4oCZXG5cblRoZSBmb2xsb3dpbmcgb2JqZWN0cyBhcmUgbWFza2VkIGZyb20g4oCYcGFja2FnZTpsdWJyaWRhdGXigJk6XG5cbiAgICBob3VyLCBpc293ZWVrLCBtZGF5LCBtaW51dGUsIG1vbnRoLCBxdWFydGVyLCBzZWNvbmQsIHdkYXksIHdlZWssIHlkYXksXG4gICAgeWVhclxuXG5UaGUgZm9sbG93aW5nIG9iamVjdHMgYXJlIG1hc2tlZCBmcm9tIOKAmHBhY2thZ2U6ZHBseXLigJk6XG5cbiAgICBiZXR3ZWVuLCBmaXJzdCwgbGFzdFxuXG5UaGUgZm9sbG93aW5nIG9iamVjdCBpcyBtYXNrZWQgZnJvbSDigJhwYWNrYWdlOnB1cnJy4oCZOlxuXG4gICAgdHJhbnNwb3NlXG4ifQ== -->
-<pre><code>Registered S3 method overwritten by &#39;data.table&#39;:
-  method           from
-  print.data.table     
-data.table 1.14.10 using 1 threads (see ?getDTthreads).  Latest news: r-datatable.com
-**********
-This installation of data.table has not detected OpenMP support. It should still work but in single-threaded mode.
-This is a Mac. Please read https://mac.r-project.org/openmp/. Please engage with Apple and ask them for support. Check r-datatable.com for updates, and our Mac instructions here: https://github.com/Rdatatable/data.table/wiki/Installation. After several years of many reports of installation problems on Mac, it&#39;s time to gingerly point out that there have been no similar problems on Windows or Linux.
-**********
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+<div id="load-and-clean-data" class="section level1">
+<h1>Load and clean data</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBsYW5ndWFnZSBvcHRpb25zOiBlbiwgZXMsIGRlXG5sYW5ndWFnZSA9ICdlcydcblxuZGF0ID0gcmVhZC5jc3YocGFzdGUoJy4uL2RhdGEvYWRqZWN0aXZlLXJhdGluZ3MvcmF3LycsIGxhbmd1YWdlLCAnX2FkamVjdGl2ZV9yYXRpbmdzX3VucHJvY2Vzc2VkLmNzdicsIHNlcD0nJykpXG5cbiMgZ2V0IHJhdGluZ3NcbmRhdC5yYXRpbmdzID0gZGF0ICU+JVxuICBmaWx0ZXIoRmluaXNoZWQ9PTEpICU+JSAgICMgZXhjbHVkZSBwYXJ0aWFsIGNvbXBsZXRpb25zXG4gIHNlbGVjdChSZXNwb25zZUlkLCBtYXRjaGVzKCdeWCcsIGlnbm9yZS5jYXNlPUZBTFNFKSkgJT4lICAgICMgZXhjbHVkZSBjb2x1bW5zIHRoYXQgYXJlIG5vdCBxdWVzdGlvbiByZXNwb25zZXNcbiAgZmlsdGVyKHN0cl9kZXRlY3QoUmVzcG9uc2VJZCwgJ1JfJykpICAgICAjIGV4Y2x1ZGUgcm93cyB3aXRoIG1ldGEtaW5mb1xuXG4jIGdldCBhZGplY3RpdmUtSUQgbWF0Y2hpbmdzXG5kYXQuYWRqZWN0aXZlX2lkcyA9IGRhdCAlPiVcbiAgZmlsdGVyKFJlc3BvbnNlSWQ9PVwiUmVzcG9uc2UgSURcIikgJT4lXG4gIHNlbGVjdChtYXRjaGVzKFwiT2JqZWN0XCIpKVxuZGF0LmFkamVjdGl2ZV9pZHMgPSB0cmFuc3Bvc2UoZGF0LmFkamVjdGl2ZV9pZHMsIFxuICAgICAgICAgICAgICAgICAgICAgICAgICAgICAga2VlcC5uYW1lcyA9IFwiQWRqZWN0aXZlSURcIikgJT4lXG4gIHJlbmFtZShBZGplY3RpdmU9VjEpICU+JVxuICBzZXBhcmF0ZShBZGplY3RpdmVJRCwgXCJBZGplY3RpdmVJRFwiLCBzZXA9XCJfXCIsIGV4dHJhPVwiZHJvcFwiKSAlPiVcbiAgc2VwYXJhdGUoQWRqZWN0aXZlLCBcIkFkamVjdGl2ZVwiLCBzZXA9XCIgLSBcIiwgZXh0cmE9XCJkcm9wXCIpXG5cbiMgcmVzaGFwZSB0byBsb25nIGZvcm1hdCAmIHNwbGl0IGJ5IHF1ZXN0aW9uXG5kYXQucmVzaGFwZWQgPSBkYXQucmF0aW5ncyAlPiVcbiAgZ2F0aGVyKGtleT1cIlJhdGluZ1R5cGVcIiwgdmFsdWU9XCJSYXRpbmdcIiwgMjpsZW5ndGgoZGF0LnJhdGluZ3MpKSBcblxuZGF0LnJlc2hhcGVkJFJhdGluZyA9IGFzLm51bWVyaWMoZGF0LnJlc2hhcGVkJFJhdGluZylcblxuZGF0LnJlc2hhcGVkID0gZGF0LnJlc2hhcGVkICU+JVxuICBzZXBhcmF0ZShSYXRpbmdUeXBlLCBpbnRvPWMoXCJBZGplY3RpdmVJRFwiLCBcIlF1ZXN0aW9uXCIpLCBzZXA9XCJfXCIsIGV4dHJhPVwiZHJvcFwiKSAlPiVcbiAgc3ByZWFkKGtleT1RdWVzdGlvbiwgdmFsdWU9UmF0aW5nKSBcblxuIyBhZGQgdGhlIGFkamVjdGl2ZSBpdHNlbGZcbmRhdC5yZXNoYXBlZCA9IGRhdC5yZXNoYXBlZCAlPiVcbiAgbWVyZ2UoZGF0LmFkamVjdGl2ZV9pZHMpXG5gYGAifQ== -->
+<pre class="r"><code># language options: en, es, de
+language = &#39;es&#39;
 
-Attaching package: ‘data.table’
+dat = read.csv(paste(&#39;../data/adjective-ratings/raw/&#39;, language, &#39;_adjective_ratings_unprocessed.csv&#39;, sep=&#39;&#39;))
 
-The following objects are masked from ‘package:lubridate’:
+# get ratings
+dat.ratings = dat %&gt;%
+  filter(Finished==1) %&gt;%   # exclude partial completions
+  select(ResponseId, matches(&#39;^X&#39;, ignore.case=FALSE)) %&gt;%    # exclude columns that are not question responses
+  filter(str_detect(ResponseId, &#39;R_&#39;))     # exclude rows with meta-info
 
-    hour, isoweek, mday, minute, month, quarter, second, wday, week, yday,
-    year
+# get adjective-ID matchings
+dat.adjective_ids = dat %&gt;%
+  filter(ResponseId==&quot;Response ID&quot;) %&gt;%
+  select(matches(&quot;Object&quot;))
+dat.adjective_ids = transpose(dat.adjective_ids, 
+                              keep.names = &quot;AdjectiveID&quot;) %&gt;%
+  rename(Adjective=V1) %&gt;%
+  separate(AdjectiveID, &quot;AdjectiveID&quot;, sep=&quot;_&quot;, extra=&quot;drop&quot;) %&gt;%
+  separate(Adjective, &quot;Adjective&quot;, sep=&quot; - &quot;, extra=&quot;drop&quot;)
 
-The following objects are masked from ‘package:dplyr’:
+# reshape to long format &amp; split by question
+dat.reshaped = dat.ratings %&gt;%
+  gather(key=&quot;RatingType&quot;, value=&quot;Rating&quot;, 2:length(dat.ratings)) 
 
-    between, first, last
+dat.reshaped$Rating = as.numeric(dat.reshaped$Rating)
 
-The following object is masked from ‘package:purrr’:
+dat.reshaped = dat.reshaped %&gt;%
+  separate(RatingType, into=c(&quot;AdjectiveID&quot;, &quot;Question&quot;), sep=&quot;_&quot;, extra=&quot;drop&quot;) %&gt;%
+  spread(key=Question, value=Rating) 
 
-    transpose</code></pre>
+# add the adjective itself
+dat.reshaped = dat.reshaped %&gt;%
+  merge(dat.adjective_ids)</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="quality-control-filtering" class="section level1">
+<h1>Quality control &amp; filtering</h1>
+<ol style="list-style-type: decimal">
+<li>Screen responses to control adjectives where the answer is
+known</li>
+</ol>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuaWYgKGxhbmd1YWdlPT0nZW4nKSB7XG4gIG1hc2NfY29udHJvbCA9IGMoXCJtYWxlXCIsIFwibWFubHlcIilcbiAgZmVtX2NvbnRyb2wgPSBjKFwiZmVtYWxlXCIsIFwid29tYW5seVwiKVxufSBlbHNlIGlmKGxhbmd1YWdlPT0nZXMnKSB7XG4gIG1hc2NfY29udHJvbCA9IGMoXCJtYXNjdWxpbm9cIiwgXCJob21icnVub1wiKVxuICBmZW1fY29udHJvbCA9IGMoXCJmZW1lbmlub1wiLCBcIm11amVyaWxcIilcbn0gZWxzZSBpZihsYW5ndWFnZT09J2RlJykge1xuICBtYXNjX2NvbnRyb2wgPSBjKFwibcOkbm5pc2NoXCIpXG4gIGZlbV9jb250cm9sID0gYyhcIndlaWJsaWNoXCIsIFwiZnJhdWxpY2hcIilcbn1cblxuZGF0LmNvbnRyb2wubWFzYyA9IGRhdC5yZXNoYXBlZCAlPiVcbiAgZmlsdGVyKEFkamVjdGl2ZSAlaW4lIG1hc2NfY29udHJvbClcbmRhdC5jb250cm9sLmZlbSA9IGRhdC5yZXNoYXBlZCAlPiVcbiAgZmlsdGVyKEFkamVjdGl2ZSAlaW4lIGZlbV9jb250cm9sKVxuXG4jIGNoZWNrIGZvciB3ZWlyZCByZXNwb25zZXNcbmRhdC5mbGFnZ2VkLm1hc2MgPSBkYXQuY29udHJvbC5tYXNjICU+JSBmaWx0ZXIoR2VuZGVyLkFzc29jaWF0aW9uPDUpXG5kYXQuZmxhZ2dlZC5mZW0gPSBkYXQuY29udHJvbC5mZW0gJT4lIGZpbHRlcihHZW5kZXIuQXNzb2NpYXRpb24+MylcbmRhdC5mbGFnZ2VkID0gcmJpbmQoZGF0LmZsYWdnZWQuZmVtLCBkYXQuZmxhZ2dlZC5tYXNjKVxuXG4jIGV4Y2x1ZGVcbmV4Y2x1c2lvbl90aHJlc2hvbGQgPSAyICAgIyBzdHJpY3Q6IDEgYW5kIG1vcmUsIGFuZCB5b3UncmUgb3V0OyBsZW5pZW50OiAyIGFuZCBtb3JlLCBhbmQgeW91J3JlIG91dFxuZGF0LmZsYWdnZWQuYnlfcGFydGljaXBhbnQgPSBkYXQuZmxhZ2dlZCAlPiVcbiAgZ3JvdXBfYnkoUmVzcG9uc2VJZCkgJT4lIHN1bW1hcml6ZShudW1fd3Jvbmc9bigpKVxucGFydGljaXBhbnRzLmV4Y2x1ZGVkID0gZGF0LmZsYWdnZWQuYnlfcGFydGljaXBhbnQgJT4lIGZpbHRlcihudW1fd3Jvbmc+PWV4Y2x1c2lvbl90aHJlc2hvbGQpXG5cbmRhdC5yZXNoYXBlZCA9IGRhdC5yZXNoYXBlZCAlPiUgXG4gIGZpbHRlcighKFJlc3BvbnNlSWQgJWluJSBwYXJ0aWNpcGFudHMuZXhjbHVkZWQkUmVzcG9uc2VJZCkpXG53YXJuaW5nKHBhc3RlKFwiRXhjbHVkaW5nIFwiLCBucm93KHBhcnRpY2lwYW50cy5leGNsdWRlZCksIFwicGFydGljaXBhbnRzIGR1ZSB0byB3cm9uZyBhbnN3ZXJzIHRvIGNvbnRyb2wgYWRqZWN0aXZlc1wiKSlcbmBgYCJ9 -->
+<pre class="r"><code>if (language==&#39;en&#39;) {
+  masc_control = c(&quot;male&quot;, &quot;manly&quot;)
+  fem_control = c(&quot;female&quot;, &quot;womanly&quot;)
+} else if(language==&#39;es&#39;) {
+  masc_control = c(&quot;masculino&quot;, &quot;hombruno&quot;)
+  fem_control = c(&quot;femenino&quot;, &quot;mujeril&quot;)
+} else if(language==&#39;de&#39;) {
+  masc_control = c(&quot;männisch&quot;)
+  fem_control = c(&quot;weiblich&quot;, &quot;fraulich&quot;)
+}
+
+dat.control.masc = dat.reshaped %&gt;%
+  filter(Adjective %in% masc_control)
+dat.control.fem = dat.reshaped %&gt;%
+  filter(Adjective %in% fem_control)
+
+# check for weird responses
+dat.flagged.masc = dat.control.masc %&gt;% filter(Gender.Association&lt;5)
+dat.flagged.fem = dat.control.fem %&gt;% filter(Gender.Association&gt;3)
+dat.flagged = rbind(dat.flagged.fem, dat.flagged.masc)
+
+# exclude
+exclusion_threshold = 2   # strict: 1 and more, and you&#39;re out; lenient: 2 and more, and you&#39;re out
+dat.flagged.by_participant = dat.flagged %&gt;%
+  group_by(ResponseId) %&gt;% summarize(num_wrong=n())
+participants.excluded = dat.flagged.by_participant %&gt;% filter(num_wrong&gt;=exclusion_threshold)
+
+dat.reshaped = dat.reshaped %&gt;% 
+  filter(!(ResponseId %in% participants.excluded$ResponseId))
+warning(paste(&quot;Excluding &quot;, nrow(participants.excluded), &quot;participants due to wrong answers to control adjectives&quot;))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogRXhjbHVkaW5nICAyIHBhcnRpY2lwYW50cyBkdWUgdG8gd3JvbmcgYW5zd2VycyB0byBjb250cm9sIGFkamVjdGl2ZXNcbiJ9 -->
+<pre><code>Warning: Excluding  2 participants due to wrong answers to control adjectives</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
+<ol start="2" style="list-style-type: decimal">
+<li>Identify cases when a person says “i don’t know” to some but not all
+questions &amp; exclude them</li>
+</ol>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxubGFuZ3VhZ2UgPSAnRW5nbGlzaCdcbmRhdCA9IHJlYWQuY3N2KHBhc3RlKCcuLi9kYXRhL2FkamVjdGl2ZS1yYXRpbmdzL3Jhdy9yYXRpbmdzJywgbGFuZ3VhZ2UsICdwaWxvdC5jc3YnLCBzZXA9J18nKSlcbmBgYCJ9 -->
-<pre class="r"><code>language = &#39;English&#39;
-dat = read.csv(paste(&#39;../data/adjective-ratings/raw/ratings&#39;, language, &#39;pilot.csv&#39;, sep=&#39;_&#39;))</code></pre>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0LmFsbF9rbm93biA9IGRhdC5yZXNoYXBlZCAlPiVcbiAgZmlsdGVyKERlc2NyaWJlLmEuUGVyc29uIT0zLCBEZXNjcmliZS5hbi5PYmplY3QhPTMsICFpcy5uYShHZW5kZXIuQXNzb2NpYXRpb24pKVxuZGF0LmFsbF91bmtub3duID0gZGF0LnJlc2hhcGVkICU+JVxuICBmaWx0ZXIoRGVzY3JpYmUuYS5QZXJzb249PTMsIERlc2NyaWJlLmFuLk9iamVjdD09MywgaXMubmEoR2VuZGVyLkFzc29jaWF0aW9uKSlcbmRhdC5vdGhlciA9IGRhdC5yZXNoYXBlZCAlPiVcbiAgc2V0ZGlmZihkYXQuYWxsX2tub3duKSAlPiVcbiAgc2V0ZGlmZihkYXQuYWxsX3Vua25vd24pXG5cbmRhdC5yZXNoYXBlZCA9IGRhdC5yZXNoYXBlZCAlPiUgc2V0ZGlmZihkYXQub3RoZXIpXG53YXJuaW5nKHBhc3RlKFwiRXhjbHVkaW5nIFwiLCBucm93KGRhdC5vdGhlciksIFwicmVzcG9uc2VzIGR1ZSB0byBpbmNvbnNpc3RlbnQgJ0kgZG9uJ3Qga25vdycgbGFiZWxpbmdcIikpXG5gYGAifQ== -->
+<pre class="r"><code>dat.all_known = dat.reshaped %&gt;%
+  filter(Describe.a.Person!=3, Describe.an.Object!=3, !is.na(Gender.Association))
+dat.all_unknown = dat.reshaped %&gt;%
+  filter(Describe.a.Person==3, Describe.an.Object==3, is.na(Gender.Association))
+dat.other = dat.reshaped %&gt;%
+  setdiff(dat.all_known) %&gt;%
+  setdiff(dat.all_unknown)
+
+dat.reshaped = dat.reshaped %&gt;% setdiff(dat.other)
+warning(paste(&quot;Excluding &quot;, nrow(dat.other), &quot;responses due to inconsistent &#39;I don&#39;t know&#39; labeling&quot;))</code></pre>
 <!-- rnb-source-end -->
-<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogY2Fubm90IG9wZW4gZmlsZSAnLi4vZGF0YS9hZGplY3RpdmUtcmF0aW5ncy9yYXcvcmF0aW5nc19FbmdsaXNoX3BpbG90LmNzdic6IE5vIHN1Y2ggZmlsZSBvciBkaXJlY3RvcnlFcnJvciBpbiBmaWxlKGZpbGUsIFwicnRcIikgOiBjYW5ub3Qgb3BlbiB0aGUgY29ubmVjdGlvblxuIn0= -->
-<pre><code>Warning: cannot open file &#39;../data/adjective-ratings/raw/ratings_English_pilot.csv&#39;: No such file or directoryError in file(file, &quot;rt&quot;) : cannot open the connection</code></pre>
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogRXhjbHVkaW5nICAxMSByZXNwb25zZXMgZHVlIHRvIGluY29uc2lzdGVudCAnSSBkb24ndCBrbm93JyBsYWJlbGluZ1xuIn0= -->
+<pre><code>Warning: Excluding  11 responses due to inconsistent &#39;I don&#39;t know&#39; labeling</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="quantify-unknown-adjectives" class="section level1">
+<h1>Quantify unknown adjectives</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuZGF0LnJlc2hhcGVkJFJlc3BvbnNlSWQgPSBmYWN0b3IoZGF0LnJlc2hhcGVkJFJlc3BvbnNlSWQpXG5uX3BhcnRpY2lwYW50cyA9IGxlbmd0aChsZXZlbHMoZGF0LnJlc2hhcGVkJFJlc3BvbnNlSWQpKVxuXG5kYXQudW5rbm93bi5ieV9hZGplY3RpdmUgPSBkYXQuYWxsX3Vua25vd24gJT4lXG4gIGdyb3VwX2J5KEFkamVjdGl2ZSkgJT4lIHN1bW1hcml6ZShyYXRpb191bmtub3duID0gbigpL25fcGFydGljaXBhbnRzKVxuXG4jIGV4Y2x1ZGUgb25lcyB0aGF0IG1hbnkgZG9uJ3Qga25vd1xuZXhjbHVzaW9uX3RocmVzaG9sZCA9IC40ICAgIFxuYWRqZWN0aXZlcy5leGNsdWRlZCA9IGRhdC51bmtub3duLmJ5X2FkamVjdGl2ZSAlPiUgZmlsdGVyKHJhdGlvX3Vua25vd24+PWV4Y2x1c2lvbl90aHJlc2hvbGQpXG5cbmRhdC5yZXNoYXBlZCA9IGRhdC5yZXNoYXBlZCAlPiUgXG4gIGZpbHRlcighKEFkamVjdGl2ZSAlaW4lIGFkamVjdGl2ZXMuZXhjbHVkZWQkQWRqZWN0aXZlKSlcbndhcm5pbmcocGFzdGUoXCJFeGNsdWRpbmdcIiwgbnJvdyhhZGplY3RpdmVzLmV4Y2x1ZGVkKSwgXCJhZGplY3RpdmVzIGJlY2F1c2UgYXQgbGVhc3RcIiwgZXhjbHVzaW9uX3RocmVzaG9sZCoxMDAsIFwiJSBvZiBwYXJ0aWNpcGFudHMgZG9uJ3Qga25vdyB0aGVtXCIpKVxuYGBgIn0= -->
+<pre class="r"><code>dat.reshaped$ResponseId = factor(dat.reshaped$ResponseId)
+n_participants = length(levels(dat.reshaped$ResponseId))
+
+dat.unknown.by_adjective = dat.all_unknown %&gt;%
+  group_by(Adjective) %&gt;% summarize(ratio_unknown = n()/n_participants)
+
+# exclude ones that many don&#39;t know
+exclusion_threshold = .4    
+adjectives.excluded = dat.unknown.by_adjective %&gt;% filter(ratio_unknown&gt;=exclusion_threshold)
+
+dat.reshaped = dat.reshaped %&gt;% 
+  filter(!(Adjective %in% adjectives.excluded$Adjective))
+warning(paste(&quot;Excluding&quot;, nrow(adjectives.excluded), &quot;adjectives because at least&quot;, exclusion_threshold*100, &quot;% of participants don&#39;t know them&quot;))</code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiV2FybmluZzogRXhjbHVkaW5nIDEyIGFkamVjdGl2ZXMgYmVjYXVzZSBhdCBsZWFzdCA0MCAlIG9mIHBhcnRpY2lwYW50cyBkb24ndCBrbm93IHRoZW1cbiJ9 -->
+<pre><code>Warning: Excluding 12 adjectives because at least 40 % of participants don&#39;t know them</code></pre>
+<!-- rnb-output-end -->
+<!-- rnb-chunk-end -->
+<!-- rnb-text-begin -->
+</div>
+<div id="mean-ratings-by-adjective" class="section level1">
+<h1>Mean ratings by adjective</h1>
+<!-- rnb-text-end -->
+<!-- rnb-chunk-begin -->
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuIyBhdmcgYnkgYWRqZWN0aXZlIChrbm93biBvbmx5KVxuZGF0LmJ5X2FkamVjdGl2ZSA9IGRhdC5yZXNoYXBlZCAlPiVcbiAgZmlsdGVyKERlc2NyaWJlLmEuUGVyc29uIT0zLCBEZXNjcmliZS5hbi5PYmplY3QhPTMsICFpcy5uYShHZW5kZXIuQXNzb2NpYXRpb24pKSAlPiVcbiAgZ3JvdXBfYnkoQWRqZWN0aXZlSUQsIEFkamVjdGl2ZSkgJT4lXG4gIHN1bW1hcml6ZShtZWFuUGVyc29uPW1lYW4oRGVzY3JpYmUuYS5QZXJzb24pLFxuICAgICAgICAgICAgbWVhbk9iamVjdD1tZWFuKERlc2NyaWJlLmFuLk9iamVjdCksXG4gICAgICAgICAgICBtZWFuQXNzb2NpYXRpb249bWVhbihHZW5kZXIuQXNzb2NpYXRpb24pKSBcbmBgYCJ9 -->
+<pre class="r"><code># avg by adjective (known only)
+dat.by_adjective = dat.reshaped %&gt;%
+  filter(Describe.a.Person!=3, Describe.an.Object!=3, !is.na(Gender.Association)) %&gt;%
+  group_by(AdjectiveID, Adjective) %&gt;%
+  summarize(meanPerson=mean(Describe.a.Person),
+            meanObject=mean(Describe.an.Object),
+            meanAssociation=mean(Gender.Association)) </code></pre>
+<!-- rnb-source-end -->
+<!-- rnb-output-begin eyJkYXRhIjoiYHN1bW1hcmlzZSgpYCBoYXMgZ3JvdXBlZCBvdXRwdXQgYnkgJ0FkamVjdGl2ZUlEJy4gWW91IGNhbiBvdmVycmlkZSB1c2luZyB0aGUgYC5ncm91cHNgIGFyZ3VtZW50LlxuIn0= -->
+<pre><code>`summarise()` has grouped output by &#39;AdjectiveID&#39;. You can override using the `.groups` argument.</code></pre>
 <!-- rnb-output-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <p>Save output:</p>
 <!-- rnb-text-end -->
 <!-- rnb-chunk-begin -->
-<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxuYGBgclxud3JpdGUuY3N2KGRhdC5ieV9hZGplY3RpdmUsIHBhc3RlKFxcc3VtbWFyeV9ieV9hZGplY3RpdmVfXFwsIGxhbmd1YWdlLCBcXC5jc3ZcXCwgc2VwPVxcXFwpKVxuYGBgXG5gYGAifQ== -->
-<pre class="r"><code>```r
-write.csv(dat.by_adjective, paste(\summary_by_adjective_\, language, \.csv\, sep=\\))</code></pre>
-<p>```</p>
+<!-- rnb-source-begin eyJkYXRhIjoiYGBgclxud3JpdGUuY3N2KGRhdC5ieV9hZGplY3RpdmUsIHBhc3RlKCcuLi9kYXRhL2FkamVjdGl2ZS1yYXRpbmdzL3Byb2Nlc3NlZC8nLCBsYW5ndWFnZSwgXCJfc3VtbWFyeV9ieV9hZGplY3RpdmUuY3N2XCIsIHNlcD1cIlwiKSwgcm93Lm5hbWVzPUZBTFNFKVxuYGBgIn0= -->
+<pre class="r"><code>write.csv(dat.by_adjective, paste(&#39;../data/adjective-ratings/processed/&#39;, language, &quot;_summary_by_adjective.csv&quot;, sep=&quot;&quot;), row.names=FALSE)</code></pre>
 <!-- rnb-source-end -->
 <!-- rnb-chunk-end -->
 <!-- rnb-text-begin -->
 <!-- rnb-text-end -->
+</div>
 
-<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKCmBgYHtyfQpsaWJyYXJ5KHRpZHl2ZXJzZSkKbGlicmFyeShnZ3Bsb3QyKQpsaWJyYXJ5KGRhdGEudGFibGUpCmBgYAoKYGBge3J9CiMgbGFuZ3VhZ2Ugb3B0aW9uczogZW4sIGVzLCBkZQpsYW5ndWFnZSA9ICdlbicKCmRhdCA9IHJlYWQuY3N2KHBhc3RlKCcuLi9kYXRhL2FkamVjdGl2ZS1yYXRpbmdzL3Jhdy8nLCBsYW5ndWFnZSwgJ19hZGplY3RpdmVfcmF0aW5ncy5jc3YnLCBzZXA9J18nKSkKCiMgZ2V0IHJhdGluZ3MKZGF0LnJhdGluZ3MgPSBkYXQgJT4lCiAgc2VsZWN0KFJlc3BvbnNlSWQsIG1hdGNoZXMoJ15YJywgaWdub3JlLmNhc2U9RkFMU0UpKSAlPiUKICBmaWx0ZXIoc3RyX2RldGVjdChSZXNwb25zZUlkLCAnUl8nKSkKCiMgZ2V0IGFkamVjdGl2ZS1JRCBtYXRjaGluZ3MKZGF0LmFkamVjdGl2ZV9pZHMgPSBkYXQgJT4lCiAgZmlsdGVyKFJlc3BvbnNlSWQ9PSJSZXNwb25zZSBJRCIpICU+JQogIHNlbGVjdChtYXRjaGVzKCJPYmplY3QiKSkKZGF0LmFkamVjdGl2ZV9pZHMgPSB0cmFuc3Bvc2UoZGF0LmFkamVjdGl2ZV9pZHMsIAogICAgICAgICAgICAgICAgICAgICAgICAgICAgICBrZWVwLm5hbWVzID0gIkFkamVjdGl2ZUlEIikgJT4lCiAgcmVuYW1lKEFkamVjdGl2ZT1WMSkgJT4lCiAgc2VwYXJhdGUoQWRqZWN0aXZlSUQsICJBZGplY3RpdmVJRCIsIHNlcD0iXyIpICU+JQogIHNlcGFyYXRlKEFkamVjdGl2ZSwgIkFkamVjdGl2ZSIsIHNlcD0iIC0gIikKCiMgcmVzaGFwZSAxCmRhdC5yZXNoYXBlZCA9IGRhdC5yYXRpbmdzICU+JQogIGdhdGhlcihrZXk9IlJhdGluZ1R5cGUiLCB2YWx1ZT0iUmF0aW5nIiwgMjpsZW5ndGgoZGF0LnJhdGluZ3MpKSAKCiMgY2FzdCB0byBudW1lcmljCmRhdC5yZXNoYXBlZCRSYXRpbmcgPSBhcy5udW1lcmljKGRhdC5yZXNoYXBlZCRSYXRpbmcpCgojIHJlc2hhcGUgMgpkYXQucmVzaGFwZWQgPSBkYXQucmVzaGFwZWQgJT4lCiAgc2VwYXJhdGUoUmF0aW5nVHlwZSwgaW50bz1jKCJBZGplY3RpdmVJRCIsICJRdWVzdGlvbiIpLCBzZXA9Il8iKSAlPiUKICBzcHJlYWQoa2V5PVF1ZXN0aW9uLCB2YWx1ZT1SYXRpbmcpIAoKIyBxdWFudGlmeSB1bmtub3duIGFkamVjdGl2ZXMgVE9ETwoKIyBhdmcgYnkgYWRqZWN0aXZlIChrbm93biBvbmx5KQpkYXQuYnlfYWRqZWN0aXZlID0gZGF0LnJlc2hhcGVkICU+JQogIGZpbHRlcihEZXNjcmliZS5hLlBlcnNvbiE9MywgRGVzY3JpYmUuYW4uT2JqZWN0IT0zLCAhaXMubmEoR2VuZGVyLkFzc29jaWF0aW9uKSkgJT4lCiAgZ3JvdXBfYnkoQWRqZWN0aXZlSUQpICU+JQogIHN1bW1hcml6ZShtZWFuUGVyc29uPW1lYW4oRGVzY3JpYmUuYS5QZXJzb24pLAogICAgICAgICAgICBtZWFuT2JqZWN0PW1lYW4oRGVzY3JpYmUuYW4uT2JqZWN0KSwKICAgICAgICAgICAgbWVhbkFzc29jaWF0aW9uPW1lYW4oR2VuZGVyLkFzc29jaWF0aW9uKSkgJT4lCiAgbWVyZ2UoZGF0LmFkamVjdGl2ZV9pZHMpCiAgCgoKICAgICAgICAgICAgICAgCmBgYApTYXZlIG91dHB1dDoKCmBgYHtyfQp3cml0ZS5jc3YoZGF0LmJ5X2FkamVjdGl2ZSwgcGFzdGUoInN1bW1hcnlfYnlfYWRqZWN0aXZlXyIsIGxhbmd1YWdlLCAiLmNzdiIsIHNlcD0iIikpCmBgYAoK</div>
+<div id="rmd-source-code">LS0tCnRpdGxlOiAiUiBOb3RlYm9vayIKb3V0cHV0OiBodG1sX25vdGVib29rCi0tLQoKCmBgYHtyfQpybShsaXN0ID0gbHMoKSkKCmxpYnJhcnkodGlkeXZlcnNlKQpsaWJyYXJ5KGdncGxvdDIpCmxpYnJhcnkoZGF0YS50YWJsZSkKYGBgCgoKIyBMb2FkIGFuZCBjbGVhbiBkYXRhCgpgYGB7cn0KIyBsYW5ndWFnZSBvcHRpb25zOiBlbiwgZXMsIGRlCmxhbmd1YWdlID0gJ2VzJwoKZGF0ID0gcmVhZC5jc3YocGFzdGUoJy4uL2RhdGEvYWRqZWN0aXZlLXJhdGluZ3MvcmF3LycsIGxhbmd1YWdlLCAnX2FkamVjdGl2ZV9yYXRpbmdzX3VucHJvY2Vzc2VkLmNzdicsIHNlcD0nJykpCgojIGdldCByYXRpbmdzCmRhdC5yYXRpbmdzID0gZGF0ICU+JQogIGZpbHRlcihGaW5pc2hlZD09MSkgJT4lICAgIyBleGNsdWRlIHBhcnRpYWwgY29tcGxldGlvbnMKICBzZWxlY3QoUmVzcG9uc2VJZCwgbWF0Y2hlcygnXlgnLCBpZ25vcmUuY2FzZT1GQUxTRSkpICU+JSAgICAjIGV4Y2x1ZGUgY29sdW1ucyB0aGF0IGFyZSBub3QgcXVlc3Rpb24gcmVzcG9uc2VzCiAgZmlsdGVyKHN0cl9kZXRlY3QoUmVzcG9uc2VJZCwgJ1JfJykpICAgICAjIGV4Y2x1ZGUgcm93cyB3aXRoIG1ldGEtaW5mbwoKIyBnZXQgYWRqZWN0aXZlLUlEIG1hdGNoaW5ncwpkYXQuYWRqZWN0aXZlX2lkcyA9IGRhdCAlPiUKICBmaWx0ZXIoUmVzcG9uc2VJZD09IlJlc3BvbnNlIElEIikgJT4lCiAgc2VsZWN0KG1hdGNoZXMoIk9iamVjdCIpKQpkYXQuYWRqZWN0aXZlX2lkcyA9IHRyYW5zcG9zZShkYXQuYWRqZWN0aXZlX2lkcywgCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGtlZXAubmFtZXMgPSAiQWRqZWN0aXZlSUQiKSAlPiUKICByZW5hbWUoQWRqZWN0aXZlPVYxKSAlPiUKICBzZXBhcmF0ZShBZGplY3RpdmVJRCwgIkFkamVjdGl2ZUlEIiwgc2VwPSJfIiwgZXh0cmE9ImRyb3AiKSAlPiUKICBzZXBhcmF0ZShBZGplY3RpdmUsICJBZGplY3RpdmUiLCBzZXA9IiAtICIsIGV4dHJhPSJkcm9wIikKCiMgcmVzaGFwZSB0byBsb25nIGZvcm1hdCAmIHNwbGl0IGJ5IHF1ZXN0aW9uCmRhdC5yZXNoYXBlZCA9IGRhdC5yYXRpbmdzICU+JQogIGdhdGhlcihrZXk9IlJhdGluZ1R5cGUiLCB2YWx1ZT0iUmF0aW5nIiwgMjpsZW5ndGgoZGF0LnJhdGluZ3MpKSAKCmRhdC5yZXNoYXBlZCRSYXRpbmcgPSBhcy5udW1lcmljKGRhdC5yZXNoYXBlZCRSYXRpbmcpCgpkYXQucmVzaGFwZWQgPSBkYXQucmVzaGFwZWQgJT4lCiAgc2VwYXJhdGUoUmF0aW5nVHlwZSwgaW50bz1jKCJBZGplY3RpdmVJRCIsICJRdWVzdGlvbiIpLCBzZXA9Il8iLCBleHRyYT0iZHJvcCIpICU+JQogIHNwcmVhZChrZXk9UXVlc3Rpb24sIHZhbHVlPVJhdGluZykgCgojIGFkZCB0aGUgYWRqZWN0aXZlIGl0c2VsZgpkYXQucmVzaGFwZWQgPSBkYXQucmVzaGFwZWQgJT4lCiAgbWVyZ2UoZGF0LmFkamVjdGl2ZV9pZHMpCmBgYAoKIyBRdWFsaXR5IGNvbnRyb2wgJiBmaWx0ZXJpbmcKCjEuIFNjcmVlbiByZXNwb25zZXMgdG8gY29udHJvbCBhZGplY3RpdmVzIHdoZXJlIHRoZSBhbnN3ZXIgaXMga25vd24KYGBge3J9CmlmIChsYW5ndWFnZT09J2VuJykgewogIG1hc2NfY29udHJvbCA9IGMoIm1hbGUiLCAibWFubHkiKQogIGZlbV9jb250cm9sID0gYygiZmVtYWxlIiwgIndvbWFubHkiKQp9IGVsc2UgaWYobGFuZ3VhZ2U9PSdlcycpIHsKICBtYXNjX2NvbnRyb2wgPSBjKCJtYXNjdWxpbm8iLCAiaG9tYnJ1bm8iKQogIGZlbV9jb250cm9sID0gYygiZmVtZW5pbm8iLCAibXVqZXJpbCIpCn0gZWxzZSBpZihsYW5ndWFnZT09J2RlJykgewogIG1hc2NfY29udHJvbCA9IGMoIm3DpG5uaXNjaCIpCiAgZmVtX2NvbnRyb2wgPSBjKCJ3ZWlibGljaCIsICJmcmF1bGljaCIpCn0KCmRhdC5jb250cm9sLm1hc2MgPSBkYXQucmVzaGFwZWQgJT4lCiAgZmlsdGVyKEFkamVjdGl2ZSAlaW4lIG1hc2NfY29udHJvbCkKZGF0LmNvbnRyb2wuZmVtID0gZGF0LnJlc2hhcGVkICU+JQogIGZpbHRlcihBZGplY3RpdmUgJWluJSBmZW1fY29udHJvbCkKCiMgY2hlY2sgZm9yIHdlaXJkIHJlc3BvbnNlcwpkYXQuZmxhZ2dlZC5tYXNjID0gZGF0LmNvbnRyb2wubWFzYyAlPiUgZmlsdGVyKEdlbmRlci5Bc3NvY2lhdGlvbjw1KQpkYXQuZmxhZ2dlZC5mZW0gPSBkYXQuY29udHJvbC5mZW0gJT4lIGZpbHRlcihHZW5kZXIuQXNzb2NpYXRpb24+MykKZGF0LmZsYWdnZWQgPSByYmluZChkYXQuZmxhZ2dlZC5mZW0sIGRhdC5mbGFnZ2VkLm1hc2MpCgojIGV4Y2x1ZGUKZXhjbHVzaW9uX3RocmVzaG9sZCA9IDIgICAjIHN0cmljdDogMSBhbmQgbW9yZSwgYW5kIHlvdSdyZSBvdXQ7IGxlbmllbnQ6IDIgYW5kIG1vcmUsIGFuZCB5b3UncmUgb3V0CmRhdC5mbGFnZ2VkLmJ5X3BhcnRpY2lwYW50ID0gZGF0LmZsYWdnZWQgJT4lCiAgZ3JvdXBfYnkoUmVzcG9uc2VJZCkgJT4lIHN1bW1hcml6ZShudW1fd3Jvbmc9bigpKQpwYXJ0aWNpcGFudHMuZXhjbHVkZWQgPSBkYXQuZmxhZ2dlZC5ieV9wYXJ0aWNpcGFudCAlPiUgZmlsdGVyKG51bV93cm9uZz49ZXhjbHVzaW9uX3RocmVzaG9sZCkKCmRhdC5yZXNoYXBlZCA9IGRhdC5yZXNoYXBlZCAlPiUgCiAgZmlsdGVyKCEoUmVzcG9uc2VJZCAlaW4lIHBhcnRpY2lwYW50cy5leGNsdWRlZCRSZXNwb25zZUlkKSkKd2FybmluZyhwYXN0ZSgiRXhjbHVkaW5nICIsIG5yb3cocGFydGljaXBhbnRzLmV4Y2x1ZGVkKSwgInBhcnRpY2lwYW50cyBkdWUgdG8gd3JvbmcgYW5zd2VycyB0byBjb250cm9sIGFkamVjdGl2ZXMiKSkKYGBgCgoyLiBJZGVudGlmeSBjYXNlcyB3aGVuIGEgcGVyc29uIHNheXMgImkgZG9uJ3Qga25vdyIgdG8gc29tZSBidXQgbm90IGFsbCBxdWVzdGlvbnMgJiBleGNsdWRlIHRoZW0KCmBgYHtyfQpkYXQuYWxsX2tub3duID0gZGF0LnJlc2hhcGVkICU+JQogIGZpbHRlcihEZXNjcmliZS5hLlBlcnNvbiE9MywgRGVzY3JpYmUuYW4uT2JqZWN0IT0zLCAhaXMubmEoR2VuZGVyLkFzc29jaWF0aW9uKSkKZGF0LmFsbF91bmtub3duID0gZGF0LnJlc2hhcGVkICU+JQogIGZpbHRlcihEZXNjcmliZS5hLlBlcnNvbj09MywgRGVzY3JpYmUuYW4uT2JqZWN0PT0zLCBpcy5uYShHZW5kZXIuQXNzb2NpYXRpb24pKQpkYXQub3RoZXIgPSBkYXQucmVzaGFwZWQgJT4lCiAgc2V0ZGlmZihkYXQuYWxsX2tub3duKSAlPiUKICBzZXRkaWZmKGRhdC5hbGxfdW5rbm93bikKCmRhdC5yZXNoYXBlZCA9IGRhdC5yZXNoYXBlZCAlPiUgc2V0ZGlmZihkYXQub3RoZXIpCndhcm5pbmcocGFzdGUoIkV4Y2x1ZGluZyAiLCBucm93KGRhdC5vdGhlciksICJyZXNwb25zZXMgZHVlIHRvIGluY29uc2lzdGVudCAnSSBkb24ndCBrbm93JyBsYWJlbGluZyIpKQpgYGAKCiMgUXVhbnRpZnkgdW5rbm93biBhZGplY3RpdmVzCgpgYGB7cn0KZGF0LnJlc2hhcGVkJFJlc3BvbnNlSWQgPSBmYWN0b3IoZGF0LnJlc2hhcGVkJFJlc3BvbnNlSWQpCm5fcGFydGljaXBhbnRzID0gbGVuZ3RoKGxldmVscyhkYXQucmVzaGFwZWQkUmVzcG9uc2VJZCkpCgpkYXQudW5rbm93bi5ieV9hZGplY3RpdmUgPSBkYXQuYWxsX3Vua25vd24gJT4lCiAgZ3JvdXBfYnkoQWRqZWN0aXZlKSAlPiUgc3VtbWFyaXplKHJhdGlvX3Vua25vd24gPSBuKCkvbl9wYXJ0aWNpcGFudHMpCgojIGV4Y2x1ZGUgb25lcyB0aGF0IG1hbnkgZG9uJ3Qga25vdwpleGNsdXNpb25fdGhyZXNob2xkID0gLjQgICAgCmFkamVjdGl2ZXMuZXhjbHVkZWQgPSBkYXQudW5rbm93bi5ieV9hZGplY3RpdmUgJT4lIGZpbHRlcihyYXRpb191bmtub3duPj1leGNsdXNpb25fdGhyZXNob2xkKQoKZGF0LnJlc2hhcGVkID0gZGF0LnJlc2hhcGVkICU+JSAKICBmaWx0ZXIoIShBZGplY3RpdmUgJWluJSBhZGplY3RpdmVzLmV4Y2x1ZGVkJEFkamVjdGl2ZSkpCndhcm5pbmcocGFzdGUoIkV4Y2x1ZGluZyIsIG5yb3coYWRqZWN0aXZlcy5leGNsdWRlZCksICJhZGplY3RpdmVzIGJlY2F1c2UgYXQgbGVhc3QiLCBleGNsdXNpb25fdGhyZXNob2xkKjEwMCwgIiUgb2YgcGFydGljaXBhbnRzIGRvbid0IGtub3cgdGhlbSIpKQpgYGAKCiMgTWVhbiByYXRpbmdzIGJ5IGFkamVjdGl2ZQoKYGBge3J9CiMgYXZnIGJ5IGFkamVjdGl2ZSAoa25vd24gb25seSkKZGF0LmJ5X2FkamVjdGl2ZSA9IGRhdC5yZXNoYXBlZCAlPiUKICBmaWx0ZXIoRGVzY3JpYmUuYS5QZXJzb24hPTMsIERlc2NyaWJlLmFuLk9iamVjdCE9MywgIWlzLm5hKEdlbmRlci5Bc3NvY2lhdGlvbikpICU+JQogIGdyb3VwX2J5KEFkamVjdGl2ZUlELCBBZGplY3RpdmUpICU+JQogIHN1bW1hcml6ZShtZWFuUGVyc29uPW1lYW4oRGVzY3JpYmUuYS5QZXJzb24pLAogICAgICAgICAgICBtZWFuT2JqZWN0PW1lYW4oRGVzY3JpYmUuYW4uT2JqZWN0KSwKICAgICAgICAgICAgbWVhbkFzc29jaWF0aW9uPW1lYW4oR2VuZGVyLkFzc29jaWF0aW9uKSkgCmBgYAoKU2F2ZSBvdXRwdXQ6CgpgYGB7cn0Kd3JpdGUuY3N2KGRhdC5ieV9hZGplY3RpdmUsIHBhc3RlKCcuLi9kYXRhL2FkamVjdGl2ZS1yYXRpbmdzL3Byb2Nlc3NlZC8nLCBsYW5ndWFnZSwgIl9zdW1tYXJ5X2J5X2FkamVjdGl2ZS5jc3YiLCBzZXA9IiIpLCByb3cubmFtZXM9RkFMU0UpCmBgYAoK</div>
 
 
 
