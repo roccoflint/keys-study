@@ -35,6 +35,8 @@ version,question,noun,masculine_adjective,feminine_adjective
 1,34,estrella,poderosa,sexy
 1,35,sol,poderoso,despampanante
 1,36,película,poderosa,sentimental
+1,37,hombre,masculino,femenino
+1,38,mujer,masculina,femenina
 2,1,lluvia,masculina,femenina
 2,2,puente,masculino,virgen
 2,3,llave,masculina,sensual
@@ -71,6 +73,8 @@ version,question,noun,masculine_adjective,feminine_adjective
 2,34,sol,poderoso,sexy
 2,35,película,poderosa,despampanante
 2,36,granero,poderoso,sentimental
+2,37,hombre,masculino,femenino
+2,38,mujer,masculina,femenina
 3,1,puente,masculino,femenino
 3,2,llave,masculina,virgen
 3,3,calcetín,masculino,sensual
@@ -107,6 +111,8 @@ version,question,noun,masculine_adjective,feminine_adjective
 3,34,película,poderosa,sexy
 3,35,granero,poderoso,despampanante
 3,36,lluvia,poderosa,sentimental
+3,37,hombre,masculino,femenino
+3,38,mujer,masculina,femenina
 4,1,llave,masculina,femenina
 4,2,calcetín,masculino,virgen
 4,3,pez,masculina,sensual
@@ -143,6 +149,8 @@ version,question,noun,masculine_adjective,feminine_adjective
 4,34,granero,poderoso,sexy
 4,35,lluvia,poderosa,despampanante
 4,36,puente,poderoso,sentimental
+4,37,hombre,masculino,femenino
+4,38,mujer,masculina,femenina
 5,1,calcetín,masculino,femenino
 5,2,pez,masculina,virgen
 5,3,tenedor,masculino,sensual
@@ -179,6 +187,8 @@ version,question,noun,masculine_adjective,feminine_adjective
 5,34,lluvia,poderosa,sexy
 5,35,puente,poderoso,despampanante
 5,36,llave,poderosa,sentimental
+5,37,hombre,masculino,femenino
+5,38,mujer,masculina,femenina
 6,1,pez,masculina,femenina
 6,2,tenedor,masculino,virgen
 6,3,mariposa,masculina,sensual
@@ -215,3 +225,5 @@ version,question,noun,masculine_adjective,feminine_adjective
 6,34,puente,poderoso,sexy
 6,35,llave,poderosa,despampanante
 6,36,calcetín,poderoso,sentimental
+6,37,hombre,masculino,femenino
+6,38,mujer,masculina,femenina

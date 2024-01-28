@@ -35,6 +35,8 @@ version,question,noun,masculine_adjective,feminine_adjective
 1,34,Stern,beruflich,zärtlich
 1,35,Sonne,beruflich,spindeldürr
 1,36,Film,beruflich,sentimentalisch
+1,37,Mann,männisch,fraulich
+1,38,Frau,männisch,fraulich
 2,1,Regen,männisch,mütterlich
 2,2,Brücke,männisch,fraulich
 2,3,Schlüssel,männisch,bildhübsch
@@ -71,6 +73,8 @@ version,question,noun,masculine_adjective,feminine_adjective
 2,34,Sonne,beruflich,zärtlich
 2,35,Film,beruflich,spindeldürr
 2,36,Scheune,beruflich,sentimentalisch
+2,37,Mann,männisch,fraulich
+2,38,Frau,männisch,fraulich
 3,1,Brücke,männisch,mütterlich
 3,2,Schlüssel,männisch,fraulich
 3,3,Socke,männisch,bildhübsch
@@ -107,6 +111,8 @@ version,question,noun,masculine_adjective,feminine_adjective
 3,34,Film,beruflich,zärtlich
 3,35,Scheune,beruflich,spindeldürr
 3,36,Regen,beruflich,sentimentalisch
+3,37,Mann,männisch,fraulich
+3,38,Frau,männisch,fraulich
 4,1,Schlüssel,männisch,mütterlich
 4,2,Socke,männisch,fraulich
 4,3,Fisch,männisch,bildhübsch
@@ -143,6 +149,8 @@ version,question,noun,masculine_adjective,feminine_adjective
 4,34,Scheune,beruflich,zärtlich
 4,35,Regen,beruflich,spindeldürr
 4,36,Brücke,beruflich,sentimentalisch
+4,37,Mann,männisch,fraulich
+4,38,Frau,männisch,fraulich
 5,1,Socke,männisch,mütterlich
 5,2,Fisch,männisch,fraulich
 5,3,Gabel,männisch,bildhübsch
@@ -179,6 +187,8 @@ version,question,noun,masculine_adjective,feminine_adjective
 5,34,Regen,beruflich,zärtlich
 5,35,Brücke,beruflich,spindeldürr
 5,36,Schlüssel,beruflich,sentimentalisch
+5,37,Mann,männisch,fraulich
+5,38,Frau,männisch,fraulich
 6,1,Fisch,männisch,mütterlich
 6,2,Gabel,männisch,fraulich
 6,3,Schmetterling,männisch,bildhübsch
@@ -215,3 +225,5 @@ version,question,noun,masculine_adjective,feminine_adjective
 6,34,Brücke,beruflich,zärtlich
 6,35,Schlüssel,beruflich,spindeldürr
 6,36,Socke,beruflich,sentimentalisch
+6,37,Mann,männisch,fraulich
+6,38,Frau,männisch,fraulich
