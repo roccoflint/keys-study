@@ -1,0 +1,84 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+rm(list = ls())
+
+library(tidyverse)
+library(ggplot2)
+library(data.table)
+```
+
+
+# Load and clean data
+
+```{r}
+# language options: en, es, de
+language = 'en'
+
+dat.raw = read.csv(paste('../data/matchings/raw/', language, '_matchings_response_raw.csv', sep=''))
+
+# get ratings
+dat.ratings = dat.raw %>%
+  filter(Finished==1) %>%   # exclude partial completions
+  select(ResponseId, matches('^X', ignore.case=FALSE)) %>%    # exclude columns that are not question responses
+  filter(str_detect(ResponseId, 'R_'))     # exclude rows with meta-info
+
+# reshape to long format & split by question
+dat = dat.ratings %>%
+  gather(key="RatingType", value="Rating", 2:length(dat.ratings)) %>%
+  filter(Rating!="")
+dat$Rating = as.numeric(dat$Rating)
+
+# filter out "i don't know" responses
+dat = dat %>%
+  filter(Rating %in% c(1,2))  
+
+# get the noun info
+noun_info = read.csv('../materials/matchings/reference/matchings_nouns.csv')
+noun_info$NounID <- seq.int(nrow(noun_info))
+
+# get the question info
+question_info = read.csv(paste('../materials/matchings/stimulus/', language, '_matchings_stimulus.csv', sep=''))
+question_info = question_info %>%
+  mutate(RatingType=paste("X",question,"_Version.",version,sep=""))
+
+# combine 
+dat = question_info %>%
+  merge(dat) %>%
+  merge(noun_info, by.x="noun", by.y=language)
+
+# get noun gender info
+if (language=='en') {
+  dat = dat %>% mutate(NounGender=ifelse(Group=="Spanish Masculine", "neutral1", "neutral2"))
+} else if (language=='es') {
+  dat = dat %>% mutate(NounGender=ifelse(Group=="Spanish Masculine", "masc", "fem"))
+} else if (language=='de') {
+  dat = dat %>% mutate(NounGender=ifelse(Group=="German Masculine", "masc", "fem"))
+}
+```
+
+Save the full dataframe:
+```{r}
+write.csv(dat, paste('../data/matchings/processed/', language, "_data.csv", sep=""), row.names=FALSE)
+```
+
+# Analyses
+
+```{r}
+dat.mean = dat %>% 
+  group_by(NounGender, ResponseId) %>%
+  summarize(meanRating=mean(Rating))
+
+ggplot(data=dat.mean, mapping=aes(x=NounGender, y=meanRating, fill=NounGender))+
+  stat_summary(geom='col', fun='mean',
+               width=0.8, position='dodge')+
+  geom_jitter(width=0.1, height=0)+
+  geom_hline(yintercept=0)+
+  theme_classic()
+```
+
+
