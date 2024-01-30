@@ -127,4 +127,52 @@ dat.crit.en = read.csv('../data/embeddings/experimental/en_embeddings_experiment
 dat.crit.es = read.csv('../data/embeddings/experimental/es_embeddings_experimental.csv')
 dat.crit.de = read.csv('../data/embeddings/experimental/de_embeddings_experimental.csv')
 dat.crit = rbind(dat.crit.en, dat.crit.es, dat.crit.de)
+
+# add noun group info
+dat.crit = noun_info %>% merge(dat.crit, by.x=c('LANGUAGE', 'REFERENCE.WORD'), by.y=c('LANGUAGE', 'NOUN'))
 ```
+
+## Stats
+
+Contrasts:
+```{r}
+dat.crit$REFERENCE.CONCEPT = as.factor(dat.crit$REFERENCE.CONCEPT)   # random effect, reference level doesn't matter
+dat.crit$ADJECTIVE = as.factor(dat.crit$ADJECTIVE)   # random effect, reference level doesn't matter
+dat.crit$GENDER.ASSOCIATION.OF.ADJECTIVE = as.factor(dat.crit$GENDER.ASSOCIATION.OF.ADJECTIVE)
+contrasts(dat.crit$GENDER.ASSOCIATION.OF.ADJECTIVE) = contr.sum(2)    # sum coding, mean between man and woman is the reference level
+colnames(attr(dat.crit$GENDER.ASSOCIATION.OF.ADJECTIVE, "contrasts")) = c("masc-fem")
+dat.crit$LANGUAGE = factor(dat.crit$LANGUAGE, levels=c("en", "es", "de"))   # dummy coding, en is the reference level
+dat.crit$NOUN.GROUP = as.factor(dat.crit$NOUN.GROUP)
+contrasts(dat.crit$NOUN.GROUP) = contr.sum(2)    # sum coding, mean between man and woman is the reference level
+colnames(attr(dat.crit$NOUN.GROUP, "contrasts")) = c("groupdiff")
+```
+
+Model:
+```{r}
+m = lmer(COSINE.SIMILARITY~LANGUAGE*NOUN.GROUP*GENDER.ASSOCIATION.OF.ADJECTIVE+(1+LANGUAGE|REFERENCE.CONCEPT)+(1|ADJECTIVE), data=dat.crit, REML=FALSE)
+summary(m)
+```
+
+## Plot
+
+```{r}
+
+dat.crit.by_adjective = dat.crit %>%
+  group_by(ADJECTIVE,LANGUAGE,NOUN.GROUP,GENDER.ASSOCIATION.OF.ADJECTIVE) %>% summarize(COSINE.SIMILARITY=mean(COSINE.SIMILARITY))
+dat.crit.by_noun = dat.crit %>%
+  group_by(REFERENCE.WORD,LANGUAGE,NOUN.GROUP,GENDER.ASSOCIATION.OF.ADJECTIVE) %>% summarize(COSINE.SIMILARITY=mean(COSINE.SIMILARITY))
+
+ggplot(data=dat.crit.by_noun, mapping=aes(x=NOUN.GROUP, y=COSINE.SIMILARITY, fill=GENDER.ASSOCIATION.OF.ADJECTIVE))+
+  facet_wrap(~LANGUAGE)+
+  stat_summary(geom='col', fun='mean',
+               width=0.8, position='dodge')+
+  stat_summary(geom='errorbar', fun.data='mean_se',
+               color = 'black', size = 0.8, width=0, position=position_dodge(width=0.8))+
+  geom_point(position=position_jitterdodge(jitter.width=0.2, jitter.height=0,
+                                           dodge.width = 0.8), 
+             size=.5, alpha=0.5, shape=21, stroke=.5)+
+  geom_hline(yintercept=0)+
+  theme_classic()
+```
+
+
