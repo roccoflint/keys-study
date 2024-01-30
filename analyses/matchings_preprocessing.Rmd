@@ -17,9 +17,9 @@ library(data.table)
 
 ```{r}
 # language options: en, es, de
-language = 'en'
+language = 'de'
 
-dat.raw = read.csv(paste('../data/matchings/raw/', language, '_matchings_response_raw.csv', sep=''))
+dat.raw = read.csv(paste('../data/matchings/raw/', language, '_matchings_raw.csv', sep=''))
 
 # get ratings
 dat.ratings = dat.raw %>%
@@ -33,52 +33,71 @@ dat = dat.ratings %>%
   filter(Rating!="")
 dat$Rating = as.numeric(dat$Rating)
 
-# filter out "i don't know" responses
-dat = dat %>%
-  filter(Rating %in% c(1,2))  
-
-# get the noun info
-noun_info = read.csv('../materials/matchings/reference/matchings_nouns.csv')
-noun_info$NounID <- seq.int(nrow(noun_info))
-
 # get the question info
 question_info = read.csv(paste('../materials/matchings/stimulus/', language, '_matchings_stimulus.csv', sep=''))
 question_info = question_info %>%
   mutate(RatingType=paste("X",question,"_Version.",version,sep=""))
 
-# combine 
 dat = question_info %>%
-  merge(dat) %>%
+  merge(dat) 
+
+# get control responses
+dat.control.man = dat %>% filter(noun %in% c("man", "Mann", "hombre"))
+dat.control.woman = dat %>% filter(noun %in% c("woman", "Frau", "mujer"))
+
+# add the noun info
+noun_info = read.csv('../materials/matchings/reference/matchings_nouns.csv')
+noun_info$NounID <- seq.int(nrow(noun_info))
+
+dat = dat %>%
   merge(noun_info, by.x="noun", by.y=language)
 
 # get noun gender info
-if (language=='en') {
-  dat = dat %>% mutate(NounGender=ifelse(Group=="Spanish Masculine", "neutral1", "neutral2"))
-} else if (language=='es') {
-  dat = dat %>% mutate(NounGender=ifelse(Group=="Spanish Masculine", "masc", "fem"))
-} else if (language=='de') {
-  dat = dat %>% mutate(NounGender=ifelse(Group=="German Masculine", "masc", "fem"))
-}
+dat = dat %>% 
+  mutate(Group=ifelse(Group=="Spanish Masculine", "de-F.es-M", "de-M.es-F")) %>% 
+  rename(NounGroup=Group)
 ```
 
+
+# Quality control
+
+Attention checks:
+```{r}
+# exclude participants who fail attention checks
+participants.excluded.masc = dat.control.man %>% filter(Rating!=1) 
+participants.excluded.fem = dat.control.woman %>% filter(Rating!=2)
+participants.excluded = rbind(participants.excluded.masc, participants.excluded.fem) %>% select(ResponseId) %>% unique()
+
+dat = dat %>% 
+  filter(!(ResponseId %in% participants.excluded$ResponseId))
+warning(paste("Excluding", nrow(participants.excluded), "participants due to wrong answers to control adjectives"))
+```
+"I don't know" responses:
+```{r}
+# exclude people with too many I don't know responses
+dat.unknown_word.by_participant = dat %>% 
+  group_by(ResponseId) %>% summarize(ratio_known = sum(Rating %in% c(1,2)) / n())
+
+ratio_known_threshold = 0.67
+participants.excluded = dat.unknown_word.by_participant %>% filter(ratio_known < ratio_known_threshold)
+dat = dat %>% 
+  filter(!(ResponseId %in% participants.excluded$ResponseId))
+warning(paste("Excluding", nrow(participants.excluded), "participants due to a high number of 'I don't know' responses. "))
+
+# in general we won't model "i don't know" responses so excluding the rest too
+dat.unknown_word = dat %>%
+  filter(!(Rating %in% c(1,2)))
+dat = dat %>%
+  filter(Rating %in% c(1,2))  
+warning(paste(" Excluding ", nrow(dat.unknown_word), "'I don't know' responses"))
+```
+
+# Save
 Save the full dataframe:
 ```{r}
 write.csv(dat, paste('../data/matchings/processed/', language, "_data.csv", sep=""), row.names=FALSE)
 ```
 
-# Analyses
 
-```{r}
-dat.mean = dat %>% 
-  group_by(NounGender, ResponseId) %>%
-  summarize(meanRating=mean(Rating))
-
-ggplot(data=dat.mean, mapping=aes(x=NounGender, y=meanRating, fill=NounGender))+
-  stat_summary(geom='col', fun='mean',
-               width=0.8, position='dodge')+
-  geom_jitter(width=0.1, height=0)+
-  geom_hline(yintercept=0)+
-  theme_classic()
-```
 
 
