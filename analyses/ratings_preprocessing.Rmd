@@ -17,7 +17,7 @@ library(data.table)
 
 ```{r}
 # language options: en, es, de
-language = 'es'
+language = 'de'
 
 dat = read.csv(paste('../data/adjective-ratings/raw/', language, '_adjective_ratings_unprocessed.csv', sep=''))
 
@@ -119,6 +119,15 @@ adjectives.excluded = dat.unknown.by_adjective %>% filter(ratio_unknown>=exclusi
 dat.reshaped = dat.reshaped %>% 
   filter(!(Adjective %in% adjectives.excluded$Adjective))
 warning(paste("Excluding", nrow(adjectives.excluded), "adjectives because at least", exclusion_threshold*100, "% of participants don't know them"))
+
+# exclude people with too many I don't know responses
+dat.unknown.by_participant = dat.reshaped %>% 
+  group_by(ResponseId) %>% summarize(ratio_unknown = sum(is.na(Gender.Association)) / n())
+exclusion_threshold = .33
+participants.excluded = dat.unknown.by_participant %>% filter(ratio_unknown>=exclusion_threshold)
+dat.reshaped = dat.reshaped %>% 
+  filter(!(ResponseId %in% participants.excluded$ResponseId))
+warning(paste("Excluding ", nrow(participants.excluded), "participants due to a high number of 'I don't know' responses"))
 ```
 
 # Mean ratings by adjective
