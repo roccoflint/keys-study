@@ -1,0 +1,130 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+
+```{r}
+rm(list = ls())
+
+library(tidyverse)
+library(ggplot2)
+library(data.table)
+library(lme4)
+library(lmerTest)
+```
+
+# Distance to man and woman
+
+## Load and clean data
+
+Cosine distances:
+```{r}
+dat.en = read.csv('../data/embeddings/control/en_embeddings_control.csv')
+dat.es = read.csv('../data/embeddings/control/es_embeddings_control.csv')
+dat.de = read.csv('../data/embeddings/control/de_embeddings_control.csv')
+dat = rbind(dat.en, dat.es, dat.de)
+dat = dat %>% 
+  mutate(TARGET.CONCEPT=ifelse(TARGET.WORD %in% c("woman", "Frau", "mujer"), "woman", "man"))
+dat.nouns = dat %>% 
+  filter(REFERENCE.GROUP=='nouns') %>% 
+  filter(TARGET.GROUP=='genders') 
+dat.adjectives = dat %>% filter(REFERENCE.GROUP=='adjectives') %>% filter(TARGET.GROUP=='genders')
+```
+
+Noun info:
+```{r}
+noun_info = read.csv('../materials/matchings/reference/matchings_nouns.csv')
+noun_info = noun_info %>% rename(REFERENCE.CONCEPT=translation, NOUN.GROUP=Group) %>%
+  pivot_longer(!c(REFERENCE.CONCEPT, NOUN.GROUP), names_to = "LANGUAGE", values_to = "REFERENCE.WORD") %>%
+  mutate(NOUN.GROUP=ifelse(NOUN.GROUP=="Spanish Masculine", "de-F.es-M", "de-M.es-F"))
+```
+
+Combine:
+```{r}
+dat.nouns = noun_info %>% merge(dat.nouns)
+```
+
+## NOUNS
+
+### Stats
+
+Contrasts:
+```{r}
+dat.nouns$REFERENCE.CONCEPT = as.factor(dat.nouns$REFERENCE.CONCEPT)   # random effect, reference level doesn't matter
+dat.nouns$TARGET.CONCEPT = as.factor(dat.nouns$TARGET.CONCEPT)
+contrasts(dat.nouns$TARGET.CONCEPT) = contr.sum(2)    # sum coding, mean between man and woman is the reference level
+colnames(attr(dat.nouns$TARGET.CONCEPT, "contrasts")) = c("man-woman")
+dat.nouns$LANGUAGE = factor(dat.nouns$LANGUAGE, levels=c("en", "es", "de"))   # dummy coding, en is the reference level
+dat.nouns$NOUN.GROUP = as.factor(dat.nouns$NOUN.GROUP)
+contrasts(dat.nouns$NOUN.GROUP) = contr.sum(2)    # sum coding, mean between man and woman is the reference level
+colnames(attr(dat.nouns$NOUN.GROUP, "contrasts")) = c("groupdiff")
+```
+
+Model:
+```{r}
+m = lmer(COSINE.SIMILARITY~LANGUAGE*TARGET.CONCEPT*NOUN.GROUP+(1+LANGUAGE|REFERENCE.CONCEPT), data=dat.nouns, REML=FALSE)
+summary(m)
+```
+
+### Plot
+
+```{r}
+ggplot(data=dat.nouns, mapping=aes(x=NOUN.GROUP, y=COSINE.SIMILARITY, fill=TARGET.CONCEPT))+
+  facet_wrap(~LANGUAGE)+
+  stat_summary(geom='col', fun='mean',
+               width=0.8, position='dodge')+
+  stat_summary(geom='errorbar', fun.data='mean_se',
+               color = 'black', size = 0.8, width=0, position=position_dodge(width=0.8))+
+  geom_point(position=position_jitterdodge(jitter.width=0.2, jitter.height=0,
+                                           dodge.width = 0.8), 
+             size=1, alpha=0.5, shape=21, stroke=.5)+
+  geom_hline(yintercept=0)+
+  theme_classic()
+```
+## ADJECTIVES
+
+### Stats
+
+Contrasts:
+```{r}
+dat.adjectives$REFERENCE.WORD = as.factor(dat.adjectives$REFERENCE.WORD)   # random effect, reference level doesn't matter
+dat.adjectives$TARGET.CONCEPT = as.factor(dat.adjectives$TARGET.CONCEPT)
+contrasts(dat.adjectives$TARGET.CONCEPT) = contr.sum(2)    # sum coding, mean between man and woman is the reference level
+colnames(attr(dat.adjectives$TARGET.CONCEPT, "contrasts")) = c("man-woman")
+dat.adjectives$LANGUAGE = factor(dat.adjectives$LANGUAGE, levels=c("en", "es", "de"))   # dummy coding, en is the reference level
+dat.adjectives$REFERENCE.ASSOCIATION = as.factor(dat.adjectives$REFERENCE.ASSOCIATION)
+contrasts(dat.adjectives$REFERENCE.ASSOCIATION) = contr.sum(2)    # sum coding, mean between man and woman is the reference level
+colnames(attr(dat.adjectives$REFERENCE.ASSOCIATION, "contrasts")) = c("man-woman")
+```
+
+Model:
+```{r}
+m = lmer(COSINE.SIMILARITY~LANGUAGE*TARGET.CONCEPT*REFERENCE.ASSOCIATION+(1|REFERENCE.WORD), data=dat.adjectives, REML=FALSE)
+summary(m)
+```
+
+### Plot
+
+```{r}
+ggplot(data=dat.adjectives, mapping=aes(x=REFERENCE.ASSOCIATION, y=COSINE.SIMILARITY, fill=TARGET.CONCEPT))+
+  facet_wrap(~LANGUAGE)+
+  stat_summary(geom='col', fun='mean',
+               width=0.8, position='dodge')+
+  stat_summary(geom='errorbar', fun.data='mean_se',
+               color = 'black', size = 0.8, width=0, position=position_dodge(width=0.8))+
+  geom_point(position=position_jitterdodge(jitter.width=0.2, jitter.height=0,
+                                           dodge.width = 0.8), 
+             size=1, alpha=0.5, shape=21, stroke=.5)+
+  geom_hline(yintercept=0)+
+  theme_classic()
+```
+
+
+# Distance between nouns and adjectives
+```{r}
+dat.crit.en = read.csv('../data/embeddings/experimental/en_embeddings_experimental.csv')
+dat.crit.es = read.csv('../data/embeddings/experimental/es_embeddings_experimental.csv')
+dat.crit.de = read.csv('../data/embeddings/experimental/de_embeddings_experimental.csv')
+dat.crit = rbind(dat.crit.en, dat.crit.es, dat.crit.de)
+```
