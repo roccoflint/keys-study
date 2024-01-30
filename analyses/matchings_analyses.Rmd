@@ -1,0 +1,69 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+rm(list = ls())
+
+library(tidyverse)
+library(ggplot2)
+library(data.table)
+library(lme4)
+library(lmerTest)
+```
+
+# Distance to man and woman
+
+## Load and clean data
+
+Cosine distances:
+```{r}
+dat.en = read.csv('../data/matchings/processed/en_data.csv')
+dat.es = read.csv('../data/matchings/processed/es_data.csv')
+dat.de = read.csv('../data/matchings/processed/de_data.csv')
+
+dat = rbind(dat.en %>% select(-es, -de) %>% mutate(Language='en'), 
+            dat.es %>% select(-en, -de) %>% mutate(Language='es'), 
+            dat.de %>% select(-en, -es) %>% mutate(Language='de'))
+
+dat = dat %>% rename(NounConcept=translation)
+```
+
+# Analyses
+
+## Stats
+
+Contrasts:
+```{r}
+dat$Rating = factor(dat$Rating)
+dat$question = as.numeric(dat$question)
+dat$Language = factor(dat$Language, levels=c("en", "es", "de"))   # dummy coding, en is the reference level
+dat$NounGroup = as.factor(dat$NounGroup)
+contrasts(dat$NounGroup) = contr.sum(2)    # sum coding, mean between man and woman is the reference level
+colnames(attr(dat$NounGroup, "contrasts")) = c("groupdiff")
+```
+
+Model:
+```{r}
+m = glmer(Rating ~ Language*NounGroup + scale(question) + (1+Language|NounConcept) + (1+scale(question)|ResponseId), data=dat, family="binomial")
+summary(m)
+```
+
+## Plot
+
+```{r}
+dat.by_noun = dat %>%
+  group_by(NounConcept, Language, NounGroup) %>% summarize(meanRating=mean(as.numeric(Rating)))
+
+ggplot(data=dat.by_noun, mapping=aes(x=NounGroup, y=meanRating, fill=NounGroup))+
+  facet_wrap(~Language)+
+  stat_summary(geom='col', fun='mean',
+               width=0.8)+
+  stat_summary(geom='errorbar', fun.data='mean_se',
+               color = 'black', size = 0.8, width=0)+
+  geom_point(position=position_jitter(width=0.2, height=0), 
+             size=.5, alpha=0.5, shape=21, stroke=.5)+
+  geom_hline(yintercept=0)+
+  theme_classic()
+```

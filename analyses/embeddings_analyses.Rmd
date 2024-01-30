@@ -20,7 +20,7 @@ library(lmerTest)
 
 Cosine distances:
 ```{r}
-dat.en = read.csv('../data/embeddings/control/en_embeddings_control.csv')
+dat.en = read.csv('../data/embeddings/control/en_embeddings_control.csv') 
 dat.es = read.csv('../data/embeddings/control/es_embeddings_control.csv')
 dat.de = read.csv('../data/embeddings/control/de_embeddings_control.csv')
 dat = rbind(dat.en, dat.es, dat.de)
