@@ -79,6 +79,11 @@ en,nouns,neuter,ceiling,genders,man,0.039587567145581565
 en,nouns,neuter,barn,genders,man,0.17866737352321416
 en,nouns,neuter,burger,genders,man,0.22181436002529697
 en,nouns,neuter,peanut,genders,man,0.11844759706894988
+en,nouns,neuter,fingernail,genders,man,0.1880854318923529
+en,nouns,neuter,head,genders,man,0.28674072990944904
+en,nouns,neuter,key,genders,man,0.1335831016251241
+en,nouns,neuter,bridge,genders,man,0.18083679425514193
+en,nouns,neuter,belly,genders,man,0.21841240864899122
 en,nouns,neuter,toaster,genders,woman,0.16451111959730572
 en,nouns,neuter,moon,genders,woman,0.22380977888952552
 en,nouns,neuter,broom,genders,woman,0.2556206674260545
@@ -159,6 +164,11 @@ en,nouns,neuter,ceiling,genders,woman,0.027118276831584225
 en,nouns,neuter,barn,genders,woman,0.1565241910879012
 en,nouns,neuter,burger,genders,woman,0.14180922686229852
 en,nouns,neuter,peanut,genders,woman,0.10812743871162812
+en,nouns,neuter,fingernail,genders,woman,0.20137749763537816
+en,nouns,neuter,head,genders,woman,0.2584914688703941
+en,nouns,neuter,key,genders,woman,0.0824566110005813
+en,nouns,neuter,bridge,genders,woman,0.15649772510580906
+en,nouns,neuter,belly,genders,woman,0.2207033797166147
 en,nouns,neuter,toaster,determiners,the,0.10635741246693803
 en,nouns,neuter,moon,determiners,the,0.2290329213499701
 en,nouns,neuter,broom,determiners,the,0.16064586263980574
@@ -239,6 +249,11 @@ en,nouns,neuter,ceiling,determiners,the,0.21236994208430293
 en,nouns,neuter,barn,determiners,the,0.16404244720374744
 en,nouns,neuter,burger,determiners,the,0.11740896073174961
 en,nouns,neuter,peanut,determiners,the,0.10296406970184256
+en,nouns,neuter,fingernail,determiners,the,0.12387725497064458
+en,nouns,neuter,head,determiners,the,0.30938386753682406
+en,nouns,neuter,key,determiners,the,0.3242379695221952
+en,nouns,neuter,bridge,determiners,the,0.24583661377727414
+en,nouns,neuter,belly,determiners,the,0.1772972926395299
 en,adjectives,masculine,young,genders,man,0.5107601343519854
 en,adjectives,masculine,bald-headed,genders,man,0.5084512266131975
 en,adjectives,masculine,heavyset,genders,man,0.5018636659843368
