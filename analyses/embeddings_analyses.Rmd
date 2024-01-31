@@ -23,9 +23,11 @@ Cosine distances:
 dat.en = read.csv('../data/embeddings/control/en_embeddings_control.csv') 
 dat.es = read.csv('../data/embeddings/control/es_embeddings_control.csv')
 dat.de = read.csv('../data/embeddings/control/de_embeddings_control.csv')
-dat = rbind(dat.en, dat.es, dat.de)
+dat = rbind(dat.en, dat.es, dat.de) %>% unique()
 dat = dat %>% 
   mutate(TARGET.CONCEPT=ifelse(TARGET.WORD %in% c("woman", "Frau", "mujer"), "woman", "man"))
+#manual adjustment
+dat = dat %>% filter(REFERENCE.WORD!='macha')
 dat.nouns = dat %>% 
   filter(REFERENCE.GROUP=='nouns') %>% 
   filter(TARGET.GROUP=='genders') 
@@ -38,6 +40,17 @@ noun_info = read.csv('../materials/matchings/reference/matchings_nouns.csv')
 noun_info = noun_info %>% rename(REFERENCE.CONCEPT=translation, NOUN.GROUP=Group) %>%
   pivot_longer(!c(REFERENCE.CONCEPT, NOUN.GROUP), names_to = "LANGUAGE", values_to = "REFERENCE.WORD") %>%
   mutate(NOUN.GROUP=ifelse(NOUN.GROUP=="Spanish Masculine", "de-F.es-M", "de-M.es-F"))
+```
+
+Adjective info (spanish grammatical gender):
+```{r}
+adjective_info.es = rbind(read.csv('../materials/adjectives/es-adjectives-info/es_feminine_group_adjectives_info.csv'),
+                          read.csv('../materials/adjectives/es-adjectives-info/es_masculine_group_adjectives_info.csv'))
+
+dat.adjectives = dat.adjectives %>% 
+  mutate(GRAMMATICAL.FORM = ifelse(LANGUAGE %in% c('en', 'de'), 'neuter',
+                                  ifelse(REFERENCE.WORD %in% adjective_info.es$adjective.masc.form, 'masculine',
+                                  ifelse(REFERENCE.WORD %in% adjective_info.es$adjective.fem.form, 'feminine', 'neuter'))))
 ```
 
 Combine:
@@ -96,11 +109,12 @@ dat.adjectives$LANGUAGE = factor(dat.adjectives$LANGUAGE, levels=c("en", "es", "
 dat.adjectives$REFERENCE.ASSOCIATION = as.factor(dat.adjectives$REFERENCE.ASSOCIATION)
 contrasts(dat.adjectives$REFERENCE.ASSOCIATION) = contr.sum(2)    # sum coding, mean between man and woman is the reference level
 colnames(attr(dat.adjectives$REFERENCE.ASSOCIATION, "contrasts")) = c("man-woman")
+dat.adjectives$GRAMMATICAL.FORM = factor(dat.adjectives$GRAMMATICAL.FORM, levels=c("neuter", "masculine", "feminine"))
 ```
 
 Model:
 ```{r}
-m = lmer(COSINE.SIMILARITY~LANGUAGE*TARGET.CONCEPT*REFERENCE.ASSOCIATION+(1|REFERENCE.WORD), data=dat.adjectives, REML=FALSE)
+m = lmer(COSINE.SIMILARITY~LANGUAGE*TARGET.CONCEPT*REFERENCE.ASSOCIATION+GRAMMATICAL.FORM:TARGET.CONCEPT+(1|REFERENCE.WORD), data=dat.adjectives, REML=FALSE)
 summary(m)
 ```
 
@@ -130,7 +144,8 @@ dat.ratings.es = read.csv('../data/adjective-ratings/processed/es_summary_by_adj
 dat.ratings.de = read.csv('../data/adjective-ratings/processed/de_summary_by_adjective.csv')
 dat.ratings = rbind(dat.ratings.en %>% mutate("LANGUAGE"='en'), 
                     dat.ratings.es %>% mutate("LANGUAGE"='es'), 
-                    dat.ratings.de %>% mutate("LANGUAGE"='de')) %>%
+                    dat.ratings.de %>% mutate("LANGUAGE"='de')) %>% 
+  unique() %>%
   merge(dat.adjectives, by.x=c("LANGUAGE", "Adjective"), by.y=c("LANGUAGE", "REFERENCE.WORD"))
 
 ```
@@ -192,8 +207,8 @@ dat.wider = dat.ratings %>%
 
 Contrasts:
 ```{r}
-dat.ratings$LANGUAGE = factor(dat.ratings$LANGUAGE, levels=c("en", "es", "de")) 
-dat.ratings$Adjective = as.factor(dat.ratings$Adjective)
+dat.wider$LANGUAGE = factor(dat.wider$LANGUAGE, levels=c("en", "es", "de")) 
+dat.wider$Adjective = as.factor(dat.wider$Adjective)
 ```
 
 Model:
@@ -233,7 +248,9 @@ ggplot(data=dat.ratings, mapping=aes(x=meanAssociation, y=COSINE.SIMILARITY))+
 dat.crit.en = read.csv('../data/embeddings/experimental/en_embeddings_experimental.csv')
 dat.crit.es = read.csv('../data/embeddings/experimental/es_embeddings_experimental.csv')
 dat.crit.de = read.csv('../data/embeddings/experimental/de_embeddings_experimental.csv')
-dat.crit = rbind(dat.crit.en, dat.crit.es, dat.crit.de)
+dat.crit = rbind(dat.crit.en, dat.crit.es, dat.crit.de) %>% unique()
+
+dat.crit = dat.crit %>% filter(ADJECTIVE!='macha')
 
 # add noun group info
 dat.crit = noun_info %>% merge(dat.crit, by.x=c('LANGUAGE', 'REFERENCE.WORD'), by.y=c('LANGUAGE', 'NOUN'))
