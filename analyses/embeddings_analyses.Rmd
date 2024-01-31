@@ -121,7 +121,114 @@ ggplot(data=dat.adjectives, mapping=aes(x=REFERENCE.ASSOCIATION, y=COSINE.SIMILA
 ```
 
 
+# Adjectives and gender association ratings
+
+## Load and clean gender association ratings
+```{r}
+dat.ratings.en = read.csv('../data/adjective-ratings/processed/en_summary_by_adjective.csv')
+dat.ratings.es = read.csv('../data/adjective-ratings/processed/es_summary_by_adjective.csv')
+dat.ratings.de = read.csv('../data/adjective-ratings/processed/de_summary_by_adjective.csv')
+dat.ratings = rbind(dat.ratings.en %>% mutate("LANGUAGE"='en'), 
+                    dat.ratings.es %>% mutate("LANGUAGE"='es'), 
+                    dat.ratings.de %>% mutate("LANGUAGE"='de')) %>%
+  merge(dat.adjectives, by.x=c("LANGUAGE", "Adjective"), by.y=c("LANGUAGE", "REFERENCE.WORD"))
+
+```
+
+## Only keep adjectives that can describe a person
+```{r}
+threshold = 1.6
+dat.ratings.excluded = dat.ratings %>% filter(meanPerson>1.6)
+dat.ratings = dat.ratings %>% filter(meanPerson<=1.6)
+warning(paste("Excluding", nrow(dat.ratings.excluded), "adjectives that cannot be used to describe a person"))
+```
+
+## By group
+
+### Model
+
+Contrasts:
+```{r}
+dat.ratings$Adjective = as.factor(dat.ratings$Adjective)   # random effect, reference level doesn't matter
+dat.ratings$TARGET.CONCEPT = as.factor(dat.ratings$TARGET.CONCEPT)
+contrasts(dat.ratings$TARGET.CONCEPT) = contr.sum(2)    # sum coding, mean between man and woman is the reference level
+colnames(attr(dat.ratings$TARGET.CONCEPT, "contrasts")) = c("man-woman")
+dat.ratings$LANGUAGE = factor(dat.ratings$LANGUAGE, levels=c("en", "es", "de"))   # dummy coding, en is the reference level
+dat.ratings$REFERENCE.ASSOCIATION = as.factor(dat.ratings$REFERENCE.ASSOCIATION)
+contrasts(dat.ratings$REFERENCE.ASSOCIATION) = contr.sum(2)    # sum coding, mean between man and woman is the reference level
+colnames(attr(dat.ratings$REFERENCE.ASSOCIATION, "contrasts")) = c("man-woman")
+```
+
+Model:
+```{r}
+m = lmer(meanAssociation~LANGUAGE*REFERENCE.ASSOCIATION+(1|Adjective), data=dat.ratings, REML=FALSE)
+summary(m)
+```
+
+### Plot
+
+```{r}
+ggplot(data=dat.ratings, mapping=aes(x=REFERENCE.ASSOCIATION, y=meanAssociation))+
+  facet_wrap(~LANGUAGE)+
+  stat_summary(geom='col', fun='mean',
+               width=0.8)+
+  stat_summary(geom='errorbar', fun.data='mean_se',
+               color = 'black', size = 0.8, width=0)+
+  geom_point(position=position_jitter(width=0.2, height=0), 
+             size=1, alpha=0.5, shape=21, stroke=.5)+
+  geom_hline(yintercept=0)+
+  theme_classic()
+```
+
+
+## No groups, all adjectives
+
+### Stats
+
+```{r}
+dat.wider = dat.ratings %>%
+  pivot_wider(id_cols = c(LANGUAGE, Adjective, meanAssociation), names_from=TARGET.CONCEPT, values_from=COSINE.SIMILARITY)
+```
+
+Contrasts:
+```{r}
+dat.ratings$LANGUAGE = factor(dat.ratings$LANGUAGE, levels=c("en", "es", "de")) 
+dat.ratings$Adjective = as.factor(dat.ratings$Adjective)
+```
+
+Model:
+```{r}
+m = lmer(meanAssociation~LANGUAGE + LANGUAGE:scale(man) + LANGUAGE:scale(woman) + (1|Adjective), data=dat.wider, control=lmerControl(optimizer = "bobyqa", optCtrl=list(maxfun=2e9)))
+summary(m)
+```
+
+### Plot
+```{r}
+ggplot(data=dat.ratings, mapping=aes(x=meanAssociation, y=COSINE.SIMILARITY))+
+  facet_wrap(TARGET.CONCEPT~LANGUAGE)+
+  geom_point()+
+  theme_classic()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 # Distance between nouns and adjectives
+
+## Load
 ```{r}
 dat.crit.en = read.csv('../data/embeddings/experimental/en_embeddings_experimental.csv')
 dat.crit.es = read.csv('../data/embeddings/experimental/es_embeddings_experimental.csv')
@@ -130,6 +237,11 @@ dat.crit = rbind(dat.crit.en, dat.crit.es, dat.crit.de)
 
 # add noun group info
 dat.crit = noun_info %>% merge(dat.crit, by.x=c('LANGUAGE', 'REFERENCE.WORD'), by.y=c('LANGUAGE', 'NOUN'))
+```
+
+Only include adjectives that describe people
+```{r}
+dat.crit = dat.crit %>% filter(ADJECTIVE %in% dat.wider$Adjective)
 ```
 
 ## Stats

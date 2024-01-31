@@ -65,5 +65,6 @@ ggplot(data=dat.by_noun, mapping=aes(x=NounGroup, y=meanRating, fill=NounGroup))
   geom_point(position=position_jitter(width=0.2, height=0), 
              size=.5, alpha=0.5, shape=21, stroke=.5)+
   geom_hline(yintercept=0)+
+  coord_cartesian(ylim=c(1,2))+
   theme_classic()
 ```
