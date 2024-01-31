@@ -68,3 +68,69 @@ ggplot(data=dat.by_noun, mapping=aes(x=NounGroup, y=meanRating, fill=NounGroup))
   coord_cartesian(ylim=c(1,2))+
   theme_classic()
 ```
+
+## Compare with embedding distances
+
+```{r}
+dat.cosine = read.csv("../data/embeddings/experimental/all_embeddings_experimental_matchings.csv")
+
+dat.cosine.masc = dat.cosine %>% 
+  filter(GENDER.ASSOCIATION.OF.ADJECTIVE=='masculine') %>% unique() %>% 
+  rename(masculine_adjective=ADJECTIVE, noun=NOUN, Language=LANGUAGE) %>%
+  select(-GENDER.ASSOCIATION.OF.ADJECTIVE)
+dat.cosine.fem = dat.cosine %>% 
+  filter(GENDER.ASSOCIATION.OF.ADJECTIVE=='feminine') %>% unique() %>% 
+  rename(feminine_adjective=ADJECTIVE, noun=NOUN, Language=LANGUAGE) %>%
+  select(-GENDER.ASSOCIATION.OF.ADJECTIVE)
+
+dat.all = dat %>% select(-RatingType, -version, -NounID) %>%
+  merge(dat.cosine.masc) %>% rename(cosine2masc=COSINE.SIMILARITY) %>%
+  merge(dat.cosine.fem) %>% rename(cosine2fem=COSINE.SIMILARITY)
+```
+
+### Stats
+
+Contrasts:
+```{r}
+dat.all$Rating = factor(dat.all$Rating)
+dat.all$NounConcept = factor(dat.all$NounConcept)
+dat.all$ResponseId = factor(dat.all$ResponseId)
+dat.all$question = as.numeric(dat.all$question)
+dat.all$Language = factor(dat.all$Language, levels=c("en", "es", "de"))   
+```
+
+Model:
+```{r}
+m = glmer(Rating ~ Language + Language:scale(cosine2masc) + Language:scale(cosine2fem) + scale(question) + (1+Language|NounConcept) + (1+scale(question)|ResponseId), data=dat.all, family="binomial")
+summary(m)
+```
+
+```{r}
+dat.all.by_noun = dat.all %>%
+  group_by(NounConcept, Language, NounGroup) %>% summarize(cosine2masc=mean(cosine2masc),
+                                                           cosine2fem=mean(cosine2fem),
+                                                           meanRating=mean(as.numeric(Rating)))
+
+dat.all.mean = dat.all %>%
+  group_by(NounConcept, Language, NounGroup, masculine_adjective, feminine_adjective) %>% 
+  summarize(cosine2masc=mean(cosine2masc),
+            cosine2fem=mean(cosine2fem),
+            meanRating=mean(as.numeric(Rating)))
+
+ggplot(data=dat.all.by_noun, mapping=aes(x=cosine2masc, y=meanRating))+
+  facet_wrap(~Language)+
+  geom_point()+
+  theme_classic()
+ggplot(data=dat.all.by_noun, mapping=aes(x=cosine2fem, y=meanRating))+
+  facet_wrap(~Language)+
+  geom_point()+
+  theme_classic()
+ggplot(data=dat.all.mean, mapping=aes(x=cosine2masc, y=meanRating))+
+  facet_wrap(~Language)+
+  geom_point()+
+  theme_classic()
+ggplot(data=dat.all.mean, mapping=aes(x=cosine2fem, y=meanRating))+
+  facet_wrap(~Language)+
+  geom_point()+
+  theme_classic()
+```

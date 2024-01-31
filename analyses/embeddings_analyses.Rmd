@@ -288,3 +288,32 @@ ggplot(data=dat.crit.by_noun, mapping=aes(x=NOUN.GROUP, y=COSINE.SIMILARITY, fil
 ```
 
 
+## Repeat but now only with nouns & adjectives used in the matching experiment
+
+```{r}
+matchings.en = read.csv('../materials/matchings/stimulus/en_matchings_stimulus.csv')
+matchings.es = read.csv('../materials/matchings/stimulus/es_matchings_stimulus.csv')
+matchings.de = read.csv('../materials/matchings/stimulus/de_matchings_stimulus.csv')
+
+dat.crit.en.matchings = dat.crit.en %>%
+  filter(NOUN %in% matchings.en$noun) %>%
+  filter((ADJECTIVE %in% matchings.en$masculine_adjective) | (ADJECTIVE %in% matchings.en$feminine_adjective))
+
+dat.crit.es.matchings = dat.crit.es %>%
+  filter(NOUN %in% matchings.es$noun) %>%
+  filter((ADJECTIVE %in% matchings.es$masculine_adjective) | (ADJECTIVE %in% matchings.es$feminine_adjective))
+
+dat.crit.de.matchings = dat.crit.de %>%
+  filter(NOUN %in% matchings.de$noun) %>%
+  filter((ADJECTIVE %in% matchings.de$masculine_adjective) | (ADJECTIVE %in% matchings.de$feminine_adjective))
+
+dat.crit.matchings = rbind(dat.crit.en.matchings, dat.crit.es.matchings, dat.crit.de.matchings)
+
+# TODO fix mismatches in adjectives
+write.csv(dat.crit.matchings, "../data/embeddings/experimental/all_embeddings_experimental_matchings.csv",
+          row.names=FALSE)
+```
+
+
+
+
