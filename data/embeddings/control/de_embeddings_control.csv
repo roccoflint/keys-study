@@ -39,6 +39,10 @@ de,nouns,masculine,Stuhl,genders,Mann,0.36936474901216415
 de,nouns,masculine,Film,genders,Mann,0.358258967927915
 de,nouns,masculine,Flügel,genders,Mann,0.26626642527853245
 de,nouns,masculine,Burger,genders,Mann,0.3233907238061728
+de,nouns,masculine,Fingernagel,genders,Mann,0.31200702671059816
+de,nouns,masculine,Kopf,genders,Mann,0.37415925246460147
+de,nouns,masculine,Schlüssel,genders,Mann,0.3227858821227641
+de,nouns,masculine,Bauch,genders,Mann,0.3813608352872305
 de,nouns,masculine,Toaster,genders,Frau,0.1104046545827926
 de,nouns,masculine,Mond,genders,Frau,0.24921869818923287
 de,nouns,masculine,Besen,genders,Frau,0.1414669643181185
@@ -79,6 +83,10 @@ de,nouns,masculine,Stuhl,genders,Frau,0.2480211700526569
 de,nouns,masculine,Film,genders,Frau,0.1951782361462378
 de,nouns,masculine,Flügel,genders,Frau,0.16396699879965435
 de,nouns,masculine,Burger,genders,Frau,0.24358313695977232
+de,nouns,masculine,Fingernagel,genders,Frau,0.20001695957873847
+de,nouns,masculine,Kopf,genders,Frau,0.20534935363727128
+de,nouns,masculine,Schlüssel,genders,Frau,0.2032646452300868
+de,nouns,masculine,Bauch,genders,Frau,0.25101808010624954
 de,nouns,masculine,Toaster,determiners,der,0.09112226204312432
 de,nouns,masculine,Mond,determiners,der,0.17965534668014724
 de,nouns,masculine,Besen,determiners,der,0.11386222015693
@@ -119,6 +127,10 @@ de,nouns,masculine,Stuhl,determiners,der,0.20133601295990827
 de,nouns,masculine,Film,determiners,der,0.246853381941633
 de,nouns,masculine,Flügel,determiners,der,0.24665813927280122
 de,nouns,masculine,Burger,determiners,der,0.1803029489254285
+de,nouns,masculine,Fingernagel,determiners,der,0.19071953305914185
+de,nouns,masculine,Kopf,determiners,der,0.23657784474457333
+de,nouns,masculine,Schlüssel,determiners,der,0.27140913472460926
+de,nouns,masculine,Bauch,determiners,der,0.21852956665231207
 de,nouns,masculine,Toaster,determiners,die,0.07989975020810003
 de,nouns,masculine,Mond,determiners,die,0.18732394302806063
 de,nouns,masculine,Besen,determiners,die,0.10646318966579058
@@ -159,6 +171,10 @@ de,nouns,masculine,Stuhl,determiners,die,0.17426059957727072
 de,nouns,masculine,Film,determiners,die,0.22869516708755652
 de,nouns,masculine,Flügel,determiners,die,0.2490738862614414
 de,nouns,masculine,Burger,determiners,die,0.15609213717705847
+de,nouns,masculine,Fingernagel,determiners,die,0.15755664831928196
+de,nouns,masculine,Kopf,determiners,die,0.2604749130580177
+de,nouns,masculine,Schlüssel,determiners,die,0.3015119542418204
+de,nouns,masculine,Bauch,determiners,die,0.20698919686121003
 de,nouns,masculine,Toaster,determiners,das,0.1246035354500496
 de,nouns,masculine,Mond,determiners,das,0.1873126651445828
 de,nouns,masculine,Besen,determiners,das,0.06906851163174713
@@ -199,6 +215,10 @@ de,nouns,masculine,Stuhl,determiners,das,0.1868966798216087
 de,nouns,masculine,Film,determiners,das,0.2652902622514682
 de,nouns,masculine,Flügel,determiners,das,0.15206783188995282
 de,nouns,masculine,Burger,determiners,das,0.13427531999958806
+de,nouns,masculine,Fingernagel,determiners,das,0.17731642772652204
+de,nouns,masculine,Kopf,determiners,das,0.22114024922784345
+de,nouns,masculine,Schlüssel,determiners,das,0.2486455908501088
+de,nouns,masculine,Bauch,determiners,das,0.182597589666416
 de,nouns,feminine,Gabel,genders,Mann,0.18499917566350937
 de,nouns,feminine,Maus,genders,Mann,0.30758311818194745
 de,nouns,feminine,Schnecke,genders,Mann,0.2770780538217512
@@ -239,6 +259,7 @@ de,nouns,feminine,Brust,genders,Mann,0.32208839035128556
 de,nouns,feminine,Decke,genders,Mann,0.22401821094245253
 de,nouns,feminine,Scheune,genders,Mann,0.2695509655284988
 de,nouns,feminine,Erdnuss,genders,Mann,0.1965770664473191
+de,nouns,feminine,Brücke,genders,Mann,0.2782584679427836
 de,nouns,feminine,Gabel,genders,Frau,0.215726395923071
 de,nouns,feminine,Maus,genders,Frau,0.33893542621012374
 de,nouns,feminine,Schnecke,genders,Frau,0.3340150341199219
@@ -279,6 +300,7 @@ de,nouns,feminine,Brust,genders,Frau,0.28822678581694633
 de,nouns,feminine,Decke,genders,Frau,0.23395025143194176
 de,nouns,feminine,Scheune,genders,Frau,0.2707184589925645
 de,nouns,feminine,Erdnuss,genders,Frau,0.18361978711095348
+de,nouns,feminine,Brücke,genders,Frau,0.2441602948692026
 de,nouns,feminine,Gabel,determiners,der,0.21094592231427256
 de,nouns,feminine,Maus,determiners,der,0.21451425499232465
 de,nouns,feminine,Schnecke,determiners,der,0.23909609259720638
@@ -319,6 +341,7 @@ de,nouns,feminine,Brust,determiners,der,0.26316876396147215
 de,nouns,feminine,Decke,determiners,der,0.26034071490611693
 de,nouns,feminine,Scheune,determiners,der,0.20316949035265222
 de,nouns,feminine,Erdnuss,determiners,der,0.19033115548247784
+de,nouns,feminine,Brücke,determiners,der,0.2917035898803588
 de,nouns,feminine,Gabel,determiners,die,0.20585435750673045
 de,nouns,feminine,Maus,determiners,die,0.249856562477851
 de,nouns,feminine,Schnecke,determiners,die,0.228974326480423
@@ -359,6 +382,7 @@ de,nouns,feminine,Brust,determiners,die,0.255204497737669
 de,nouns,feminine,Decke,determiners,die,0.2695865196884476
 de,nouns,feminine,Scheune,determiners,die,0.15157289362463408
 de,nouns,feminine,Erdnuss,determiners,die,0.1689964076596761
+de,nouns,feminine,Brücke,determiners,die,0.3028548371121475
 de,nouns,feminine,Gabel,determiners,das,0.1517239079202095
 de,nouns,feminine,Maus,determiners,das,0.18106953267397868
 de,nouns,feminine,Schnecke,determiners,das,0.18282941030192737
@@ -399,6 +423,7 @@ de,nouns,feminine,Brust,determiners,das,0.17311706468644134
 de,nouns,feminine,Decke,determiners,das,0.17609357695263414
 de,nouns,feminine,Scheune,determiners,das,0.09351062217329985
 de,nouns,feminine,Erdnuss,determiners,das,0.10844804694076006
+de,nouns,feminine,Brücke,determiners,das,0.2200763512706515
 de,adjectives,masculine,verheiratet,genders,Mann,0.45174479786397426
 de,adjectives,masculine,kreationär,genders,Mann,0.4481457850556152
 de,adjectives,masculine,betrunken,genders,Mann,0.409379324588915
