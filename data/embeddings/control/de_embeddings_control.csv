@@ -469,6 +469,10 @@ de,adjectives,masculine,ledig,genders,Mann,0.3534842616503477
 de,adjectives,masculine,alleinerziehend,genders,Mann,0.35319490241708607
 de,adjectives,masculine,transident,genders,Mann,0.3529324720490347
 de,adjectives,masculine,sentimentalisch,genders,Mann,0.3528497138196156
+de,adjectives,masculine,geraum,genders,Mann,0.3523558969630733
+de,adjectives,masculine,männlich,genders,Mann,0.35182918784066036
+de,adjectives,masculine,schwerreich,genders,Mann,0.3512879847939664
+de,adjectives,masculine,impotent,genders,Mann,0.3506411825893327
 de,adjectives,masculine,verheiratet,genders,Frau,0.41041244410235495
 de,adjectives,masculine,kreationär,genders,Frau,0.32833975774805396
 de,adjectives,masculine,betrunken,genders,Frau,0.2441832584210025
@@ -539,6 +543,10 @@ de,adjectives,masculine,ledig,genders,Frau,0.33663877565768735
 de,adjectives,masculine,alleinerziehend,genders,Frau,0.33880635191736636
 de,adjectives,masculine,transident,genders,Frau,0.3634900848295311
 de,adjectives,masculine,sentimentalisch,genders,Frau,0.24502322995709777
+de,adjectives,masculine,geraum,genders,Frau,0.17070883711591425
+de,adjectives,masculine,männlich,genders,Frau,0.25377445815764643
+de,adjectives,masculine,schwerreich,genders,Frau,0.24709903483100673
+de,adjectives,masculine,impotent,genders,Frau,0.27760319104446524
 de,adjectives,masculine,verheiratet,determiners,der,0.13862162935508648
 de,adjectives,masculine,kreationär,determiners,der,0.2598950722780872
 de,adjectives,masculine,betrunken,determiners,der,0.15462779561915385
@@ -609,6 +617,10 @@ de,adjectives,masculine,ledig,determiners,der,0.17235438029769168
 de,adjectives,masculine,alleinerziehend,determiners,der,0.0761430943067901
 de,adjectives,masculine,transident,determiners,der,0.143678718095999
 de,adjectives,masculine,sentimentalisch,determiners,der,0.22321750495114004
+de,adjectives,masculine,geraum,determiners,der,0.3312856026717722
+de,adjectives,masculine,männlich,determiners,der,0.1810425086369368
+de,adjectives,masculine,schwerreich,determiners,der,0.32731038506591137
+de,adjectives,masculine,impotent,determiners,der,0.025483817952522515
 de,adjectives,masculine,verheiratet,determiners,die,0.11958823333513241
 de,adjectives,masculine,kreationär,determiners,die,0.2840355650386029
 de,adjectives,masculine,betrunken,determiners,die,0.14273901965470473
@@ -679,6 +691,10 @@ de,adjectives,masculine,ledig,determiners,die,0.13733595415758365
 de,adjectives,masculine,alleinerziehend,determiners,die,0.057857103504020777
 de,adjectives,masculine,transident,determiners,die,0.17417258275266603
 de,adjectives,masculine,sentimentalisch,determiners,die,0.24209715161076
+de,adjectives,masculine,geraum,determiners,die,0.40349989407821374
+de,adjectives,masculine,männlich,determiners,die,0.13700505956588344
+de,adjectives,masculine,schwerreich,determiners,die,0.2767861129470268
+de,adjectives,masculine,impotent,determiners,die,0.032001820594791744
 de,adjectives,masculine,verheiratet,determiners,das,0.12395029990330651
 de,adjectives,masculine,kreationär,determiners,das,0.23256163490542434
 de,adjectives,masculine,betrunken,determiners,das,0.16554495516328357
@@ -749,6 +765,10 @@ de,adjectives,masculine,ledig,determiners,das,0.092899811601605
 de,adjectives,masculine,alleinerziehend,determiners,das,0.09936027454463738
 de,adjectives,masculine,transident,determiners,das,0.2009564450176372
 de,adjectives,masculine,sentimentalisch,determiners,das,0.27889522685031576
+de,adjectives,masculine,geraum,determiners,das,0.3223733455596796
+de,adjectives,masculine,männlich,determiners,das,0.11564861739396978
+de,adjectives,masculine,schwerreich,determiners,das,0.23312644509282915
+de,adjectives,masculine,impotent,determiners,das,0.1201532821154751
 de,adjectives,feminine,frigide,genders,Mann,0.3077877982371667
 de,adjectives,feminine,aidskrank,genders,Mann,0.34170281508690514
 de,adjectives,feminine,krebskrank,genders,Mann,0.3146030362702573
@@ -819,6 +839,10 @@ de,adjectives,feminine,gebärfähig,genders,Mann,0.283404486403143
 de,adjectives,feminine,wohnhaft,genders,Mann,0.30846602774066323
 de,adjectives,feminine,davongelaufen,genders,Mann,0.3475104737237925
 de,adjectives,feminine,beruflich,genders,Mann,0.33022884389603474
+de,adjectives,feminine,sexistisch,genders,Mann,0.28384582988260393
+de,adjectives,feminine,herrschsüchtig,genders,Mann,0.28185692344063623
+de,adjectives,feminine,reputierlich,genders,Mann,0.3124143975453813
+de,adjectives,feminine,resolut,genders,Mann,0.26100901726155845
 de,adjectives,feminine,frigide,genders,Frau,0.39695555644217245
 de,adjectives,feminine,aidskrank,genders,Frau,0.3847562948549342
 de,adjectives,feminine,krebskrank,genders,Frau,0.37354858582061207
@@ -889,6 +913,10 @@ de,adjectives,feminine,gebärfähig,genders,Frau,0.2916562796143435
 de,adjectives,feminine,wohnhaft,genders,Frau,0.2913851059471884
 de,adjectives,feminine,davongelaufen,genders,Frau,0.29111391274746967
 de,adjectives,feminine,beruflich,genders,Frau,0.2909777653308804
+de,adjectives,feminine,sexistisch,genders,Frau,0.29049623251965756
+de,adjectives,feminine,herrschsüchtig,genders,Frau,0.2902347191540846
+de,adjectives,feminine,reputierlich,genders,Frau,0.2902326939182123
+de,adjectives,feminine,resolut,genders,Frau,0.2894877576122792
 de,adjectives,feminine,frigide,determiners,der,0.11022037271988938
 de,adjectives,feminine,aidskrank,determiners,der,0.22053556574724215
 de,adjectives,feminine,krebskrank,determiners,der,0.0912105806655922
@@ -959,6 +987,10 @@ de,adjectives,feminine,gebärfähig,determiners,der,0.10907353444370894
 de,adjectives,feminine,wohnhaft,determiners,der,0.15561152495787267
 de,adjectives,feminine,davongelaufen,determiners,der,0.17586312751878114
 de,adjectives,feminine,beruflich,determiners,der,0.22003420337348054
+de,adjectives,feminine,sexistisch,determiners,der,0.06844202981507996
+de,adjectives,feminine,herrschsüchtig,determiners,der,0.08182953252306686
+de,adjectives,feminine,reputierlich,determiners,der,0.21256314696996248
+de,adjectives,feminine,resolut,determiners,der,0.12877753464853772
 de,adjectives,feminine,frigide,determiners,die,0.16943086025226253
 de,adjectives,feminine,aidskrank,determiners,die,0.23855161498163666
 de,adjectives,feminine,krebskrank,determiners,die,0.11467840773741675
@@ -1029,6 +1061,10 @@ de,adjectives,feminine,gebärfähig,determiners,die,0.14929682187697194
 de,adjectives,feminine,wohnhaft,determiners,die,0.09106903547820303
 de,adjectives,feminine,davongelaufen,determiners,die,0.16599800654924116
 de,adjectives,feminine,beruflich,determiners,die,0.2570769420069596
+de,adjectives,feminine,sexistisch,determiners,die,0.10729400371731196
+de,adjectives,feminine,herrschsüchtig,determiners,die,0.07077149014137457
+de,adjectives,feminine,reputierlich,determiners,die,0.2651783652428633
+de,adjectives,feminine,resolut,determiners,die,0.20971090281960844
 de,adjectives,feminine,frigide,determiners,das,0.14307938895775282
 de,adjectives,feminine,aidskrank,determiners,das,0.21485855030443643
 de,adjectives,feminine,krebskrank,determiners,das,0.14944162052460375
@@ -1099,3 +1135,7 @@ de,adjectives,feminine,gebärfähig,determiners,das,0.20666491081155464
 de,adjectives,feminine,wohnhaft,determiners,das,0.071886076077665
 de,adjectives,feminine,davongelaufen,determiners,das,0.17276674605674608
 de,adjectives,feminine,beruflich,determiners,das,0.25919719269336056
+de,adjectives,feminine,sexistisch,determiners,das,0.18882045196110744
+de,adjectives,feminine,herrschsüchtig,determiners,das,0.09740252901192119
+de,adjectives,feminine,reputierlich,determiners,das,0.2620034419460937
+de,adjectives,feminine,resolut,determiners,das,0.22460971124998483
