@@ -55,7 +55,7 @@ en,nouns,neuter,table,genders,man,0.07994241115583393
 en,nouns,neuter,bowl,genders,man,0.1156029584916151
 en,nouns,neuter,pancake,genders,man,0.1816279879727622
 en,nouns,neuter,fist,genders,man,0.26132147149444745
-en,nouns,neuter,pajama,genders,man,0.14252706486152872
+en,nouns,neuter,pajamas,genders,man,0.12512612893394687
 en,nouns,neuter,button,genders,man,0.06292301657076621
 en,nouns,neuter,toast,genders,man,0.18088000377853794
 en,nouns,neuter,sponge,genders,man,0.1171031861665493
@@ -140,7 +140,7 @@ en,nouns,neuter,table,genders,woman,0.08312815577605084
 en,nouns,neuter,bowl,genders,woman,0.09398189021624559
 en,nouns,neuter,pancake,genders,woman,0.15076493217188874
 en,nouns,neuter,fist,genders,woman,0.19819783141709638
-en,nouns,neuter,pajama,genders,woman,0.13519402484054402
+en,nouns,neuter,pajamas,genders,woman,0.13744604043276093
 en,nouns,neuter,button,genders,woman,0.02997681048274999
 en,nouns,neuter,toast,genders,woman,0.15880755143133674
 en,nouns,neuter,sponge,genders,woman,0.08558026995944687
@@ -225,7 +225,7 @@ en,nouns,neuter,table,determiners,the,0.2442461747128471
 en,nouns,neuter,bowl,determiners,the,0.1742678377457606
 en,nouns,neuter,pancake,determiners,the,0.1537896600785016
 en,nouns,neuter,fist,determiners,the,0.20220594704222977
-en,nouns,neuter,pajama,determiners,the,0.11810622271079352
+en,nouns,neuter,pajamas,determiners,the,0.09967534858235681
 en,nouns,neuter,button,determiners,the,0.1802850253414182
 en,nouns,neuter,toast,determiners,the,0.18121570687392138
 en,nouns,neuter,sponge,determiners,the,0.13549633122754476
