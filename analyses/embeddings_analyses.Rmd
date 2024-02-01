@@ -66,7 +66,7 @@ dat.nouns = noun_info %>% merge(dat.nouns)
 Contrasts:
 ```{r}
 dat.nouns$REFERENCE.CONCEPT = as.factor(dat.nouns$REFERENCE.CONCEPT)   # random effect, reference level doesn't matter
-dat.nouns$TARGET.CONCEPT = as.factor(dat.nouns$TARGET.CONCEPT)
+dat.nouns$TARGET.CONCEPT = factor(dat.nouns$TARGET.CONCEPT, levels=c("woman", "man"))
 contrasts(dat.nouns$TARGET.CONCEPT) = contr.sum(2)    # sum coding, mean between man and woman is the reference level
 colnames(attr(dat.nouns$TARGET.CONCEPT, "contrasts")) = c("man-woman")
 dat.nouns$LANGUAGE = factor(dat.nouns$LANGUAGE, levels=c("en", "es", "de"))   # dummy coding, en is the reference level
@@ -161,9 +161,9 @@ dat.ratings = rbind(dat.ratings.en %>% mutate("LANGUAGE"='en'),
 
 ## Only keep adjectives that can describe a person
 ```{r}
-threshold = 1.6
-dat.ratings.excluded = dat.ratings %>% filter(meanPerson>1.6)
-dat.ratings = dat.ratings %>% filter(meanPerson<=1.6)
+threshold = 1.5
+dat.ratings.excluded = dat.ratings %>% filter(meanPerson>threshold)
+dat.ratings = dat.ratings %>% filter(meanPerson<=threshold)
 warning(paste("Excluding", nrow(dat.ratings.excluded), "adjectives that cannot be used to describe a person"))
 ```
 
@@ -338,7 +338,7 @@ p.crit
 ```
 
 
-## Repeat but now only with nouns & adjectives used in the matching experiment
+## Get nouns & adjectives used in the matching experiment
 
 ```{r}
 matchings.en = read.csv('../materials/matchings/stimulus/en_matchings_stimulus.csv')

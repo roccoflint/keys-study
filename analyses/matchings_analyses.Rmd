@@ -70,15 +70,31 @@ p.main = ggplot(data=dat.by_noun, mapping=aes(x=NounGroup, y=meanRating, fill=No
   geom_hline(yintercept=0)+
   coord_cartesian(ylim=c(1,2))+
   scale_fill_manual(values=c("mediumblue", "darkgreen"))+
-  scale_y_continuous(breaks = c(1,1.5,2), labels=c("F","","M")) +
+  scale_y_continuous(breaks = c(1,1.5,2), labels=c("M","","F")) +
   theme_classic()+theme(legend.position="none")
 p.main
 ```
 
-## Compare with embedding distances
+# Compare with embedding distances
 
 ```{r}
 dat.cosine = read.csv("../data/embeddings/experimental/all_embeddings_experimental_matchings.csv")
+
+dat.all = dat %>% select(-RatingType, -version, -NounID) %>%
+  merge(dat.cosine %>% select(NOUN,ADJECTIVE,COSINE.SIMILARITY), 
+        by.x=c("masculine_adjective","noun"), by.y=c("ADJECTIVE","NOUN")) %>% 
+  rename(cosine2masc=COSINE.SIMILARITY) %>%
+  merge(dat.cosine %>% select(NOUN,ADJECTIVE,COSINE.SIMILARITY), 
+        by.x=c("feminine_adjective","noun"), by.y=c("ADJECTIVE","NOUN")) %>% 
+  rename(cosine2fem=COSINE.SIMILARITY)
+```
+
+```{r}
+dat.cosine = read.csv("../data/embeddings/experimental/all_embeddings_experimental_matchings.csv")
+
+#manual tweak
+dat.cosine = dat.cosine %>% 
+  mutate(GENDER.ASSOCIATION.OF.ADJECTIVE=ifelse(ADJECTIVE=="fraulich", "feminine", GENDER.ASSOCIATION.OF.ADJECTIVE))
 
 dat.cosine.masc = dat.cosine %>% 
   filter(GENDER.ASSOCIATION.OF.ADJECTIVE=='masculine') %>% unique() %>% 
@@ -94,7 +110,7 @@ dat.all = dat %>% select(-RatingType, -version, -NounID) %>%
   merge(dat.cosine.fem) %>% rename(cosine2fem=COSINE.SIMILARITY)
 ```
 
-### Stats
+## Stats
 
 Contrasts:
 ```{r}
@@ -107,8 +123,8 @@ dat.all$Language = factor(dat.all$Language, levels=c("en", "es", "de"))
 
 Model:
 ```{r}
-m = glmer(Rating ~ Language + Language:scale(cosine2masc) + Language:scale(cosine2fem) + scale(question) + (1+Language|NounConcept) + (1+scale(question)|ResponseId), data=dat.all, family="binomial")
-summary(m)
+m1 = glmer(Rating ~ Language + Language:scale(cosine2masc) + Language:scale(cosine2fem) + scale(question) + (1+Language|NounConcept) + (1+scale(question)|ResponseId), data=dat.all, family="binomial")
+summary(m1)
 ```
 
 ```{r}
@@ -116,8 +132,18 @@ m2 = glmer(Rating ~ Language*NounGroup + Language:scale(cosine2masc) + Language:
 summary(m2)
 ```
 
+Control model:
 ```{r}
-anova(m2,m)
+m0 = glmer(Rating ~ Language*NounGroup + scale(question) + (1+Language|NounConcept) + (1+scale(question)|ResponseId), data=dat.all, family="binomial")
+summary(m0)
+```
+
+```{r}
+anova(m2,m0)
+```
+
+```{r}
+anova(m2,m1)
 ```
 
 ```{r}
@@ -153,7 +179,7 @@ ggplot(data=dat.all.mean, mapping=aes(x=cosine2fem, y=meanRating))+
 #COMBINE
 ```{r}
 # actually just have one subplot here
-ggsave("plots/Study2.pdf", width=16, height=12, units="cm")
+ggsave("plots/Study2.pdf", p.main, width=16, height=12, units="cm")
 
 # save table
 write.csv(summary(m2)$coefficients, "tables/study2_model_with_cosines.csv")
