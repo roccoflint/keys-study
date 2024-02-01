@@ -53,20 +53,26 @@ summary(m)
 ## Plot
 
 ```{r}
+language.labs <- c("English", "Spanish", "German")
+names(language.labs) <- c("en", "es", "de")
+
 dat.by_noun = dat %>%
   group_by(NounConcept, Language, NounGroup) %>% summarize(meanRating=mean(as.numeric(Rating)))
 
-ggplot(data=dat.by_noun, mapping=aes(x=NounGroup, y=meanRating, fill=NounGroup))+
-  facet_wrap(~Language)+
+p.main = ggplot(data=dat.by_noun, mapping=aes(x=NounGroup, y=meanRating, fill=NounGroup))+
+  facet_wrap(~Language, labeller=labeller(Language=language.labs))+
   stat_summary(geom='col', fun='mean',
                width=0.8)+
   stat_summary(geom='errorbar', fun.data='mean_se',
                color = 'black', size = 0.8, width=0)+
   geom_point(position=position_jitter(width=0.2, height=0), 
-             size=.5, alpha=0.5, shape=21, stroke=.5)+
+             size=1, alpha=0.5, shape=21, stroke=1)+
   geom_hline(yintercept=0)+
   coord_cartesian(ylim=c(1,2))+
-  theme_classic()
+  scale_fill_manual(values=c("mediumblue", "darkgreen"))+
+  scale_y_continuous(breaks = c(1,1.5,2), labels=c("F","","M")) +
+  theme_classic()+theme(legend.position="none")
+p.main
 ```
 
 ## Compare with embedding distances
@@ -106,6 +112,15 @@ summary(m)
 ```
 
 ```{r}
+m2 = glmer(Rating ~ Language*NounGroup + Language:scale(cosine2masc) + Language:scale(cosine2fem) + scale(question) + (1+Language|NounConcept) + (1+scale(question)|ResponseId), data=dat.all, family="binomial")
+summary(m2)
+```
+
+```{r}
+anova(m2,m)
+```
+
+```{r}
 dat.all.by_noun = dat.all %>%
   group_by(NounConcept, Language, NounGroup) %>% summarize(cosine2masc=mean(cosine2masc),
                                                            cosine2fem=mean(cosine2fem),
@@ -133,4 +148,13 @@ ggplot(data=dat.all.mean, mapping=aes(x=cosine2fem, y=meanRating))+
   facet_wrap(~Language)+
   geom_point()+
   theme_classic()
+```
+
+#COMBINE
+```{r}
+# actually just have one subplot here
+ggsave("plots/Study2.pdf", width=16, height=12, units="cm")
+
+# save table
+write.csv(summary(m2)$coefficients, "tables/study2_model_with_cosines.csv")
 ```

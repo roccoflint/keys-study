@@ -12,6 +12,7 @@ library(ggplot2)
 library(data.table)
 library(lme4)
 library(lmerTest)
+library(patchwork)
 ```
 
 # Distance to man and woman
@@ -83,8 +84,11 @@ summary(m)
 ### Plot
 
 ```{r}
-ggplot(data=dat.nouns, mapping=aes(x=NOUN.GROUP, y=COSINE.SIMILARITY, fill=TARGET.CONCEPT))+
-  facet_wrap(~LANGUAGE)+
+language.labs <- c("English", "Spanish", "German")
+names(language.labs) <- c("en", "es", "de")
+
+p.nouns = ggplot(data=dat.nouns, mapping=aes(x=NOUN.GROUP, y=COSINE.SIMILARITY, fill=TARGET.CONCEPT))+
+  facet_wrap(~LANGUAGE, labeller=labeller(LANGUAGE=language.labs))+
   stat_summary(geom='col', fun='mean',
                width=0.8, position='dodge')+
   stat_summary(geom='errorbar', fun.data='mean_se',
@@ -93,9 +97,12 @@ ggplot(data=dat.nouns, mapping=aes(x=NOUN.GROUP, y=COSINE.SIMILARITY, fill=TARGE
                                            dodge.width = 0.8), 
              size=1, alpha=0.5, shape=21, stroke=.5)+
   geom_hline(yintercept=0)+
-  theme_classic()
+  theme_classic()+theme(legend.position="top")+labs(tag="A")
+p.nouns
 ```
 ## ADJECTIVES
+
+Sanity check - we are selecting based on cosine similarity to man and woman, so this should come out as expected.
 
 ### Stats
 
@@ -121,7 +128,8 @@ summary(m)
 ### Plot
 
 ```{r}
-ggplot(data=dat.adjectives, mapping=aes(x=REFERENCE.ASSOCIATION, y=COSINE.SIMILARITY, fill=TARGET.CONCEPT))+
+ggplot(data=dat.adjectives, 
+       mapping=aes(x=REFERENCE.ASSOCIATION, y=COSINE.SIMILARITY, fill=TARGET.CONCEPT))+
   facet_wrap(~LANGUAGE)+
   stat_summary(geom='col', fun='mean',
                width=0.8, position='dodge')+
@@ -149,6 +157,7 @@ dat.ratings = rbind(dat.ratings.en %>% mutate("LANGUAGE"='en'),
   merge(dat.adjectives, by.x=c("LANGUAGE", "Adjective"), by.y=c("LANGUAGE", "REFERENCE.WORD"))
 
 ```
+
 
 ## Only keep adjectives that can describe a person
 ```{r}
@@ -183,8 +192,8 @@ summary(m)
 ### Plot
 
 ```{r}
-ggplot(data=dat.ratings, mapping=aes(x=REFERENCE.ASSOCIATION, y=meanAssociation))+
-  facet_wrap(~LANGUAGE)+
+p.adjectives = ggplot(data=dat.ratings, mapping=aes(x=REFERENCE.ASSOCIATION, y=meanAssociation))+
+  facet_wrap(~LANGUAGE, labeller=labeller(LANGUAGE=language.labs))+
   stat_summary(geom='col', fun='mean',
                width=0.8)+
   stat_summary(geom='errorbar', fun.data='mean_se',
@@ -192,11 +201,23 @@ ggplot(data=dat.ratings, mapping=aes(x=REFERENCE.ASSOCIATION, y=meanAssociation)
   geom_point(position=position_jitter(width=0.2, height=0), 
              size=1, alpha=0.5, shape=21, stroke=.5)+
   geom_hline(yintercept=0)+
-  theme_classic()
+  geom_hline(yintercept=4.5, color='red', linetype='dashed')+
+  geom_hline(yintercept=3.5, color='red', linetype='dashed')+
+  coord_cartesian(ylim=c(.9,7.1))+
+  theme_classic()+labs(tag="B")
+p.adjectives
 ```
 
 
 ## No groups, all adjectives
+
+Deal with spanish (need to avg masc and fem forms OR just leave the original ones): TODO
+
+```{r}
+adjective_info.es = adjective_info.es %>%
+  mutate(adjective.masc.form = ifelse(adjective.masc.form=="", Adjective, adjective.masc.form),
+         adjective.fem.form = ifelse(adjective.fem.form=="", Adjective, adjective.fem.form))
+```
 
 ### Stats
 
@@ -256,9 +277,20 @@ dat.crit = dat.crit %>% filter(ADJECTIVE!='macha')
 dat.crit = noun_info %>% merge(dat.crit, by.x=c('LANGUAGE', 'REFERENCE.WORD'), by.y=c('LANGUAGE', 'NOUN'))
 ```
 
-Only include adjectives that describe people
+
+Only include adjectives that are stereotypically associated with each gender & that describe people
 ```{r}
-dat.crit = dat.crit %>% filter(ADJECTIVE %in% dat.wider$Adjective)
+dat.ratings.masc.clean = dat.ratings %>% 
+  filter(REFERENCE.ASSOCIATION=="masculine") %>% 
+  filter(meanAssociation>=4.5) %>%
+  filter(meanPerson<1.6)
+dat.ratings.fem.clean = dat.ratings %>% 
+  filter(REFERENCE.ASSOCIATION=="feminine") %>% 
+  filter(meanAssociation<=3.5) %>%
+  filter(meanPerson<1.6)
+dat.ratings.clean = rbind(dat.ratings.masc.clean, dat.ratings.fem.clean)
+
+dat.crit = dat.crit %>% filter(ADJECTIVE %in% dat.ratings.clean$Adjective)
 ```
 
 ## Stats
@@ -285,14 +317,14 @@ summary(m)
 ## Plot
 
 ```{r}
-
 dat.crit.by_adjective = dat.crit %>%
   group_by(ADJECTIVE,LANGUAGE,NOUN.GROUP,GENDER.ASSOCIATION.OF.ADJECTIVE) %>% summarize(COSINE.SIMILARITY=mean(COSINE.SIMILARITY))
 dat.crit.by_noun = dat.crit %>%
-  group_by(REFERENCE.WORD,LANGUAGE,NOUN.GROUP,GENDER.ASSOCIATION.OF.ADJECTIVE) %>% summarize(COSINE.SIMILARITY=mean(COSINE.SIMILARITY))
+  group_by(REFERENCE.WORD,LANGUAGE,NOUN.GROUP,GENDER.ASSOCIATION.OF.ADJECTIVE) %>% summarize(COSINE.SIMILARITY=mean(COSINE.SIMILARITY)) %>%
+  rename(ADJECTIVE.GROUP=GENDER.ASSOCIATION.OF.ADJECTIVE)
 
-ggplot(data=dat.crit.by_noun, mapping=aes(x=NOUN.GROUP, y=COSINE.SIMILARITY, fill=GENDER.ASSOCIATION.OF.ADJECTIVE))+
-  facet_wrap(~LANGUAGE)+
+p.crit = ggplot(data=dat.crit.by_noun, mapping=aes(x=NOUN.GROUP, y=COSINE.SIMILARITY, fill=ADJECTIVE.GROUP))+
+  facet_wrap(~LANGUAGE, labeller=labeller(LANGUAGE=language.labs))+
   stat_summary(geom='col', fun='mean',
                width=0.8, position='dodge')+
   stat_summary(geom='errorbar', fun.data='mean_se',
@@ -301,7 +333,8 @@ ggplot(data=dat.crit.by_noun, mapping=aes(x=NOUN.GROUP, y=COSINE.SIMILARITY, fil
                                            dodge.width = 0.8), 
              size=.5, alpha=0.5, shape=21, stroke=.5)+
   geom_hline(yintercept=0)+
-  theme_classic()
+  theme_classic()+theme(legend.position="top")+labs(tag="C")
+p.crit
 ```
 
 
@@ -312,15 +345,15 @@ matchings.en = read.csv('../materials/matchings/stimulus/en_matchings_stimulus.c
 matchings.es = read.csv('../materials/matchings/stimulus/es_matchings_stimulus.csv')
 matchings.de = read.csv('../materials/matchings/stimulus/de_matchings_stimulus.csv')
 
-dat.crit.en.matchings = dat.crit.en %>%
+dat.crit.en.matchings = dat.crit.en %>% unique() %>% 
   filter(NOUN %in% matchings.en$noun) %>%
   filter((ADJECTIVE %in% matchings.en$masculine_adjective) | (ADJECTIVE %in% matchings.en$feminine_adjective))
 
-dat.crit.es.matchings = dat.crit.es %>%
+dat.crit.es.matchings = dat.crit.es %>% unique() %>%
   filter(NOUN %in% matchings.es$noun) %>%
   filter((ADJECTIVE %in% matchings.es$masculine_adjective) | (ADJECTIVE %in% matchings.es$feminine_adjective))
 
-dat.crit.de.matchings = dat.crit.de %>%
+dat.crit.de.matchings = dat.crit.de %>% unique() %>%
   filter(NOUN %in% matchings.de$noun) %>%
   filter((ADJECTIVE %in% matchings.de$masculine_adjective) | (ADJECTIVE %in% matchings.de$feminine_adjective))
 
@@ -332,5 +365,10 @@ write.csv(dat.crit.matchings, "../data/embeddings/experimental/all_embeddings_ex
 ```
 
 
+# COMBINE ALL
 
+```{r}
+p.nouns + p.adjectives + p.crit
+ggsave("plots/Study1.pdf", width=38, height=12, units="cm")
+```
 
