@@ -153,9 +153,22 @@ dat.ratings.de = read.csv('../data/adjective-ratings/processed/de_summary_by_adj
 dat.ratings = rbind(dat.ratings.en %>% mutate("LANGUAGE"='en'), 
                     dat.ratings.es %>% mutate("LANGUAGE"='es'), 
                     dat.ratings.de %>% mutate("LANGUAGE"='de')) %>% 
-  unique() %>%
-  merge(dat.adjectives, by.x=c("LANGUAGE", "Adjective"), by.y=c("LANGUAGE", "REFERENCE.WORD"))
+  unique() 
 
+```
+
+```{r}
+dat.adjectives.nonfem = dat.adjectives %>% filter(GRAMMATICAL.FORM %in% c("masculine", "neuter")) %>% mutate(REFERENCE.WORD.MASC=REFERENCE.WORD)
+dat.adjectives.fem = dat.adjectives %>% filter(GRAMMATICAL.FORM=="feminine") %>% 
+  merge(adjective_info.es, by.x="REFERENCE.WORD", by.y="adjective.fem.form") %>%
+  rename(REFERENCE.WORD.MASC=adjective.masc.form) %>% select(-Adjective)
+
+# averaging cosines for masc and fem forms in Spanish
+dat.adjectives.mean_by_gender = rbind(dat.adjectives.nonfem, dat.adjectives.fem) %>%
+  group_by(LANGUAGE, REFERENCE.WORD.MASC, TARGET.CONCEPT, REFERENCE.ASSOCIATION) %>% summarize(COSINE.SIMILARITY=mean(COSINE.SIMILARITY))
+
+dat.ratings = dat.ratings %>%
+  merge(dat.adjectives.mean_by_gender, by.x=c("LANGUAGE", "Adjective"), by.y=c("LANGUAGE", "REFERENCE.WORD.MASC"))
 ```
 
 
@@ -169,7 +182,7 @@ warning(paste("Excluding", nrow(dat.ratings.excluded), "adjectives that cannot b
 
 ## By group
 
-### Model
+### Stats
 
 Contrasts:
 ```{r}

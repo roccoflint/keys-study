@@ -54,7 +54,7 @@ dat = dat %>%
 
 # get noun gender info
 dat = dat %>% 
-  mutate(Group=ifelse(Group=="Spanish Masculine", "de-F.es-M", "de-M.es-F")) %>% 
+  mutate(Group=ifelse(Group=="Spanish Masculine", "es-M.de-F", "es-F.de-M")) %>% 
   rename(NounGroup=Group)
 ```
 
