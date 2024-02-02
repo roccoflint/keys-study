@@ -8,7 +8,6 @@ en,nouns,neuter,mouse,genders,man,0.14841400149676745
 en,nouns,neuter,snail,genders,man,0.11599284080507102
 en,nouns,neuter,cat,genders,man,0.30394536576305553
 en,nouns,neuter,spoon,genders,man,0.15088212529453646
-en,nouns,neuter,ball,genders,man,0.16997915089283358
 en,nouns,neuter,sock,genders,man,0.2055225177627762
 en,nouns,neuter,bean,genders,man,0.1704210583182379
 en,nouns,neuter,soap,genders,man,0.12773033524550256
@@ -20,10 +19,8 @@ en,nouns,neuter,pants,genders,man,0.21685370941824667
 en,nouns,neuter,tail,genders,man,0.11151538180863756
 en,nouns,neuter,lip,genders,man,0.07931644370211008
 en,nouns,neuter,butterfly,genders,man,0.14440775988117477
-en,nouns,neuter,pie,genders,man,0.18426421178464125
 en,nouns,neuter,fish,genders,man,0.21917408748121164
 en,nouns,neuter,boot,genders,man,0.14925370081752254
-en,nouns,neuter,cupcake,genders,man,0.11170471399744386
 en,nouns,neuter,apple,genders,man,0.20402707697999006
 en,nouns,neuter,sun,genders,man,0.13931738330513282
 en,nouns,neuter,diaper,genders,man,0.09292935348397488
@@ -93,7 +90,6 @@ en,nouns,neuter,mouse,genders,woman,0.13272822024549244
 en,nouns,neuter,snail,genders,woman,0.10267190207181516
 en,nouns,neuter,cat,genders,woman,0.29250541177857353
 en,nouns,neuter,spoon,genders,woman,0.12720439205649767
-en,nouns,neuter,ball,genders,woman,0.07663011062829535
 en,nouns,neuter,sock,genders,woman,0.12428475725249577
 en,nouns,neuter,bean,genders,woman,0.16921437815268645
 en,nouns,neuter,soap,genders,woman,0.16603413602885944
@@ -105,10 +101,8 @@ en,nouns,neuter,pants,genders,woman,0.17937997566730443
 en,nouns,neuter,tail,genders,woman,0.058280594533694344
 en,nouns,neuter,lip,genders,woman,0.08543863110319845
 en,nouns,neuter,butterfly,genders,woman,0.19735597871925045
-en,nouns,neuter,pie,genders,woman,0.1587933843423311
 en,nouns,neuter,fish,genders,woman,0.16525731601354374
 en,nouns,neuter,boot,genders,woman,0.10943157567030301
-en,nouns,neuter,cupcake,genders,woman,0.14862507957729681
 en,nouns,neuter,apple,genders,woman,0.1873648009947732
 en,nouns,neuter,sun,genders,woman,0.1123268015720284
 en,nouns,neuter,diaper,genders,woman,0.1411237323926287
@@ -178,7 +172,6 @@ en,nouns,neuter,mouse,determiners,the,0.13463628659448437
 en,nouns,neuter,snail,determiners,the,0.12107296827334671
 en,nouns,neuter,cat,determiners,the,0.11106469031386135
 en,nouns,neuter,spoon,determiners,the,0.1489689375450988
-en,nouns,neuter,ball,determiners,the,0.22931402008025445
 en,nouns,neuter,sock,determiners,the,0.12860969962937618
 en,nouns,neuter,bean,determiners,the,0.13958218832278735
 en,nouns,neuter,soap,determiners,the,0.11389694956523913
@@ -190,10 +183,8 @@ en,nouns,neuter,pants,determiners,the,0.10504625143691047
 en,nouns,neuter,tail,determiners,the,0.22148015876212818
 en,nouns,neuter,lip,determiners,the,0.1540477554988666
 en,nouns,neuter,butterfly,determiners,the,0.12203734834650407
-en,nouns,neuter,pie,determiners,the,0.19694066290698437
 en,nouns,neuter,fish,determiners,the,0.14026609067349644
 en,nouns,neuter,boot,determiners,the,0.1703129935986416
-en,nouns,neuter,cupcake,determiners,the,0.1350533945207968
 en,nouns,neuter,apple,determiners,the,0.16006186114358834
 en,nouns,neuter,sun,determiners,the,0.19878243626994205
 en,nouns,neuter,diaper,determiners,the,0.09390767781844932
