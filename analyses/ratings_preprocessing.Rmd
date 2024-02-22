@@ -17,7 +17,7 @@ library(data.table)
 
 ```{r}
 # language options: en, es, de
-language = 'de'
+language = 'es'
 
 dat = read.csv(paste('../data/adjective-ratings/raw/', language, '_adjective_ratings_unprocessed.csv', sep=''))
 

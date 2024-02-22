@@ -17,7 +17,7 @@ library(data.table)
 
 ```{r}
 # language options: en, es, de
-language = 'de'
+language = 'es'
 
 dat.raw = read.csv(paste('../data/matchings/raw/', language, '_matchings_raw.csv', sep=''))
 
