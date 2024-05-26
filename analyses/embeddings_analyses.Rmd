@@ -3,7 +3,6 @@ title: "R Notebook"
 output: html_notebook
 ---
 
-
 ```{r}
 rm(list = ls())
 
@@ -13,6 +12,8 @@ library(data.table)
 library(lme4)
 library(lmerTest)
 library(patchwork)
+library(dplyr)
+
 ```
 
 # Distance to man and woman
@@ -20,22 +21,55 @@ library(patchwork)
 ## Load and clean data
 
 Cosine distances:
+
 ```{r}
-dat.en = read.csv('../data/embeddings/control/en_embeddings_control.csv') 
-dat.es = read.csv('../data/embeddings/control/es_embeddings_control.csv')
-dat.de = read.csv('../data/embeddings/control/de_embeddings_control.csv')
-dat = rbind(dat.en, dat.es, dat.de) %>% unique()
-dat = dat %>% 
+#### Set parameters for analyses
+### choose embeddings to run on
+# embeddings <- "BERT"
+# "BERT" or "FastText"
+### for BERT embeddings, choose parameters:
+## layer
+# what layer of BERT model to extract embeddings from
+# "first" or "last"
+## subword
+# which subword token(s) to extract word embedding from
+# "first" or "last" or "mean"
+## context
+# whether to include contextual sentence which controls for syntactic polysemy
+# "True" or "False"
+
+# Currently, embeddings:BERT layer:first subword:first context:True as well as embeddings:BERT layer:first subword:last context:False produce falty results (1.0001 cosine similarity values for all calculations). It is unknown why but deemed inconsequential. This could be due to how first-layer subword embeddings are calculated (or uncalculated).
+
+embeddings <- "BERT"
+layer <- "first"
+subword <- "first"
+context <- "True"
+
+# Construct file paths for each language
+file.en <- sprintf("../data/contextual-embeddings/control/en_contextual-embeddings_control_layer-%s_subword-%s_context-%s.csv", layer, subword, context)
+file.es <- sprintf("../data/contextual-embeddings/control/es_contextual-embeddings_control_layer-%s_subword-%s_context-%s.csv", layer, subword, context)
+file.de <- sprintf("../data/contextual-embeddings/control/de_contextual-embeddings_control_layer-%s_subword-%s_context-%s.csv", layer, subword, context)
+
+# Read files
+dat.en <- read.csv(file.en)
+dat.es <- read.csv(file.es)
+dat.de <- read.csv(file.de)
+dat <- rbind(dat.en, dat.es, dat.de) %>% unique()
+
+# Data manipulation
+dat <- dat %>% 
   mutate(TARGET.CONCEPT=ifelse(TARGET.WORD %in% c("woman", "Frau", "mujer"), "woman", "man"))
-#manual adjustment
-dat = dat %>% filter(REFERENCE.WORD!='macha')
-dat.nouns = dat %>% 
+dat <- dat %>% filter(REFERENCE.WORD!='macha')
+dat.nouns <- dat %>% 
   filter(REFERENCE.GROUP=='nouns') %>% 
   filter(TARGET.GROUP=='genders') 
-dat.adjectives = dat %>% filter(REFERENCE.GROUP=='adjectives') %>% filter(TARGET.GROUP=='genders')
+dat.adjectives <- dat %>% 
+  filter(REFERENCE.GROUP=='adjectives') %>% 
+  filter(TARGET.GROUP=='genders')
 ```
 
 Noun info:
+
 ```{r}
 noun_info = read.csv('../materials/matchings/reference/matchings_nouns.csv')
 noun_info = noun_info %>% rename(REFERENCE.CONCEPT=translation, NOUN.GROUP=Group) %>%
@@ -44,6 +78,7 @@ noun_info = noun_info %>% rename(REFERENCE.CONCEPT=translation, NOUN.GROUP=Group
 ```
 
 Adjective info (spanish grammatical gender):
+
 ```{r}
 adjective_info.es = rbind(read.csv('../materials/adjectives/es-adjectives-info/es_feminine_group_adjectives_info.csv'),
                           read.csv('../materials/adjectives/es-adjectives-info/es_masculine_group_adjectives_info.csv'))
@@ -55,6 +90,7 @@ dat.adjectives = dat.adjectives %>%
 ```
 
 Combine:
+
 ```{r}
 dat.nouns = noun_info %>% merge(dat.nouns)
 ```
@@ -64,6 +100,7 @@ dat.nouns = noun_info %>% merge(dat.nouns)
 ### Stats
 
 Contrasts:
+
 ```{r}
 dat.nouns$REFERENCE.CONCEPT = as.factor(dat.nouns$REFERENCE.CONCEPT)   # random effect, reference level doesn't matter
 dat.nouns$TARGET.CONCEPT = factor(dat.nouns$TARGET.CONCEPT, levels=c("woman", "man"))
@@ -76,6 +113,7 @@ colnames(attr(dat.nouns$NOUN.GROUP, "contrasts")) = c("groupdiff")
 ```
 
 Model:
+
 ```{r}
 m = lmer(COSINE.SIMILARITY~LANGUAGE*TARGET.CONCEPT*NOUN.GROUP+(1+LANGUAGE|REFERENCE.CONCEPT), data=dat.nouns, REML=FALSE)
 summary(m)
@@ -100,6 +138,7 @@ p.nouns = ggplot(data=dat.nouns, mapping=aes(x=NOUN.GROUP, y=COSINE.SIMILARITY, 
   theme_classic()+theme(legend.position="top")+labs(tag="A")
 p.nouns
 ```
+
 ## ADJECTIVES
 
 Sanity check - we are selecting based on cosine similarity to man and woman, so this should come out as expected.
@@ -107,6 +146,7 @@ Sanity check - we are selecting based on cosine similarity to man and woman, so 
 ### Stats
 
 Contrasts:
+
 ```{r}
 dat.adjectives$REFERENCE.WORD = as.factor(dat.adjectives$REFERENCE.WORD)   # random effect, reference level doesn't matter
 dat.adjectives$TARGET.CONCEPT = as.factor(dat.adjectives$TARGET.CONCEPT)
@@ -120,6 +160,7 @@ dat.adjectives$GRAMMATICAL.FORM = factor(dat.adjectives$GRAMMATICAL.FORM, levels
 ```
 
 Model:
+
 ```{r}
 m = lmer(COSINE.SIMILARITY~LANGUAGE*TARGET.CONCEPT*REFERENCE.ASSOCIATION+GRAMMATICAL.FORM:TARGET.CONCEPT+(1|REFERENCE.WORD), data=dat.adjectives, REML=FALSE)
 summary(m)
@@ -142,10 +183,10 @@ ggplot(data=dat.adjectives,
   theme_classic()
 ```
 
-
 # Adjectives and gender association ratings
 
 ## Load and clean gender association ratings
+
 ```{r}
 dat.ratings.en = read.csv('../data/adjective-ratings/processed/en_summary_by_adjective.csv')
 dat.ratings.es = read.csv('../data/adjective-ratings/processed/es_summary_by_adjective.csv')
@@ -153,13 +194,26 @@ dat.ratings.de = read.csv('../data/adjective-ratings/processed/de_summary_by_adj
 dat.ratings = rbind(dat.ratings.en %>% mutate("LANGUAGE"='en'), 
                     dat.ratings.es %>% mutate("LANGUAGE"='es'), 
                     dat.ratings.de %>% mutate("LANGUAGE"='de')) %>% 
-  unique() %>%
-  merge(dat.adjectives, by.x=c("LANGUAGE", "Adjective"), by.y=c("LANGUAGE", "REFERENCE.WORD"))
+  unique() 
 
 ```
 
+```{r}
+dat.adjectives.nonfem = dat.adjectives %>% filter(GRAMMATICAL.FORM %in% c("masculine", "neuter")) %>% mutate(REFERENCE.WORD.MASC=REFERENCE.WORD)
+dat.adjectives.fem = dat.adjectives %>% filter(GRAMMATICAL.FORM=="feminine") %>% 
+  merge(adjective_info.es, by.x="REFERENCE.WORD", by.y="adjective.fem.form") %>%
+  rename(REFERENCE.WORD.MASC=adjective.masc.form) %>% select(-Adjective)
+
+# averaging cosines for masc and fem forms in Spanish
+dat.adjectives.mean_by_gender = rbind(dat.adjectives.nonfem, dat.adjectives.fem) %>%
+  group_by(LANGUAGE, REFERENCE.WORD.MASC, TARGET.CONCEPT, REFERENCE.ASSOCIATION) %>% summarize(COSINE.SIMILARITY=mean(COSINE.SIMILARITY))
+
+dat.ratings = dat.ratings %>%
+  merge(dat.adjectives.mean_by_gender, by.x=c("LANGUAGE", "Adjective"), by.y=c("LANGUAGE", "REFERENCE.WORD.MASC"))
+```
 
 ## Only keep adjectives that can describe a person
+
 ```{r}
 threshold = 1.5
 dat.ratings.excluded = dat.ratings %>% filter(meanPerson>threshold)
@@ -169,9 +223,10 @@ warning(paste("Excluding", nrow(dat.ratings.excluded), "adjectives that cannot b
 
 ## By group
 
-### Model
+### Stats
 
 Contrasts:
+
 ```{r}
 dat.ratings$Adjective = as.factor(dat.ratings$Adjective)   # random effect, reference level doesn't matter
 dat.ratings$TARGET.CONCEPT = as.factor(dat.ratings$TARGET.CONCEPT)
@@ -184,6 +239,7 @@ colnames(attr(dat.ratings$REFERENCE.ASSOCIATION, "contrasts")) = c("man-woman")
 ```
 
 Model:
+
 ```{r}
 m = lmer(meanAssociation~LANGUAGE*REFERENCE.ASSOCIATION+(1|Adjective), data=dat.ratings, REML=FALSE)
 summary(m)
@@ -208,7 +264,6 @@ p.adjectives = ggplot(data=dat.ratings, mapping=aes(x=REFERENCE.ASSOCIATION, y=m
 p.adjectives
 ```
 
-
 ## No groups, all adjectives
 
 Deal with spanish (need to avg masc and fem forms OR just leave the original ones): TODO
@@ -227,18 +282,21 @@ dat.wider = dat.ratings %>%
 ```
 
 Contrasts:
+
 ```{r}
 dat.wider$LANGUAGE = factor(dat.wider$LANGUAGE, levels=c("en", "es", "de")) 
 dat.wider$Adjective = as.factor(dat.wider$Adjective)
 ```
 
 Model:
+
 ```{r}
 m = lmer(meanAssociation~LANGUAGE + LANGUAGE:scale(man) + LANGUAGE:scale(woman) + (1|Adjective), data=dat.wider, control=lmerControl(optimizer = "bobyqa", optCtrl=list(maxfun=2e9)))
 summary(m)
 ```
 
 ### Plot
+
 ```{r}
 ggplot(data=dat.ratings, mapping=aes(x=meanAssociation, y=COSINE.SIMILARITY))+
   facet_wrap(TARGET.CONCEPT~LANGUAGE)+
@@ -246,39 +304,30 @@ ggplot(data=dat.ratings, mapping=aes(x=meanAssociation, y=COSINE.SIMILARITY))+
   theme_classic()
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # Distance between nouns and adjectives
 
 ## Load
+
 ```{r}
-dat.crit.en = read.csv('../data/embeddings/experimental/en_embeddings_experimental.csv')
-dat.crit.es = read.csv('../data/embeddings/experimental/es_embeddings_experimental.csv')
-dat.crit.de = read.csv('../data/embeddings/experimental/de_embeddings_experimental.csv')
-dat.crit = rbind(dat.crit.en, dat.crit.es, dat.crit.de) %>% unique()
+# Construct file paths for each language
+file.crit.en <- sprintf("../data/contextual-embeddings/experimental/en_contextual-embeddings_experimental_layer-%s_subword-%s_context-%s.csv", layer, subword, context)
+file.crit.es <- sprintf("../data/contextual-embeddings/experimental/es_contextual-embeddings_experimental_layer-%s_subword-%s_context-%s.csv", layer, subword, context)
+file.crit.de <- sprintf("../data/contextual-embeddings/experimental/de_contextual-embeddings_experimental_layer-%s_subword-%s_context-%s.csv", layer, subword, context)
 
-dat.crit = dat.crit %>% filter(ADJECTIVE!='macha')
+# Read files
+dat.crit.en <- read.csv(file.crit.en)
+dat.crit.es <- read.csv(file.crit.es)
+dat.crit.de <- read.csv(file.crit.de)
+dat.crit <- rbind(dat.crit.en, dat.crit.es, dat.crit.de) %>% unique()
 
-# add noun group info
-dat.crit = noun_info %>% merge(dat.crit, by.x=c('LANGUAGE', 'REFERENCE.WORD'), by.y=c('LANGUAGE', 'NOUN'))
+# Data manipulation
+dat.crit <- dat.crit %>% filter(ADJECTIVE!='macha')
+# Assuming `noun_info` is defined earlier
+dat.crit <- noun_info %>% merge(dat.crit, by.x=c('LANGUAGE', 'REFERENCE.WORD'), by.y=c('LANGUAGE', 'NOUN'))
 ```
 
-
 Only include adjectives that are stereotypically associated with each gender & that describe people
+
 ```{r}
 dat.ratings.masc.clean = dat.ratings %>% 
   filter(REFERENCE.ASSOCIATION=="masculine") %>% 
@@ -296,6 +345,7 @@ dat.crit = dat.crit %>% filter(ADJECTIVE %in% dat.ratings.clean$Adjective)
 ## Stats
 
 Contrasts:
+
 ```{r}
 dat.crit$REFERENCE.CONCEPT = as.factor(dat.crit$REFERENCE.CONCEPT)   # random effect, reference level doesn't matter
 dat.crit$ADJECTIVE = as.factor(dat.crit$ADJECTIVE)   # random effect, reference level doesn't matter
@@ -309,6 +359,7 @@ colnames(attr(dat.crit$NOUN.GROUP, "contrasts")) = c("groupdiff")
 ```
 
 Model:
+
 ```{r}
 m = lmer(COSINE.SIMILARITY~LANGUAGE*NOUN.GROUP*GENDER.ASSOCIATION.OF.ADJECTIVE+(1+LANGUAGE|REFERENCE.CONCEPT)+(1|ADJECTIVE), data=dat.crit, REML=FALSE)
 summary(m)
@@ -337,7 +388,6 @@ p.crit = ggplot(data=dat.crit.by_noun, mapping=aes(x=NOUN.GROUP, y=COSINE.SIMILA
 p.crit
 ```
 
-
 ## Get nouns & adjectives used in the matching experiment
 
 ```{r}
@@ -364,11 +414,9 @@ write.csv(dat.crit.matchings, "../data/embeddings/experimental/all_embeddings_ex
           row.names=FALSE)
 ```
 
-
 # COMBINE ALL
 
 ```{r}
 p.nouns + p.adjectives + p.crit
 ggsave("plots/Study1.pdf", width=38, height=12, units="cm")
 ```
-

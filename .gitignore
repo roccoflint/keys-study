@@ -1,3 +1,7 @@
 .DS_Store
 .Rproj.user
-models/
+# Ignore all contents within the models directory
+models/*
+
+# Except the .gitignore file inside the models directory
+!models/.gitignore
