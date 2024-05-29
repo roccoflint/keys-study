@@ -1,10 +1,10 @@
 # keys-study
 
 Code for the paper "Testing a Distributional Account of Grammatical Gender Effects on Semantic Gender Perception" (Flint, Ivanova 2024)
-The [manuscript](https://drive.google.com/file/d/15lXIXJTCap1NosJ2HYCpYWwwRSHvEo68/view?usp=sharing) will appear in CogSci 2024.
+The [paper](https://drive.google.com/file/d/15lXIXJTCap1NosJ2HYCpYWwwRSHvEo68/view?usp=sharing) will appear in CogSci 2024.
 
 ## Overview
-- This study investigated the effect of grammatical gender on gender semantics intralinguistically in distributional semantic spaces as well as behaviorally.
+- This study investigated the effect of grammatical gender on gender semantics intralinguistically in distributional semantic spaces as well as behaviorally for English (control), Spanish, and German.
 - This repository contains the scripts, analyses, and materials used in the study as well as the data produced.
 
 ## Usage
