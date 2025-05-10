@@ -1,4 +1,4 @@
-# keys-study
+# Testing a Distributional Account of Grammatical Gender Effects on Semantic Gender Perception
 
 Code for the paper "Testing a Distributional Account of Grammatical Gender Effects on Semantic Gender Perception" (Flint, Ivanova 2024)
 The [paper](https://drive.google.com/file/d/15lXIXJTCap1NosJ2HYCpYWwwRSHvEo68/view?usp=sharing) will appear in CogSci 2024.
